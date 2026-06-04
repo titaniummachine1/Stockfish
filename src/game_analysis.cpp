@@ -225,6 +225,20 @@ int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
 
     if (opts.resume == 1)
         start = std::max(1, std::min(prev, target) - 1);
+    else if (opts.resume == 3)
+    {
+        // Merge mode: assume TT subtree from parent search; skip ID more aggressively on-PV.
+        if (rank == 1 && cpl <= 25)
+            start = std::max(1, std::min(prev, target) - 1);
+        else if (rank == 1 && cpl <= 60)
+            start = std::max(1, std::min(prev, target) - 2);
+        else if (rank > 1 && rank <= opts.multiPv && cpl <= 40)
+            start = std::max(1, std::min(prev, target) - 4);
+        else
+            start = 1;
+        start = std::min(start, validated);
+        return apply_resume_horizon_cap(start, prev, target, std::max(1, horizon - 1));
+    }
     else
     {
         // Smart resume: reuse parent's ID work only when the move into this position was on
@@ -242,6 +256,23 @@ int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
     }
 
     return apply_resume_horizon_cap(start, prev, target, horizon);
+}
+
+std::vector<std::string> parent_pv_suffix(const PlyResult& parent, const std::string& via) {
+    const std::string played = UCIEngine::to_lower(via);
+    for (const auto& line : parent.lines)
+    {
+        if (line.pvFirstUci != played)
+            continue;
+        std::vector<std::string> suffix;
+        std::istringstream       is(line.pv);
+        std::string              tok;
+        if (is >> tok)
+            while (is >> tok)
+                suffix.push_back(UCIEngine::to_lower(tok));
+        return suffix;
+    }
+    return {};
 }
 
 void emit_grade(int moveNumber, const std::string& playedUci, const PlyResult& parent,
@@ -318,14 +349,22 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         engine.set_on_bestmove([&](std::string_view, std::string_view) { searchDone = true; });
 
         Search::LimitsType limits;
-        limits.depth     = opts.depth;
-        limits.startTime = now();
+        limits.depth            = opts.depth;
+        limits.startTime        = now();
+        limits.spineContinueTt  = opts.cold == 0 && gamePly > 0;
         if (useResume && previousPly && gamePly > 0)
         {
             const std::string& via = game.moves[gamePly - 1];
             limits.startDepth = compute_resume_start_depth(opts, *previousPly, via);
             if (limits.startDepth > 1)
+            {
                 limits.spineTtMinDepth = limits.startDepth;
+                if (opts.resume == 3 && find_played_rank(*previousPly, via) == 1
+                    && played_move_cpl(*previousPly, via) <= 25)
+                    limits.spineTtMinDepth = std::max(1, limits.startDepth - 1);
+            }
+            if (opts.resume >= 2)
+                limits.spinePvOrder = parent_pv_suffix(*previousPly, via);
             if (limits.startDepth > 1)
             {
                 std::ostringstream rs;
@@ -492,8 +531,8 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
     if (opts.threads < 0)
         return "threads must be >= 0 (0 = all CPUs)";
 
-    if (opts.resume < 0 || opts.resume > 2)
-        return "resume must be 0, 1, or 2";
+    if (opts.resume < 0 || opts.resume > 3)
+        return "resume must be 0, 1, 2, or 3 (3=merge)";
 
     if (opts.resumeHorizon < 1 || opts.resumeHorizon > 8)
         return "resumehorizon must be 1..8";

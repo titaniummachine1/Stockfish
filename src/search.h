@@ -164,15 +164,18 @@ struct LimitsType {
         ponderMode                                  = false;
         startDepth                                  = 0;
         spineTtMinDepth                             = 0;
+        spineContinueTt                             = false;
     }
 
     bool use_time_management() const { return time[WHITE] || time[BLACK]; }
 
     std::vector<std::string> searchmoves;
+    std::vector<std::string> spinePvOrder;  // parent PV tail — root move ordering hint
     TimePoint                time[COLOR_NB], inc[COLOR_NB], npmsec, movetime, startTime;
     int                      movestogo, depth, mate, perft, infinite;
     int                      startDepth;      // ID begins at this depth (game-analysis resume)
-    int                      spineTtMinDepth;  // ignore TT entries below this depth (horizon guard)
+    int   spineTtMinDepth;   // ignore TT entries below this depth (horizon guard)
+    bool  spineContinueTt;  // skip tt.new_search() — keep same generation (spine tree merge)
     uint64_t                 nodes;
     bool                     ponderMode;
 };

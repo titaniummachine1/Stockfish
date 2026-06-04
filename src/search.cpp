@@ -198,7 +198,8 @@ void Search::Worker::start_searching() {
 
     main_manager()->tm.init(limits, rootPos.side_to_move(), rootPos.game_ply(), options,
                             main_manager()->originalTimeAdjust);
-    tt.new_search();
+    if (!limits.spineContinueTt)
+        tt.new_search();
 
     if (rootMoves.empty())
     {
@@ -330,6 +331,20 @@ bool Search::Worker::iterative_deepening() {
         const int target = limits.depth ? limits.depth : int(MAX_PLY) - 1;
         const int begin  = std::clamp(limits.startDepth, 1, target);
         rootDepth        = begin - 1;
+    }
+
+    if (!limits.spinePvOrder.empty())
+    {
+        auto rank_hint = [&](const RootMove& rm) {
+            const std::string uci = UCIEngine::move(rm.pv[0], rootPos.is_chess960());
+            const auto        it  = std::find(limits.spinePvOrder.begin(), limits.spinePvOrder.end(),
+                                              uci);
+            return it == limits.spinePvOrder.end() ? 999 : int(it - limits.spinePvOrder.begin());
+        };
+        std::stable_sort(rootMoves.begin(), rootMoves.end(),
+                         [&](const RootMove& a, const RootMove& b) {
+                             return rank_hint(a) < rank_hint(b);
+                         });
     }
 
     // Iterative deepening loop until requested to stop or the target depth is reached
