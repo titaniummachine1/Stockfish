@@ -152,6 +152,46 @@ class TestCLI(metaclass=OrderedClassMembers):
         assert nLegacy is not None
         self.stockfish = Stockfish(base + ["resume", "2"], True)
 
+    def test_gameanalysis_refine_deepen(self):
+        base = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")
+        p = Stockfish(base + ["resume", "2", "refine", "1", "cold", "0"], True)
+        assert p.process.returncode == 0
+        out = p.process.stdout or ""
+        assert "gameanalysis summary" in out
+        self.stockfish = p
+
+    def test_gameanalysis_parity_resume_vs_full(self):
+        moves = "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6".split()
+
+        def mpv1_scores(args):
+            proc = Stockfish(args, True)
+            assert proc.process.returncode == 0
+            scores = {}
+            for line in (proc.process.stdout or "").split("\n"):
+                if "gameanalysis final" not in line or " multipv 1 " not in line:
+                    continue
+                parts = line.split()
+                ply = score = None
+                for i, tok in enumerate(parts):
+                    if tok == "gameply":
+                        ply = int(parts[i + 1])
+                    if tok == "score":
+                        score = parts[i + 1]
+                if ply is not None and score is not None:
+                    scores[ply] = score
+            return scores
+
+        full = mpv1_scores(
+            ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "0", "refine", "0"]
+        )
+        spine = mpv1_scores(
+            ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "2", "refine", "1"]
+        )
+        assert full == spine
+        self.stockfish = Stockfish(
+            ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "2"], True
+        )
+
     def test_gameanalysis_cold_nodes(self):
         moves = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")
 

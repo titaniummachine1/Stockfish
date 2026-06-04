@@ -101,6 +101,9 @@ class Engine {
 
     int get_hashfull(int maxAge = 0) const;
 
+    // TT depth stored for the current position (0 if missing). Used by game-analysis consolidate.
+    int spine_tt_depth() const;
+
     std::string                            fen() const;
     void                                   flip();
     std::string                            visualize() const;

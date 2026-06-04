@@ -43,8 +43,9 @@ struct Options {
     int  multiPv  = 1;
     int  live     = 0;
     int  cold     = 0;
-    int  resume   = 2;  // 0=off 1=legacy 2=smart 3=merge(TT+PV) — cold 0 only
-    int  resumeHorizon = 1;  // min ID iterations at each ply; caps TT/ID reuse (plies)
+    int  resume   = 2;  // 0=full ID each ply 1=legacy 2=spine 3=same as 2 — cold 0 only
+    int  resumeHorizon = 1;  // min ID plies to (re)run when resuming
+    int  refine   = 1;  // end: cheap deepen where TT gained depth from later plies
     int  threads  = 0;  // 0 = use all logical CPUs
     int  maxPlies = DefaultMaxPlies;
 

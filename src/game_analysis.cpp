@@ -184,78 +184,54 @@ int played_move_cpl(const PlyResult& parent, const std::string& playedUci) {
     return bestCp;
 }
 
-// Cap ID resume so we always rerun at least resumeHorizon shallow iterations at this root.
+struct SpineStep {
+    int  startDepth = 1;
+    bool continueTt = true;
+};
+
 int apply_resume_horizon_cap(int startDepth, int prev, int target, int horizon) {
-    const int h = std::max(1, horizon);
-    const int cap =
-      std::max(1, std::min({prev, target}) - h);
-    return std::min(startDepth, cap);
+    const int h          = std::max(1, horizon);
+    const int maxStart   = std::max(1, std::min({prev, target}) - h + 1);
+    return std::min(startDepth, maxStart);
 }
 
-// Parent search at depth prev only validated the child subtree one ply deeper (not the
-// full PV tail); tighten reuse when the entering move was dubious or off-PV.
-int parent_validated_child_depth(int prev, int rank, int cpl) {
-    int d = prev - 1;
-    if (rank > 1)
-        d -= 2;
-    if (cpl > 50)
-        d -= 1;
-    if (cpl > 120)
-        d -= 2;
-    return std::max(1, d);
-}
-
-// How deep to begin iterative deepening at this spine ply (1 = full 1..D).
-int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
-                               const std::string& enteredViaUci) {
+SpineStep compute_spine_step(const Options& opts, const PlyResult& parent,
+                             const std::string& enteredViaUci) {
+    SpineStep step;
     if (opts.resume == 0 || opts.cold != 0)
-        return 1;
+        return step;
 
     const int prev   = parent.bestDepth;
     const int target = opts.depth;
-    const int horizon = std::max(1, opts.resumeHorizon);
     if (prev <= 1)
-        return 1;
+        return step;
 
     const int rank = find_played_rank(parent, enteredViaUci);
     const int cpl  = played_move_cpl(parent, enteredViaUci);
-    const int validated = parent_validated_child_depth(prev, rank, cpl);
-
-    int start = 1;
 
     if (opts.resume == 1)
-        start = std::max(1, std::min(prev, target) - 1);
-    else if (opts.resume == 3)
-    {
-        // Merge mode: assume TT subtree from parent search; skip ID more aggressively on-PV.
-        if (rank == 1 && cpl <= 25)
-            start = std::max(1, std::min(prev, target) - 1);
-        else if (rank == 1 && cpl <= 60)
-            start = std::max(1, std::min(prev, target) - 2);
-        else if (rank > 1 && rank <= opts.multiPv && cpl <= 40)
-            start = std::max(1, std::min(prev, target) - 4);
-        else
-            start = 1;
-        start = std::min(start, validated);
-        return apply_resume_horizon_cap(start, prev, target, std::max(1, horizon - 1));
-    }
+        step.startDepth = std::max(1, std::min(prev, target) - 1);
+    else if (rank == 1 && cpl <= 120)
+        step.startDepth = std::max(1, std::min(prev, target));
+    else if (rank > 1 && rank <= opts.multiPv && cpl <= 80)
+        step.startDepth = std::max(1, std::min(prev - 1, target));
     else
     {
-        // Smart resume: reuse parent's ID work only when the move into this position was on
-        // the PV and not a large inaccuracy (otherwise the spine subtree was pruned).
-        if (rank == 1 && cpl <= 25)
-            start = std::max(1, std::min(prev, target));
-        else if (rank == 1 && cpl <= 90)
-            start = std::max(1, std::min(prev, target) - 1);
-        else if (rank > 1 && rank <= opts.multiPv && cpl <= 60)
-            start = std::max(1, std::min(prev, target) - 3);
-        else
-            start = 1;
-
-        start = std::min(start, validated);
+        step.startDepth = 1;
+        step.continueTt = false;
     }
 
-    return apply_resume_horizon_cap(start, prev, target, horizon);
+    step.startDepth =
+      apply_resume_horizon_cap(step.startDepth, prev, target, opts.resumeHorizon);
+    return step;
+}
+
+int consolidate_start_depth(int targetDepth, int completedDepth, int ttDepth) {
+    if (ttDepth < targetDepth - 1)
+        return 0;
+    if (completedDepth >= targetDepth)
+        return targetDepth;
+    return std::max(1, std::min(targetDepth, ttDepth));
 }
 
 std::vector<std::string> parent_pv_suffix(const PlyResult& parent, const std::string& via) {
@@ -273,6 +249,41 @@ std::vector<std::string> parent_pv_suffix(const PlyResult& parent, const std::st
         return suffix;
     }
     return {};
+}
+
+std::optional<std::string> search_spine_ply(Engine& engine, const Options& opts, int gamePly,
+                                            const GameSpec& game,
+                                            const std::vector<std::string>& prefix,
+                                            Search::LimitsType limits, PlyResult& out,
+                                            const PrintFn& printOut) {
+    engine.wait_for_search_finished();
+
+    if (auto err = engine.set_position(game.fen, prefix))
+        return err->what();
+
+    PlyAccumulator acc;
+
+    engine.set_on_update_no_moves([](const Engine::InfoShort&) {});
+    engine.set_on_iter([](const Engine::InfoIter&) {});
+    engine.set_on_update_full([&](const Engine::InfoFull& info) {
+        acc.update(info);
+        if (opts.live)
+            emit_live(gamePly, info, printOut);
+    });
+
+    bool searchDone = false;
+    engine.set_on_bestmove([&](std::string_view, std::string_view) { searchDone = true; });
+
+    limits.depth     = opts.depth;
+    limits.startTime = now();
+    engine.go(limits);
+    engine.wait_for_search_finished();
+
+    if (!searchDone)
+        return "search did not complete";
+
+    out = acc.freeze(gamePly, engine.fen());
+    return std::nullopt;
 }
 
 void emit_grade(int moveNumber, const std::string& playedUci, const PlyResult& parent,
@@ -327,61 +338,38 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
 
     const int spinePlies = std::min(int(game.moves.size()) + 1, opts.maxPlies);
 
+    uint64_t consolidateNodes = 0;
+
     for (int gamePly = 0; gamePly < spinePlies; ++gamePly)
     {
-        engine.wait_for_search_finished();
-
-        if (auto err = engine.set_position(game.fen, prefix))
-            return err->what();
-
-        PlyAccumulator acc;
-
-        engine.set_on_update_no_moves([](const Engine::InfoShort&) {});
-        engine.set_on_iter([](const Engine::InfoIter&) {});
-
-        engine.set_on_update_full([&](const Engine::InfoFull& info) {
-            acc.update(info);
-            if (opts.live)
-                emit_live(gamePly, info, out);
-        });
-
-        bool searchDone = false;
-        engine.set_on_bestmove([&](std::string_view, std::string_view) { searchDone = true; });
-
         Search::LimitsType limits;
-        limits.depth            = opts.depth;
-        limits.startTime        = now();
-        limits.spineContinueTt  = opts.cold == 0 && gamePly > 0;
+        limits.spineContinueTt = opts.cold == 0 && gamePly > 0;
+
         if (useResume && previousPly && gamePly > 0)
         {
-            const std::string& via = game.moves[gamePly - 1];
-            limits.startDepth = compute_resume_start_depth(opts, *previousPly, via);
+            const std::string& via  = game.moves[gamePly - 1];
+            const SpineStep    step = compute_spine_step(opts, *previousPly, via);
+            limits.startDepth       = step.startDepth;
+            if (!step.continueTt)
+                limits.spineContinueTt = false;
             if (limits.startDepth > 1)
-            {
                 limits.spineTtMinDepth = limits.startDepth;
-                if (opts.resume == 3 && find_played_rank(*previousPly, via) == 1
-                    && played_move_cpl(*previousPly, via) <= 25)
-                    limits.spineTtMinDepth = std::max(1, limits.startDepth - 1);
-            }
             if (opts.resume >= 2)
                 limits.spinePvOrder = parent_pv_suffix(*previousPly, via);
             if (limits.startDepth > 1)
             {
                 std::ostringstream rs;
                 rs << "gameanalysis resume gameply " << gamePly << " startdepth "
-                   << limits.startDepth << " ttmin " << limits.spineTtMinDepth << " rank "
-                   << find_played_rank(*previousPly, via) << " cpl "
-                   << played_move_cpl(*previousPly, via);
+                   << limits.startDepth << " rank " << find_played_rank(*previousPly, via)
+                   << " cpl " << played_move_cpl(*previousPly, via);
                 print(out, rs.str());
             }
         }
-        engine.go(limits);
-        engine.wait_for_search_finished();
 
-        if (!searchDone)
-            return "search did not complete";
+        PlyResult ply;
+        if (auto err = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
+            return err;
 
-        PlyResult ply = acc.freeze(gamePly, engine.fen());
         emit_final(ply, out);
 
         if (previousPly && gamePly > 0)
@@ -397,10 +385,57 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             prefix.push_back(game.moves[gamePly]);
     }
 
+    if (opts.refine && opts.cold == 0 && opts.depth > 1)
+    {
+        prefix.clear();
+        for (int gamePly = spinePlies - 1; gamePly >= 0; --gamePly)
+        {
+            if (gamePly > 0)
+                prefix.assign(game.moves.begin(), game.moves.begin() + gamePly);
+            else
+                prefix.clear();
+
+            engine.wait_for_search_finished();
+            if (auto err = engine.set_position(game.fen, prefix))
+                return err->what();
+
+            const int ttDepth = engine.spine_tt_depth();
+            const int have    = report.plies[gamePly].bestDepth;
+            const int start   = consolidate_start_depth(opts.depth, have, ttDepth);
+            const bool freeRefine = have >= opts.depth && ttDepth >= opts.depth - 1;
+            if (start <= 0 || (start <= have && !freeRefine))
+                continue;
+
+            Search::LimitsType limits;
+            limits.depth           = opts.depth;
+            limits.startDepth      = start;
+            limits.spineContinueTt = true;
+            limits.spineTtMinDepth = 0;
+
+            PlyResult ply;
+            if (auto serr = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
+                return serr;
+
+            consolidateNodes += ply.nodes;
+
+            std::ostringstream ds;
+            ds << "gameanalysis deepen gameply " << gamePly << " ttdepth " << ttDepth
+               << " startdepth " << start << " nodes " << ply.nodes;
+            print(out, ds.str());
+
+            emit_final(ply, out);
+            report.totalNodes += ply.nodes;
+            report.totalTimeMs += ply.timeMs;
+            report.plies[gamePly] = std::move(ply);
+        }
+    }
+
     std::ostringstream ss;
     ss << "gameanalysis summary plies " << report.plies.size() << " nodes " << report.totalNodes
        << " time " << report.totalTimeMs << " hashfull " << report.lastHashfull << " threads "
        << effective_threads(opts.threads);
+    if (consolidateNodes > 0)
+        ss << " deepen_nodes " << consolidateNodes;
     print(out, ss.str());
 
     return std::nullopt;
@@ -433,8 +468,8 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "resume" || t == "resumehorizon" || t == "threads" || t == "file" || t == "pgn"
-        || t == "fen" || t == "startpos";
+        || t == "resume" || t == "resumehorizon" || t == "refine" || t == "threads" || t == "file"
+        || t == "pgn" || t == "fen" || t == "startpos";
 }
 
 bool parse_inline_option(const std::string& token, std::istream& is, Options& opts) {
@@ -450,6 +485,8 @@ bool parse_inline_option(const std::string& token, std::istream& is, Options& op
         is >> opts.resume;
     else if (token == "resumehorizon")
         is >> opts.resumeHorizon;
+    else if (token == "refine")
+        is >> opts.refine;
     else if (token == "threads")
         is >> opts.threads;
     else
@@ -536,6 +573,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 
     if (opts.resumeHorizon < 1 || opts.resumeHorizon > 8)
         return "resumehorizon must be 1..8";
+
+    if (opts.refine < 0 || opts.refine > 1)
+        return "refine must be 0 or 1";
 
     return std::nullopt;
 }

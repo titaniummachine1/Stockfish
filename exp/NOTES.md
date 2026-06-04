@@ -20,5 +20,5 @@ Full single-tree search inside one `go` is **not** done (would need custom Searc
 | smart_h2 (r2,h2) | 94% | 100% | slower |
 | merge_h2 | 85% | 100% | mid |
 
-**Ship:** `spineContinueTt` + default `resumeHorizon=1`. Optional `resume 3` for merge mode.
+**Ship:** `spineContinueTt`, simplified spine resume (PV vs off-PV), `refine 1` deepen pass (TT from later plies).
 **Not shipped:** single `go` spanning whole game (needs Search refactor).
