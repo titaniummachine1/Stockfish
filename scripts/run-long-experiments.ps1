@@ -21,7 +21,7 @@ Start-Process -FilePath $Py -ArgumentList @(
     "$Root\scripts\run_long_experiments.py",
     $Exe,
     "--hours", "$Hours"
-) -RedirectStandardOutput $LogFile -RedirectStandardError $LogFile -NoNewWindow
+) -RedirectStandardOutput $LogFile -RedirectStandardError "${LogFile}.err" -NoNewWindow
 
 Write-Host "PID logging to $LogFile"
 Write-Host "Tail: Get-Content $LogFile -Wait"
