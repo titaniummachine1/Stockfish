@@ -17,6 +17,7 @@
 */
 
 #include "game_analysis.h"
+#include "game_analysis_pgn.h"
 
 #include <algorithm>
 #include <cctype>
@@ -275,7 +276,7 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "file" || t == "fen" || t == "startpos";
+        || t == "file" || t == "pgn" || t == "fen" || t == "startpos";
 }
 
 bool parse_inline_option(const std::string& token, std::istream& is, Options& opts) {
@@ -339,7 +340,7 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
                 while (is >> fenToken)
                     append_move_token(fenToken, is, opts);
         }
-        else if (token == "file")
+        else if (token == "file" || token == "pgn")
         {
             std::string path;
             is >> path;
@@ -367,6 +368,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 }
 
 std::vector<GameSpec> load_games_from_file(const std::string& path, std::string& error) {
+    if (is_pgn_path(path))
+        return load_games_from_pgn(path, error);
+
     std::ifstream f(path);
     if (!f)
     {
@@ -423,7 +427,8 @@ std::optional<std::string> run(Engine& engine, const Options& opts, PrintFn prin
             gopts.moves     = games[i].moves;
             gopts.filePath.reset();
 
-            emit("gameanalysis filegame " + std::to_string(i + 1) + "/" + std::to_string(games.size()));
+            emit("gameanalysis game " + std::to_string(i + 1) + "/" + std::to_string(games.size())
+                 + " moves " + std::to_string(games[i].moves.size()));
 
             if (auto e = run_single_game(engine, gopts, games[i], out))
             {

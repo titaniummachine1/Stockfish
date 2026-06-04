@@ -116,6 +116,18 @@ class TestCLI(metaclass=OrderedClassMembers):
         out = self._gameanalysis_stdout()
         assert "gameanalysis summary" in out
 
+    def test_gameanalysis_pgn(self):
+        pgn = os.path.join(PATH, "sample.pgn")
+        self.stockfish = Stockfish(
+            f"gameanalysis depth 6 pgn {pgn}".split(" "), True
+        )
+        assert self.stockfish.process.returncode == 0
+        out = self._gameanalysis_stdout()
+        assert "gameanalysis game 1/" in out
+        assert "gameanalysis summary" in out
+        assert "gameanalysis grade" in out
+        assert "played e2e4" in out or "played e7e5" in out
+
     def test_gameanalysis_cold_nodes(self):
         moves = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")
 
