@@ -30,6 +30,22 @@ GAMES_PATH = ROOT / "tests" / "benchmark_games.json"
 RESULTS_DIR = ROOT / "scripts" / "benchmark_results"
 
 
+def resolved_threads() -> int:
+    """Match gameanalysis default: env STOCKFISH_THREADS or all logical CPUs."""
+    env = os.environ.get("STOCKFISH_THREADS", "").strip()
+    if env:
+        return max(1, int(env))
+    return max(1, os.cpu_count() or 1)
+
+
+def thread_args() -> List[str]:
+    """CLI args for gameanalysis; 0 lets the engine pick all CPUs."""
+    env = os.environ.get("STOCKFISH_THREADS", "").strip()
+    if env:
+        return ["threads", str(max(1, int(env)))]
+    return ["threads", "0"]
+
+
 @dataclass
 class RunResult:
     mode: str
@@ -57,16 +73,27 @@ def parse_summary(stdout: str) -> tuple[int, int]:
     return nodes, time_ms
 
 
-def run_integrated(exe: Path, fen: str, moves: List[str], depth: int, multipv: int, cold: int) -> RunResult:
+def run_integrated(
+    exe: Path,
+    fen: str,
+    moves: List[str],
+    depth: int,
+    multipv: int,
+    cold: int,
+    resume: int = 1,
+) -> RunResult:
     args = [
         str(exe),
         "gameanalysis",
         "depth",
         str(depth),
+        *thread_args(),
         "multipv",
         str(multipv),
         "cold",
         str(cold),
+        "resume",
+        str(resume),
         "fen",
         *fen.split(),
         "moves",
@@ -97,7 +124,7 @@ def uci_position_line(fen: str, prefix: List[str]) -> str:
 
 
 class UciSession:
-    def __init__(self, exe: Path, multipv: int, cold: int) -> None:
+    def __init__(self, exe: Path, multipv: int, cold: int, threads: int) -> None:
         self.proc = subprocess.Popen(
             [str(exe)],
             stdin=subprocess.PIPE,
@@ -112,6 +139,7 @@ class UciSession:
             line = self.proc.stdout.readline()
             if line.startswith("uciok"):
                 break
+        self._write(f"setoption name Threads value {threads}")
         self._write(f"setoption name MultiPV value {multipv}")
         if cold >= 1:
             self._write("ucinewgame")
@@ -160,14 +188,15 @@ def run_uci_loop(
     total_nodes = 0
     t0 = time.perf_counter()
 
+    threads = resolved_threads()
     if fresh_each_ply:
         for ply in range(plies):
             prefix = moves[:ply]
-            session = UciSession(exe, multipv, cold)
+            session = UciSession(exe, multipv, cold, threads)
             total_nodes += session.search_depth(fen, prefix, depth)
             session.close()
     else:
-        session = UciSession(exe, multipv, cold)
+        session = UciSession(exe, multipv, cold, threads)
         for ply in range(plies):
             prefix = moves[:ply]
             total_nodes += session.search_depth(fen, prefix, depth)
@@ -179,14 +208,19 @@ def run_uci_loop(
     return RunResult(mode, "", depth, multipv, plies, wall_ms, total_nodes, nps)
 
 
-def run_integrated_pgn(exe: Path, pgn_path: Path, depth: int, multipv: int) -> RunResult:
+def run_integrated_pgn(
+    exe: Path, pgn_path: Path, depth: int, multipv: int, resume: int = 1
+) -> RunResult:
     args = [
         str(exe),
         "gameanalysis",
         "depth",
         str(depth),
+        *thread_args(),
         "multipv",
         str(multipv),
+        "resume",
+        str(resume),
         "pgn",
         str(pgn_path),
     ]
@@ -201,7 +235,8 @@ def run_integrated_pgn(exe: Path, pgn_path: Path, depth: int, multipv: int) -> R
     # sample.pgn: 6 moves -> 7 plies
     plies = 7
     nps = (nodes * 1000 // wall_ms) if wall_ms else 0
-    return RunResult("integrated_pgn", pgn_path.stem, depth, multipv, plies, wall_ms, nodes, nps)
+    mode = "integrated_pgn_resume" if resume else "integrated_pgn_full_id"
+    return RunResult(mode, pgn_path.stem, depth, multipv, plies, wall_ms, nodes, nps)
 
 
 def run_case(exe: Path, case: dict) -> List[RunResult]:
@@ -212,10 +247,15 @@ def run_case(exe: Path, case: dict) -> List[RunResult]:
     moves = case["moves"]
     results: List[RunResult] = []
 
-    r0 = run_integrated(exe, fen, moves, depth, multipv, cold=0)
+    r0 = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=1)
     r0.case = name
-    r0.mode = "integrated"
+    r0.mode = "integrated_resume"
     results.append(r0)
+
+    rFull = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=0)
+    rFull.case = name
+    rFull.mode = "integrated_full_id"
+    results.append(rFull)
 
     r1 = run_integrated(exe, fen, moves, depth, multipv, cold=1)
     r1.case = name
@@ -243,11 +283,13 @@ def format_table(rows: List[RunResult]) -> str:
         "|------|------|-------|-------|---------|---------|-------|-----|---------------|",
     ]
     for case, rs in by_case.items():
-        base = next((x for x in rs if x.mode == "integrated"), None)
+        base = next((x for x in rs if x.mode == "integrated_resume"), None)
+        if not base:
+            base = next((x for x in rs if x.mode == "integrated"), None)
         base_ms = base.wall_ms if base else 1
         for r in sorted(rs, key=lambda x: x.mode):
             ratio = f"{r.wall_ms / base_ms:.2f}x" if base and r.mode != "integrated" else "1.00x"
-            if r.mode == "integrated":
+            if r.mode in ("integrated", "integrated_resume"):
                 ratio = "baseline"
             lines.append(
                 f"| {case} | {r.mode} | {r.plies} | {r.depth} | {r.multipv} | "
@@ -274,16 +316,21 @@ def main() -> int:
         games = [g for g in games if g["name"] in want]
 
     all_results: List[RunResult] = []
+    th = resolved_threads()
     print(f"Benchmark: {exe}")
+    print(f"Threads: {th} (set STOCKFISH_THREADS or omit for all logical CPUs)")
     print(f"Cases: {', '.join(g['name'] for g in games)}\n")
 
-    pgn_path = ROOT / "tests" / "sample.pgn"
-    if pgn_path.is_file():
-        print("=== sample.pgn (depth 8, multipv 1) ===")
+    corpus_dir = ROOT / "tests" / "benchmark_corpus"
+    for pgn_path in sorted(corpus_dir.glob("*.pgn")):
+        print(f"=== {pgn_path.name} (depth 10, multipv 1) ===")
         try:
-            rp = run_integrated_pgn(exe, pgn_path, depth=8, multipv=1)
-            all_results.append(rp)
-            print(f"  {rp.mode:16}  {rp.wall_ms:6} ms  nodes {rp.nodes:10}  nps {rp.nps:10}")
+            rp = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=1)
+            rf = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=0)
+            all_results.extend([rp, rf])
+            print(f"  {rp.mode:22}  {rp.wall_ms:6} ms  nodes {rp.nodes:10}")
+            print(f"  {rf.mode:22}  {rf.wall_ms:6} ms  nodes {rf.nodes:10}  "
+                  f"({'%.0f%% nodes' % (100 * rp.nodes / rf.nodes) if rf.nodes else 'n/a'})")
         except Exception as e:
             print(f"  FAILED: {e}")
         print()

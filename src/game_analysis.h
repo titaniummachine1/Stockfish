@@ -43,6 +43,8 @@ struct Options {
     int  multiPv  = 1;
     int  live     = 0;
     int  cold     = 0;
+    int  resume   = 1;  // skip shallow ID when TT warm along spine (cold 0 only)
+    int  threads  = 0;  // 0 = use all logical CPUs
     int  maxPlies = DefaultMaxPlies;
 
     std::string fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";

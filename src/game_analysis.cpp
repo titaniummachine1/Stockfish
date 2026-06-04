@@ -27,6 +27,7 @@
 
 #include "engine.h"
 #include "misc.h"
+#include "numa.h"
 #include "score.h"
 #include "search.h"
 #include "uci.h"
@@ -36,6 +37,24 @@ namespace Stockfish::GameAnalysis {
 namespace {
 
 constexpr int MateScoreCp = 30000;
+
+int effective_threads(int threadsOpt) {
+    if (threadsOpt > 0)
+        return threadsOpt;
+    return std::max(1, int(get_hardware_concurrency()));
+}
+
+void apply_engine_options(Engine& engine, const Options& opts) {
+    const int threads = effective_threads(opts.threads);
+    {
+        std::istringstream tIs("name Threads value " + std::to_string(threads));
+        engine.get_options().setoption(tIs);
+    }
+    {
+        std::istringstream mpvIs("name MultiPV value " + std::to_string(opts.multiPv));
+        engine.get_options().setoption(mpvIs);
+    }
+}
 
 void print(const PrintFn& out, const std::string& line) {
     if (out)
@@ -178,15 +197,20 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
     if (opts.cold == 2)
         return "cold 2 not implemented";
 
+    const bool useResume = opts.resume && opts.cold == 0;
+
     engine.wait_for_search_finished();
 
     // set_position rebuilds StateInfo only; histories/TT persist unless search_clear().
     if (opts.cold == 1)
         engine.search_clear();
 
+    apply_engine_options(engine, opts);
+
     {
-        std::istringstream mpvIs("name MultiPV value " + std::to_string(opts.multiPv));
-        engine.get_options().setoption(mpvIs);
+        std::ostringstream ss;
+        ss << "gameanalysis threads " << effective_threads(opts.threads);
+        print(out, ss.str());
     }
 
     Report                   report;
@@ -219,6 +243,11 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         Search::LimitsType limits;
         limits.depth     = opts.depth;
         limits.startTime = now();
+        if (useResume && previousPly && previousPly->bestDepth > 1)
+        {
+            const int prev = previousPly->bestDepth;
+            limits.startDepth = std::max(1, std::min(prev, opts.depth) - 1);
+        }
         engine.go(limits);
         engine.wait_for_search_finished();
 
@@ -243,7 +272,8 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
 
     std::ostringstream ss;
     ss << "gameanalysis summary plies " << report.plies.size() << " nodes " << report.totalNodes
-       << " time " << report.totalTimeMs << " hashfull " << report.lastHashfull;
+       << " time " << report.totalTimeMs << " hashfull " << report.lastHashfull << " threads "
+       << effective_threads(opts.threads);
     print(out, ss.str());
 
     return std::nullopt;
@@ -276,7 +306,8 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "file" || t == "pgn" || t == "fen" || t == "startpos";
+        || t == "resume" || t == "threads" || t == "file" || t == "pgn" || t == "fen"
+        || t == "startpos";
 }
 
 bool parse_inline_option(const std::string& token, std::istream& is, Options& opts) {
@@ -288,6 +319,10 @@ bool parse_inline_option(const std::string& token, std::istream& is, Options& op
         is >> opts.cold;
     else if (token == "maxplies")
         is >> opts.maxPlies;
+    else if (token == "resume")
+        is >> opts.resume;
+    else if (token == "threads")
+        is >> opts.threads;
     else
         return false;
     return true;
@@ -363,6 +398,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 
     if (opts.maxPlies < 1)
         return "maxplies must be >= 1";
+
+    if (opts.threads < 0)
+        return "threads must be >= 0 (0 = all CPUs)";
 
     return std::nullopt;
 }
