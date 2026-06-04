@@ -339,6 +339,7 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
     const int spinePlies = std::min(int(game.moves.size()) + 1, opts.maxPlies);
 
     uint64_t consolidateNodes = 0;
+    bool     allSpineAtDepth  = true;
 
     for (int gamePly = 0; gamePly < spinePlies; ++gamePly)
     {
@@ -380,21 +381,21 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         report.lastHashfull = ply.hashfull;
         report.plies.push_back(std::move(ply));
         previousPly = report.plies.back();
+        if (previousPly->bestDepth < opts.depth)
+            allSpineAtDepth = false;
 
         if (gamePly < int(game.moves.size()))
             prefix.push_back(game.moves[gamePly]);
     }
 
-    if (opts.refine && opts.cold == 0 && opts.depth > 1)
+    if (opts.refine && opts.cold == 0 && opts.depth > 1 && !allSpineAtDepth)
     {
         prefix.clear();
+        if (spinePlies > 1)
+            prefix.assign(game.moves.begin(), game.moves.begin() + spinePlies - 1);
+
         for (int gamePly = spinePlies - 1; gamePly >= 0; --gamePly)
         {
-            if (gamePly > 0)
-                prefix.assign(game.moves.begin(), game.moves.begin() + gamePly);
-            else
-                prefix.clear();
-
             engine.wait_for_search_finished();
             if (auto err = engine.set_position(game.fen, prefix))
                 return err->what();
@@ -404,7 +405,11 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             const int start   = consolidate_start_depth(opts.depth, have, ttDepth);
             const bool freeRefine = have >= opts.depth && ttDepth >= opts.depth - 1;
             if (start <= 0 || (start <= have && !freeRefine))
+            {
+                if (!prefix.empty())
+                    prefix.pop_back();
                 continue;
+            }
 
             Search::LimitsType limits;
             limits.depth           = opts.depth;
@@ -427,6 +432,9 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             report.totalNodes += ply.nodes;
             report.totalTimeMs += ply.timeMs;
             report.plies[gamePly] = std::move(ply);
+
+            if (!prefix.empty())
+                prefix.pop_back();
         }
     }
 

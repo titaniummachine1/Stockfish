@@ -12,13 +12,16 @@ Full single-tree search inside one `go` is **not** done (would need custom Searc
 - `feature/game-analysis-poc` — stable integration
 - `exp/spine-tt-merge` — TT merge + resume 3
 
-## Results (2026-06-04 quick ~12min, 8 threads)
+## Results (2026-06-05 quick ~8min, 8 threads)
 | config | ~nodes vs full | quality | wall |
 |--------|----------------|---------|------|
-| smart_h1 (r2,h1) | 82% | 100% | fastest |
-| merge_h1 (r3,h1) | 86% | 100% | fastest |
-| smart_h2 (r2,h2) | 94% | 100% | slower |
-| merge_h2 | 85% | 100% | mid |
+| smart_h1 (r2,h1) | 64% | 100% | ~156 ms mean |
+| merge_h1 (r3,h1) | 62% | 100% | ~152 ms mean |
 
-**Ship:** `spineContinueTt`, simplified spine resume (PV vs off-PV), `refine 1` deepen pass (TT from later plies).
+Note: `resume 3` is currently the same spine policy as `2` in `compute_spine_step`.
+
+**Ship:** `spineContinueTt`, spine resume (PV vs off-PV), `refine 1` deepen pass.  
+**2026-06-05:** skip refine when all plies already at depth; incremental prefix on refine walk.  
 **Not shipped:** single `go` spanning whole game (needs Search refactor).
+
+Full audit: `exp/AUDIT.md`

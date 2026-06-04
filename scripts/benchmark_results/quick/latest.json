@@ -1,0 +1,3662 @@
+{
+  "results": [
+    {
+      "ts": "2026-06-04T23:07:42.046444+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 243122,
+      "wall_ms": 101,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:42.783800+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 483536,
+      "wall_ms": 199,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:43.533456+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 490009,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:45.562709+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 179144,
+      "wall_ms": 92,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:07:46.303163+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 264421,
+      "wall_ms": 159,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:46.999108+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 276626,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:48.936422+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 225801,
+      "wall_ms": 110,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:07:49.663035+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 353898,
+      "wall_ms": 197,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:50.366718+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 344726,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:51.121663+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 460310,
+      "wall_ms": 202,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:51.887469+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 569777,
+      "wall_ms": 229,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:52.607612+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 415342,
+      "wall_ms": 191,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:54.689240+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 361455,
+      "wall_ms": 174,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:07:55.432122+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 380948,
+      "wall_ms": 200,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:56.083506+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 240567,
+      "wall_ms": 129,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:58.155345+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 288503,
+      "wall_ms": 151,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:07:58.823683+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 229181,
+      "wall_ms": 136,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:07:59.452442+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 205734,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:00.206423+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 504234,
+      "wall_ms": 225,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:01.014342+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 673135,
+      "wall_ms": 274,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:01.694397+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 357789,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:03.746651+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 256829,
+      "wall_ms": 112,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:04.533690+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 391227,
+      "wall_ms": 216,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:05.189127+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 229269,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:07.163659+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 312194,
+      "wall_ms": 141,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:07.841987+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 259821,
+      "wall_ms": 129,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:08.499685+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 242244,
+      "wall_ms": 129,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:09.198393+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 350731,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:09.928711+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 541378,
+      "wall_ms": 215,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:10.645924+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 443349,
+      "wall_ms": 194,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:12.670578+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 258547,
+      "wall_ms": 123,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:13.403405+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 392503,
+      "wall_ms": 217,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:14.065172+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 285895,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:16.200124+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 328277,
+      "wall_ms": 153,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:16.847776+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 217080,
+      "wall_ms": 126,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:17.519030+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 273583,
+      "wall_ms": 139,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:18.195979+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 390013,
+      "wall_ms": 164,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:18.931100+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 506073,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:19.673416+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 432628,
+      "wall_ms": 191,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:21.624250+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 253027,
+      "wall_ms": 119,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:22.312989+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 338497,
+      "wall_ms": 176,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:22.991015+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 197903,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:24.984690+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 225613,
+      "wall_ms": 102,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:25.640273+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 221282,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:26.264515+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 208659,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:27.007780+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 411856,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:27.866186+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 617069,
+      "wall_ms": 289,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:28.623186+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 482061,
+      "wall_ms": 218,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:30.535878+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 284775,
+      "wall_ms": 132,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:31.223965+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 286013,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:31.908078+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 272498,
+      "wall_ms": 145,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:33.826898+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 225044,
+      "wall_ms": 105,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:34.468520+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 213678,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:35.185633+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 313403,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:35.829093+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 312487,
+      "wall_ms": 128,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:36.597500+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 605989,
+      "wall_ms": 232,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:37.339049+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 491354,
+      "wall_ms": 207,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:39.298945+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 159948,
+      "wall_ms": 80,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:39.976876+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 250164,
+      "wall_ms": 146,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:40.658770+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 322452,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:42.707295+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 314561,
+      "wall_ms": 142,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:43.441542+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 372404,
+      "wall_ms": 197,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:44.144247+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 288842,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:44.827272+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 384849,
+      "wall_ms": 168,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:45.748001+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 546577,
+      "wall_ms": 222,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:46.527398+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 475743,
+      "wall_ms": 213,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:48.549421+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 315200,
+      "wall_ms": 150,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:49.250975+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 275847,
+      "wall_ms": 169,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:49.983035+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 340394,
+      "wall_ms": 182,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:51.902452+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 187899,
+      "wall_ms": 94,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:52.579474+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 264036,
+      "wall_ms": 141,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:53.228266+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 249466,
+      "wall_ms": 133,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:53.898311+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 348908,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:54.640154+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 587677,
+      "wall_ms": 227,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:55.375001+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 472986,
+      "wall_ms": 202,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:57.356128+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 219747,
+      "wall_ms": 111,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:08:58.063607+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 330177,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:08:58.710055+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 212625,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:00.624110+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 161628,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:01.375766+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 380599,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:02.072752+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 337609,
+      "wall_ms": 177,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:02.775719+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 427246,
+      "wall_ms": 187,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:03.500878+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 533409,
+      "wall_ms": 204,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:04.238106+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 473860,
+      "wall_ms": 222,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:06.145896+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 242379,
+      "wall_ms": 109,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:06.840263+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 357377,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:07.517926+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 295499,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:09.513608+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 412150,
+      "wall_ms": 191,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:10.241678+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 352186,
+      "wall_ms": 193,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:10.919037+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 264115,
+      "wall_ms": 141,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:11.624421+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 431799,
+      "wall_ms": 185,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:12.413643+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 682975,
+      "wall_ms": 274,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:13.153852+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 468498,
+      "wall_ms": 214,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:15.141604+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 278202,
+      "wall_ms": 129,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:16.089049+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 309452,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:16.796754+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 270798,
+      "wall_ms": 145,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:18.735375+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 234362,
+      "wall_ms": 114,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:19.461827+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 342841,
+      "wall_ms": 197,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:20.173161+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 298939,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:20.828267+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 286913,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:21.639952+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 715364,
+      "wall_ms": 286,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:22.339526+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 415826,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:24.229807+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 255539,
+      "wall_ms": 126,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:25.008028+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 425235,
+      "wall_ms": 242,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:25.683317+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 286394,
+      "wall_ms": 146,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:27.621699+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 219076,
+      "wall_ms": 108,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:28.283769+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 265503,
+      "wall_ms": 144,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:28.940344+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 216082,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:29.667734+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 448470,
+      "wall_ms": 194,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:30.413606+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 586982,
+      "wall_ms": 218,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:31.121889+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 364544,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:33.183695+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 306643,
+      "wall_ms": 136,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:33.835522+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 264419,
+      "wall_ms": 144,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:34.552515+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 318957,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:36.734164+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 412436,
+      "wall_ms": 190,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:37.646507+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 324447,
+      "wall_ms": 220,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:38.323205+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 184328,
+      "wall_ms": 100,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:39.099898+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 361005,
+      "wall_ms": 184,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:39.869137+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 559178,
+      "wall_ms": 219,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:40.653563+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 494556,
+      "wall_ms": 230,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:42.782201+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 322961,
+      "wall_ms": 147,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:43.497338+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 298932,
+      "wall_ms": 172,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:44.192683+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 276107,
+      "wall_ms": 137,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:46.418477+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 198350,
+      "wall_ms": 100,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:47.192554+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 285487,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:47.920905+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 203762,
+      "wall_ms": 135,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:48.712529+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 418517,
+      "wall_ms": 226,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:49.523495+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 566524,
+      "wall_ms": 239,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:50.632737+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 335242,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:53.022120+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 297526,
+      "wall_ms": 174,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:53.811023+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 267595,
+      "wall_ms": 158,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:54.525581+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 281519,
+      "wall_ms": 165,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:56.622092+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 312771,
+      "wall_ms": 153,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:09:57.434818+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 451146,
+      "wall_ms": 252,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:58.145300+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 269127,
+      "wall_ms": 142,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:58.876749+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 355856,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:09:59.703686+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 565245,
+      "wall_ms": 263,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:00.478346+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 458545,
+      "wall_ms": 216,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:02.573735+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 365558,
+      "wall_ms": 178,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:03.312305+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 272515,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:04.048936+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 342525,
+      "wall_ms": 177,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:06.124328+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 180351,
+      "wall_ms": 98,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:06.867737+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 363506,
+      "wall_ms": 207,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:07.554238+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 232927,
+      "wall_ms": 130,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:08.301636+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 352991,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:09.167390+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 671189,
+      "wall_ms": 298,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:10.044538+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 485448,
+      "wall_ms": 243,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:12.357568+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 282842,
+      "wall_ms": 143,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:13.265381+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 348658,
+      "wall_ms": 218,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:14.226669+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 334259,
+      "wall_ms": 186,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:17.186780+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 314253,
+      "wall_ms": 166,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:18.113635+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 301881,
+      "wall_ms": 183,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:19.020030+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 218991,
+      "wall_ms": 134,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:19.984341+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 376725,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:21.020030+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 626955,
+      "wall_ms": 283,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:21.919017+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 494859,
+      "wall_ms": 242,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:24.428414+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 250895,
+      "wall_ms": 134,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:25.276849+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 297131,
+      "wall_ms": 187,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:26.231317+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 313870,
+      "wall_ms": 171,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:28.926254+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 229549,
+      "wall_ms": 132,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:29.987250+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 467061,
+      "wall_ms": 269,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:31.024136+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 291825,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:31.827193+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 326772,
+      "wall_ms": 161,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:33.014573+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 553789,
+      "wall_ms": 344,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:34.219466+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 381457,
+      "wall_ms": 223,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:36.757676+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 197862,
+      "wall_ms": 143,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:37.565488+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 322093,
+      "wall_ms": 208,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:38.302720+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 330243,
+      "wall_ms": 182,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:40.538159+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 248471,
+      "wall_ms": 120,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:41.342798+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 452954,
+      "wall_ms": 232,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:42.060722+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 187970,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:42.822344+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 344290,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:43.665299+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 603510,
+      "wall_ms": 249,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:44.612155+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 465405,
+      "wall_ms": 239,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:46.847123+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 262185,
+      "wall_ms": 131,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:47.686224+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 377912,
+      "wall_ms": 217,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:48.439745+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 246491,
+      "wall_ms": 134,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:50.686132+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 220600,
+      "wall_ms": 114,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:51.449111+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 234752,
+      "wall_ms": 143,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:52.218606+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 277913,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:53.015879+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 368157,
+      "wall_ms": 171,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:53.850527+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 558327,
+      "wall_ms": 239,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:54.705586+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 538080,
+      "wall_ms": 248,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:56.971981+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 360115,
+      "wall_ms": 164,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:10:57.813550+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 381640,
+      "wall_ms": 230,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:10:58.578722+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 324407,
+      "wall_ms": 168,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:00.918659+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 403030,
+      "wall_ms": 201,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:01.720440+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 326080,
+      "wall_ms": 192,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:02.498480+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 320253,
+      "wall_ms": 164,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:03.289883+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 383979,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:04.172765+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 654493,
+      "wall_ms": 279,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:04.990681+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 456196,
+      "wall_ms": 213,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:07.272987+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 279194,
+      "wall_ms": 136,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:08.035084+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 277008,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:08.815184+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 316286,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:11.053548+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 276228,
+      "wall_ms": 127,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:11.813022+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 266538,
+      "wall_ms": 140,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:12.595026+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 308249,
+      "wall_ms": 171,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:13.352257+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 331450,
+      "wall_ms": 147,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:14.194588+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 554125,
+      "wall_ms": 224,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:14.978388+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 355285,
+      "wall_ms": 163,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:17.205632+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 270837,
+      "wall_ms": 127,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:17.963714+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 228370,
+      "wall_ms": 149,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:18.699970+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 218778,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:20.956690+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 209977,
+      "wall_ms": 114,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:21.739912+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 291228,
+      "wall_ms": 176,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:22.469143+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 201177,
+      "wall_ms": 108,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:23.235370+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 353336,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:24.099775+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 572513,
+      "wall_ms": 228,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:24.977835+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 484034,
+      "wall_ms": 229,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:27.256946+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 320940,
+      "wall_ms": 156,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:28.068957+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 328790,
+      "wall_ms": 195,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:28.846440+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 278005,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:31.040090+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 269435,
+      "wall_ms": 139,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:31.815522+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 267824,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:32.560596+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 258496,
+      "wall_ms": 148,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:33.328217+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 300356,
+      "wall_ms": 157,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:34.305967+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 521684,
+      "wall_ms": 208,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:35.168848+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 505044,
+      "wall_ms": 246,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:37.468436+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 275097,
+      "wall_ms": 134,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:38.218925+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 237044,
+      "wall_ms": 133,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:38.977473+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 265850,
+      "wall_ms": 136,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:41.218030+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 132769,
+      "wall_ms": 67,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:42.031235+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 334075,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:42.802776+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 260589,
+      "wall_ms": 147,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:43.581969+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 416597,
+      "wall_ms": 192,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:44.379763+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 487888,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:45.174698+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 461899,
+      "wall_ms": 205,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:47.450767+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 433044,
+      "wall_ms": 213,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:48.181096+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 303910,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:48.873180+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 244542,
+      "wall_ms": 124,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:51.011404+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 398994,
+      "wall_ms": 196,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:51.790695+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 402026,
+      "wall_ms": 235,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:52.518476+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 319195,
+      "wall_ms": 179,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:53.254650+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 471194,
+      "wall_ms": 211,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:54.002423+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 503543,
+      "wall_ms": 197,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:54.738384+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 426453,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:56.747284+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 386918,
+      "wall_ms": 188,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:11:57.438893+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 293857,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:11:58.092833+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 236812,
+      "wall_ms": 127,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:00.059022+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 245696,
+      "wall_ms": 121,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:00.803154+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 385547,
+      "wall_ms": 215,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:01.473730+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 282284,
+      "wall_ms": 148,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:02.210539+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 425863,
+      "wall_ms": 179,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:02.993269+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 621413,
+      "wall_ms": 246,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:03.698694+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 394117,
+      "wall_ms": 169,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:05.697768+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 357642,
+      "wall_ms": 169,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:06.436741+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 380739,
+      "wall_ms": 185,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:07.147524+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 361367,
+      "wall_ms": 182,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:09.203596+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 211519,
+      "wall_ms": 101,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:09.912152+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 318938,
+      "wall_ms": 169,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:10.607924+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 342725,
+      "wall_ms": 168,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:11.346840+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 503295,
+      "wall_ms": 222,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:12.032745+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 497272,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:12.726271+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 407658,
+      "wall_ms": 174,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:14.634322+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 255442,
+      "wall_ms": 122,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:15.399752+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 354818,
+      "wall_ms": 205,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:16.094210+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 306989,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:18.018453+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 87947,
+      "wall_ms": 47,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:18.743718+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 357520,
+      "wall_ms": 203,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:19.422922+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 262036,
+      "wall_ms": 129,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:20.176169+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 477989,
+      "wall_ms": 209,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:20.921450+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 556419,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:21.637949+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 429319,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:23.631987+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 238012,
+      "wall_ms": 112,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:24.391974+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 446769,
+      "wall_ms": 248,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:25.084936+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 312470,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:26.971445+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 202929,
+      "wall_ms": 94,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:27.695361+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 370575,
+      "wall_ms": 198,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:28.359893+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 267761,
+      "wall_ms": 133,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:29.117380+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 502541,
+      "wall_ms": 230,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:29.909223+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 630741,
+      "wall_ms": 253,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:30.645945+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 500112,
+      "wall_ms": 211,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:32.656275+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 253972,
+      "wall_ms": 120,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:33.343563+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 284265,
+      "wall_ms": 159,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:34.004166+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 302392,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:35.980855+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 338008,
+      "wall_ms": 146,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:36.712728+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 390946,
+      "wall_ms": 195,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:37.373611+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 234243,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:38.077990+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 396559,
+      "wall_ms": 179,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:38.852130+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 607045,
+      "wall_ms": 244,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:39.585698+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 477409,
+      "wall_ms": 206,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:41.813685+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 334716,
+      "wall_ms": 152,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:42.484823+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 276368,
+      "wall_ms": 148,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:43.151992+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 275122,
+      "wall_ms": 135,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:45.177773+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 335897,
+      "wall_ms": 158,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:45.912325+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 371402,
+      "wall_ms": 211,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:46.565023+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 232215,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:47.240026+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 316684,
+      "wall_ms": 144,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:47.997732+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 564207,
+      "wall_ms": 225,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:48.732131+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 469187,
+      "wall_ms": 203,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:50.780035+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 211970,
+      "wall_ms": 93,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:51.484679+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 314837,
+      "wall_ms": 165,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:52.184723+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 319514,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:54.148094+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 257590,
+      "wall_ms": 118,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:12:54.875820+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 367992,
+      "wall_ms": 201,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:55.547328+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 320111,
+      "wall_ms": 147,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:56.185700+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 293131,
+      "wall_ms": 127,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:56.941714+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 603407,
+      "wall_ms": 233,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:57.654180+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 402543,
+      "wall_ms": 176,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:12:59.700725+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 161476,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:00.385104+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 288227,
+      "wall_ms": 149,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:01.113938+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 330615,
+      "wall_ms": 177,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:03.089562+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 243625,
+      "wall_ms": 116,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:03.775426+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 308076,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:04.513418+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 310333,
+      "wall_ms": 161,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:05.188409+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 260103,
+      "wall_ms": 109,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:05.922728+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 562589,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:06.691746+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 505560,
+      "wall_ms": 226,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:08.619783+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 288155,
+      "wall_ms": 136,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:09.320403+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 338388,
+      "wall_ms": 183,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:09.995996+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 315158,
+      "wall_ms": 160,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:12.096211+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 419076,
+      "wall_ms": 199,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:12.777899+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 337686,
+      "wall_ms": 171,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:13.485997+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 356060,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:14.291330+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 484189,
+      "wall_ms": 217,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:15.102579+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 659707,
+      "wall_ms": 264,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:15.783251+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 286515,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:17.747901+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 252092,
+      "wall_ms": 110,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:18.527042+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 539299,
+      "wall_ms": 249,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:19.168129+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 217569,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:21.159846+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 311078,
+      "wall_ms": 150,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:21.876941+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 345449,
+      "wall_ms": 178,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:22.549315+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 293740,
+      "wall_ms": 149,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:23.196439+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 301421,
+      "wall_ms": 137,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:23.910506+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 527364,
+      "wall_ms": 192,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:24.659919+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 480555,
+      "wall_ms": 229,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:26.638029+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 192654,
+      "wall_ms": 97,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:27.379013+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 350838,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:28.077390+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 294450,
+      "wall_ms": 158,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:30.052054+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 163010,
+      "wall_ms": 76,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:30.672905+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 194791,
+      "wall_ms": 96,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:31.508458+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 285642,
+      "wall_ms": 140,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:32.214593+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 400152,
+      "wall_ms": 174,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:33.010121+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 636415,
+      "wall_ms": 262,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:33.732445+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 442833,
+      "wall_ms": 191,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:35.630298+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 168015,
+      "wall_ms": 78,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:36.332331+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 338392,
+      "wall_ms": 189,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:37.001423+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 282762,
+      "wall_ms": 144,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:39.037591+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 300868,
+      "wall_ms": 144,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:39.704404+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 256993,
+      "wall_ms": 145,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:40.428412+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 296293,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:41.188092+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 435360,
+      "wall_ms": 225,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:42.120617+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 788839,
+      "wall_ms": 355,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:42.970050+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 555561,
+      "wall_ms": 266,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:45.059333+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 249476,
+      "wall_ms": 121,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:45.723651+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 206251,
+      "wall_ms": 108,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:46.670943+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 340704,
+      "wall_ms": 184,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:48.838115+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 355539,
+      "wall_ms": 177,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:49.568231+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 277374,
+      "wall_ms": 174,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:50.273855+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 244729,
+      "wall_ms": 138,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:51.042326+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 459713,
+      "wall_ms": 219,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:51.821481+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 570680,
+      "wall_ms": 226,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:52.619551+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 484655,
+      "wall_ms": 235,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:54.829273+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 182967,
+      "wall_ms": 88,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:55.594888+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 343656,
+      "wall_ms": 202,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:56.307694+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 274306,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:58.429690+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 326775,
+      "wall_ms": 161,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:13:59.178148+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 341362,
+      "wall_ms": 193,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:13:59.906108+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 307855,
+      "wall_ms": 172,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:00.620015+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 349159,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:01.431914+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 605739,
+      "wall_ms": 254,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:02.269550+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 537494,
+      "wall_ms": 249,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:04.330060+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 251524,
+      "wall_ms": 129,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:05.073313+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 309708,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:05.785112+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 316736,
+      "wall_ms": 173,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:07.894478+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 147791,
+      "wall_ms": 86,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:08.665164+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 365000,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:09.363082+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 267457,
+      "wall_ms": 144,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:10.162731+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 552954,
+      "wall_ms": 262,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:10.955000+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 577088,
+      "wall_ms": 231,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:11.747439+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 401259,
+      "wall_ms": 200,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:13.957450+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 319842,
+      "wall_ms": 186,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:14.700131+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 306783,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:15.429906+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 297339,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:17.766609+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 379652,
+      "wall_ms": 192,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:18.540159+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 312975,
+      "wall_ms": 192,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:19.280153+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 298623,
+      "wall_ms": 172,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:20.011290+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 318946,
+      "wall_ms": 147,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:20.842353+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 655582,
+      "wall_ms": 263,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:21.609750+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 453109,
+      "wall_ms": 226,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:23.680979+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 212591,
+      "wall_ms": 108,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:24.533519+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 389554,
+      "wall_ms": 239,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:25.245676+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 271622,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:27.345824+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 290069,
+      "wall_ms": 142,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:28.106041+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 327882,
+      "wall_ms": 187,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:28.806246+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 234839,
+      "wall_ms": 138,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:29.555849+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 391179,
+      "wall_ms": 184,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:30.409312+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 646943,
+      "wall_ms": 278,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:31.204308+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 493015,
+      "wall_ms": 227,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:33.374120+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 319991,
+      "wall_ms": 154,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:34.105280+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 339507,
+      "wall_ms": 173,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:34.803348+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 224075,
+      "wall_ms": 134,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:36.819086+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 178391,
+      "wall_ms": 95,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:37.537976+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 292381,
+      "wall_ms": 173,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:38.213794+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 223271,
+      "wall_ms": 124,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:38.983132+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 385111,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:39.857695+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 691608,
+      "wall_ms": 303,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:40.644213+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 475804,
+      "wall_ms": 227,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:42.826062+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 283475,
+      "wall_ms": 142,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:43.558310+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 291708,
+      "wall_ms": 184,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:44.264638+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 278530,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:46.296599+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 234360,
+      "wall_ms": 121,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:47.001834+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 243138,
+      "wall_ms": 141,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:47.720514+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 280249,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:48.479281+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 356915,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:49.310995+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 628365,
+      "wall_ms": 258,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:50.320428+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 433610,
+      "wall_ms": 218,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:52.594575+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 279082,
+      "wall_ms": 159,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:53.330049+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 282412,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:54.102040+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 348907,
+      "wall_ms": 200,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:56.204684+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 207678,
+      "wall_ms": 116,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:14:56.950935+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 255142,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:57.657350+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 249582,
+      "wall_ms": 145,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:58.462127+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 496801,
+      "wall_ms": 229,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:14:59.271782+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 598314,
+      "wall_ms": 242,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:00.057136+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 411296,
+      "wall_ms": 193,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:02.298063+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 373956,
+      "wall_ms": 192,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:03.048927+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 355261,
+      "wall_ms": 196,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:03.785404+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 289691,
+      "wall_ms": 166,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:06.027584+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 313163,
+      "wall_ms": 150,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:06.835881+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 426426,
+      "wall_ms": 247,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:07.606739+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 341014,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:08.360984+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 383267,
+      "wall_ms": 176,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:09.179725+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 592694,
+      "wall_ms": 259,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:09.967845+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 433585,
+      "wall_ms": 212,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:12.065572+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 187897,
+      "wall_ms": 103,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:12.792698+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 293530,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:13.520185+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 295725,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:15.598763+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 264981,
+      "wall_ms": 132,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:16.567852+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 305822,
+      "wall_ms": 181,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:17.292431+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 296125,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:18.047467+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 348922,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:18.884388+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 620047,
+      "wall_ms": 257,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:19.663975+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 432834,
+      "wall_ms": 216,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:21.743306+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 217994,
+      "wall_ms": 111,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:22.498002+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 331319,
+      "wall_ms": 193,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:23.263465+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 335515,
+      "wall_ms": 180,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:25.549360+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 325879,
+      "wall_ms": 164,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:26.354468+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 390301,
+      "wall_ms": 230,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:27.057575+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 243367,
+      "wall_ms": 139,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:27.800730+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 418869,
+      "wall_ms": 189,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:28.609541+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 585980,
+      "wall_ms": 241,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:29.359016+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 354749,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:31.444601+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 226465,
+      "wall_ms": 117,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:32.241621+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 372095,
+      "wall_ms": 222,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:32.982638+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 305675,
+      "wall_ms": 171,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:35.073104+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 161999,
+      "wall_ms": 86,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:35.791305+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 302650,
+      "wall_ms": 174,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:36.489332+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 228126,
+      "wall_ms": 133,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:37.264804+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 408679,
+      "wall_ms": 199,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:38.063981+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 579806,
+      "wall_ms": 246,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:38.826775+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 396947,
+      "wall_ms": 190,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-04T23:15:40.925934+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 172370,
+      "wall_ms": 91,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-04T23:15:41.671943+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 370108,
+      "wall_ms": 197,
+      "quality": null
+    }
+  ],
+  "summary": {
+    "smart_h1": {
+      "mean_ms": 156,
+      "mean_node_pct_of_full": 64.0,
+      "mean_quality": 1.0
+    },
+    "full": {
+      "mean_ms": 209,
+      "mean_node_pct_of_full": 103.0,
+      "mean_quality": null
+    },
+    "merge_h1": {
+      "mean_ms": 152,
+      "mean_node_pct_of_full": 62.0,
+      "mean_quality": 1.0
+    }
+  },
+  "minutes": 8.0
+}
