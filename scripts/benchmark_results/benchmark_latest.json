@@ -1,0 +1,212 @@
+[
+  {
+    "mode": "integrated_pgn",
+    "case": "sample",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 42,
+    "nodes": 16756,
+    "nps": 398952
+  },
+  {
+    "mode": "integrated",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 126,
+    "nodes": 57443,
+    "nps": 455896
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 137,
+    "nodes": 57443,
+    "nps": 419291
+  },
+  {
+    "mode": "uci_session",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 478,
+    "nodes": 57443,
+    "nps": 120173
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 1705,
+    "nodes": 86298,
+    "nps": 50614
+  },
+  {
+    "mode": "integrated",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 33,
+    "nodes": 12194,
+    "nps": 369515
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 44,
+    "nodes": 12194,
+    "nps": 277136
+  },
+  {
+    "mode": "uci_session",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 244,
+    "nodes": 12194,
+    "nps": 49975
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 434,
+    "nodes": 6640,
+    "nps": 15299
+  },
+  {
+    "mode": "integrated",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 318,
+    "nodes": 282579,
+    "nps": 888613
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 316,
+    "nodes": 282579,
+    "nps": 894237
+  },
+  {
+    "mode": "uci_session",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 529,
+    "nodes": 282579,
+    "nps": 534175
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 1421,
+    "nodes": 328374,
+    "nps": 231086
+  },
+  {
+    "mode": "integrated",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 183,
+    "nodes": 107240,
+    "nps": 586010
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 193,
+    "nodes": 107240,
+    "nps": 555647
+  },
+  {
+    "mode": "uci_session",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 403,
+    "nodes": 107240,
+    "nps": 266104
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 1659,
+    "nodes": 115232,
+    "nps": 69458
+  },
+  {
+    "mode": "integrated",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 132,
+    "nodes": 67597,
+    "nps": 512098
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 138,
+    "nodes": 67597,
+    "nps": 489833
+  },
+  {
+    "mode": "uci_session",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 349,
+    "nodes": 67597,
+    "nps": 193687
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 4567,
+    "nodes": 112434,
+    "nps": 24618
+  }
+]

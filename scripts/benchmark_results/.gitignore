@@ -1,0 +1,5 @@
+benchmark_2*.json
+benchmark_2*.md
+!benchmark_latest.json
+!benchmark_latest.md
+!README.md
