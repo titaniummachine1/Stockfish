@@ -68,10 +68,8 @@ class Config:
 
 CONFIGS = [
     Config("full", 0, 2),
-    Config("smart_h2", 2, 2),
-    Config("smart_h1", 2, 1),
-    Config("merge_h2", 3, 2),
-    Config("merge_h1", 3, 1),
+    Config("smart_h1", 2, 1),   # default after experiments
+    Config("merge_h1", 3, 1),   # TT-merge mode
 ]
 
 
