@@ -4,6 +4,22 @@ $Root  = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $Src   = Join-Path $Root "src"
 $Tests = Join-Path $Root "tests"
 
+# MSYS diff for test_network_equals_base; avoid MSYS python shadowing Windows python
+$env:PATH = "C:\msys64\usr\bin;$env:PATH"
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONUTF8 = "1"
+
+function Get-Python {
+    $candidates = @(
+        "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe",
+        "$env:LOCALAPPDATA\Programs\Python\Python313\python.exe"
+    )
+    foreach ($p in $candidates) {
+        if (Test-Path $p) { return $p }
+    }
+    return "python"
+}
+
 function Find-Make {
     $names = @("make", "mingw32-make", "gmake")
     foreach ($n in $names) {
@@ -16,6 +32,11 @@ function Find-Make {
         "C:\msys64\usr\bin\make.exe",
         "C:\Program Files\Git\usr\bin\make.exe"
     )
+    # Prefer MSYS2 bash build (Stockfish Makefile needs sh/uname)
+    $MsysBuild = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "msys-build.sh"
+    if ((Test-Path "C:\msys64\usr\bin\bash.exe") -and (Test-Path $MsysBuild)) {
+        return "@msys-bash:$MsysBuild"
+    }
     foreach ($p in $candidates) {
         if (Test-Path $p) { return $p }
     }
@@ -29,13 +50,22 @@ if (-not $Make) {
 }
 
 Write-Host "=== post-commit: build ($Make) ===" -ForegroundColor Cyan
-Push-Location $Src
-try {
-    & $Make -j build 2>&1 | Tee-Object -FilePath (Join-Path $Root "build-last.log")
+$Log = Join-Path $Root "build-last.log"
+if ($Make -like "@msys-bash:*") {
+    $Script = $Make.Substring(11)
+    $env:MSYSTEM = "UCRT64"
+    & C:\msys64\usr\bin\env.exe MSYSTEM=UCRT64 C:\msys64\usr\bin\bash.exe --login -c "bash '$($Script -replace '\\','/')" 2>&1 | Tee-Object -FilePath $Log
     if ($LASTEXITCODE -ne 0) { throw "build failed with exit $LASTEXITCODE" }
 }
-finally {
-    Pop-Location
+else {
+    Push-Location $Src
+    try {
+        & $Make -j build 2>&1 | Tee-Object -FilePath $Log
+        if ($LASTEXITCODE -ne 0) { throw "build failed with exit $LASTEXITCODE" }
+    }
+    finally {
+        Pop-Location
+    }
 }
 
 $Exe = Join-Path $Src "stockfish.exe"
@@ -45,7 +75,7 @@ if (-not (Test-Path $Exe)) { throw "stockfish binary not found in src/" }
 Write-Host "=== post-commit: instrumented.py ===" -ForegroundColor Cyan
 Push-Location $Tests
 try {
-    python instrumented.py --none $Exe
+    & (Get-Python) instrumented.py --none $Exe
     if ($LASTEXITCODE -ne 0) { throw "instrumented.py failed with exit $LASTEXITCODE" }
 }
 finally {
