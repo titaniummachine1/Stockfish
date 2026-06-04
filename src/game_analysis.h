@@ -44,6 +44,7 @@ struct Options {
     int  live     = 0;
     int  cold     = 0;
     int  resume   = 2;  // 0=off 1=always(prev-1) 2=smart(PV/CPL) — cold 0 only
+    int  resumeHorizon = 2;  // min ID iterations at each ply; caps TT/ID reuse (plies)
     int  threads  = 0;  // 0 = use all logical CPUs
     int  maxPlies = DefaultMaxPlies;
 

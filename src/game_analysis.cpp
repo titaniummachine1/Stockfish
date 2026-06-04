@@ -184,6 +184,27 @@ int played_move_cpl(const PlyResult& parent, const std::string& playedUci) {
     return bestCp;
 }
 
+// Cap ID resume so we always rerun at least resumeHorizon shallow iterations at this root.
+int apply_resume_horizon_cap(int startDepth, int prev, int target, int horizon) {
+    const int h = std::max(1, horizon);
+    const int cap =
+      std::max(1, std::min({prev, target}) - h);
+    return std::min(startDepth, cap);
+}
+
+// Parent search at depth prev only validated the child subtree one ply deeper (not the
+// full PV tail); tighten reuse when the entering move was dubious or off-PV.
+int parent_validated_child_depth(int prev, int rank, int cpl) {
+    int d = prev - 1;
+    if (rank > 1)
+        d -= 2;
+    if (cpl > 50)
+        d -= 1;
+    if (cpl > 120)
+        d -= 2;
+    return std::max(1, d);
+}
+
 // How deep to begin iterative deepening at this spine ply (1 = full 1..D).
 int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
                                const std::string& enteredViaUci) {
@@ -192,27 +213,35 @@ int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
 
     const int prev   = parent.bestDepth;
     const int target = opts.depth;
+    const int horizon = std::max(1, opts.resumeHorizon);
     if (prev <= 1)
         return 1;
 
-    if (opts.resume == 1)
-        return std::max(1, std::min(prev, target) - 1);
-
-    // Smart resume (default): reuse parent's ID work only when the move into this
-    // position was on the PV and not a large inaccuracy (otherwise subtree was pruned).
     const int rank = find_played_rank(parent, enteredViaUci);
     const int cpl  = played_move_cpl(parent, enteredViaUci);
+    const int validated = parent_validated_child_depth(prev, rank, cpl);
 
-    if (rank == 1 && cpl <= 25)
-        return std::max(1, std::min(prev, target));
+    int start = 1;
 
-    if (rank == 1 && cpl <= 90)
-        return std::max(1, std::min(prev, target) - 1);
+    if (opts.resume == 1)
+        start = std::max(1, std::min(prev, target) - 1);
+    else
+    {
+        // Smart resume: reuse parent's ID work only when the move into this position was on
+        // the PV and not a large inaccuracy (otherwise the spine subtree was pruned).
+        if (rank == 1 && cpl <= 25)
+            start = std::max(1, std::min(prev, target));
+        else if (rank == 1 && cpl <= 90)
+            start = std::max(1, std::min(prev, target) - 1);
+        else if (rank > 1 && rank <= opts.multiPv && cpl <= 60)
+            start = std::max(1, std::min(prev, target) - 3);
+        else
+            start = 1;
 
-    if (rank > 1 && rank <= opts.multiPv && cpl <= 60)
-        return std::max(1, std::min(prev, target) - 3);
+        start = std::min(start, validated);
+    }
 
-    return 1;
+    return apply_resume_horizon_cap(start, prev, target, horizon);
 }
 
 void emit_grade(int moveNumber, const std::string& playedUci, const PlyResult& parent,
@@ -294,13 +323,16 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         if (useResume && previousPly && gamePly > 0)
         {
             const std::string& via = game.moves[gamePly - 1];
-            limits.startDepth        = compute_resume_start_depth(opts, *previousPly, via);
+            limits.startDepth = compute_resume_start_depth(opts, *previousPly, via);
+            if (limits.startDepth > 1)
+                limits.spineTtMinDepth = limits.startDepth;
             if (limits.startDepth > 1)
             {
                 std::ostringstream rs;
                 rs << "gameanalysis resume gameply " << gamePly << " startdepth "
-                   << limits.startDepth << " rank " << find_played_rank(*previousPly, via)
-                   << " cpl " << played_move_cpl(*previousPly, via);
+                   << limits.startDepth << " ttmin " << limits.spineTtMinDepth << " rank "
+                   << find_played_rank(*previousPly, via) << " cpl "
+                   << played_move_cpl(*previousPly, via);
                 print(out, rs.str());
             }
         }
@@ -362,8 +394,8 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "resume" || t == "threads" || t == "file" || t == "pgn" || t == "fen"
-        || t == "startpos";
+        || t == "resume" || t == "resumehorizon" || t == "threads" || t == "file" || t == "pgn"
+        || t == "fen" || t == "startpos";
 }
 
 bool parse_inline_option(const std::string& token, std::istream& is, Options& opts) {
@@ -377,6 +409,8 @@ bool parse_inline_option(const std::string& token, std::istream& is, Options& op
         is >> opts.maxPlies;
     else if (token == "resume")
         is >> opts.resume;
+    else if (token == "resumehorizon")
+        is >> opts.resumeHorizon;
     else if (token == "threads")
         is >> opts.threads;
     else
@@ -460,6 +494,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 
     if (opts.resume < 0 || opts.resume > 2)
         return "resume must be 0, 1, or 2";
+
+    if (opts.resumeHorizon < 1 || opts.resumeHorizon > 8)
+        return "resumehorizon must be 1..8";
 
     return std::nullopt;
 }

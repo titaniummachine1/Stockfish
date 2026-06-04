@@ -764,6 +764,11 @@ Value Search::Worker::search(
     excludedMove                   = ss->excludedMove;
     posKey                         = pos.key();
     auto [ttHit, ttData, ttWriter] = tt.probe(posKey);
+
+    // Game-analysis spine: do not trust TT from parent's tree shallower than our ID floor.
+    if (ttHit && limits.spineTtMinDepth > 0 && ttData.depth < limits.spineTtMinDepth)
+        ttHit = false;
+
     // Need further processing of the saved data
     ss->ttHit    = ttHit;
     ttData.move  = rootNode ? rootMoves[pvIdx].pv[0] : ttHit ? ttData.move : Move::none();
@@ -1613,6 +1618,10 @@ Value Search::Worker::qsearch(Position& pos, Stack* ss, Value alpha, Value beta)
     // Step 3. Transposition table lookup
     posKey                         = pos.key();
     auto [ttHit, ttData, ttWriter] = tt.probe(posKey);
+
+    if (ttHit && limits.spineTtMinDepth > 0 && ttData.depth < limits.spineTtMinDepth)
+        ttHit = false;
+
     // Need further processing of the saved data
     ss->ttHit    = ttHit;
     ttData.move  = ttHit ? ttData.move : Move::none();
@@ -1620,7 +1629,7 @@ Value Search::Worker::qsearch(Position& pos, Stack* ss, Value alpha, Value beta)
     pvHit        = ttHit && ttData.is_pv;
 
     // At non-PV nodes we check for an early TT cutoff
-    if (!PvNode && ttData.depth >= DEPTH_QS
+    if (!PvNode && ttHit && ttData.depth >= DEPTH_QS
         && is_valid(ttData.value)  // Can happen when !ttHit or when access race in probe()
         && (ttData.bound & (ttData.value >= beta ? BOUND_LOWER : BOUND_UPPER)))
         return ttData.value;
