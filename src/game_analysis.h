@@ -43,7 +43,7 @@ struct Options {
     int  multiPv  = 1;
     int  live     = 0;
     int  cold     = 0;
-    int  resume   = 1;  // skip shallow ID when TT warm along spine (cold 0 only)
+    int  resume   = 2;  // 0=off 1=always(prev-1) 2=smart(PV/CPL) — cold 0 only
     int  threads  = 0;  // 0 = use all logical CPUs
     int  maxPlies = DefaultMaxPlies;
 

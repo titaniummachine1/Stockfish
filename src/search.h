@@ -162,6 +162,7 @@ struct LimitsType {
         movestogo = depth = mate = perft = infinite = 0;
         nodes                                       = 0;
         ponderMode                                  = false;
+        startDepth                                  = 0;
     }
 
     bool use_time_management() const { return time[WHITE] || time[BLACK]; }
@@ -169,6 +170,7 @@ struct LimitsType {
     std::vector<std::string> searchmoves;
     TimePoint                time[COLOR_NB], inc[COLOR_NB], npmsec, movetime, startTime;
     int                      movestogo, depth, mate, perft, infinite;
+    int                      startDepth;  // ID begins at this depth (game-analysis resume)
     uint64_t                 nodes;
     bool                     ponderMode;
 };

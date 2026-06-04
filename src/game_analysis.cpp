@@ -50,6 +50,13 @@ void apply_engine_options(Engine& engine, const Options& opts) {
         std::istringstream tIs("name Threads value " + std::to_string(threads));
         engine.get_options().setoption(tIs);
     }
+    // Larger TT helps multi-thread spine walks reuse prior plies' subtrees.
+    if (threads >= 2)
+    {
+        const int hashMb = std::min(4096, threads * threads * 16);
+        std::istringstream hIs("name Hash value " + std::to_string(hashMb));
+        engine.get_options().setoption(hIs);
+    }
     {
         std::istringstream mpvIs("name MultiPV value " + std::to_string(opts.multiPv));
         engine.get_options().setoption(mpvIs);
@@ -167,6 +174,47 @@ int best_line_cp(const PlyResult& parent) {
     return parent.lines.empty() ? 0 : parent.lines.front().scoreCp;
 }
 
+int played_move_cpl(const PlyResult& parent, const std::string& playedUci) {
+    const int rank = find_played_rank(parent, playedUci);
+    if (parent.lines.empty())
+        return 0;
+    const int bestCp = best_line_cp(parent);
+    if (rank > 0)
+        return std::max(0, bestCp - line_cp_for_move(parent, playedUci));
+    return bestCp;
+}
+
+// How deep to begin iterative deepening at this spine ply (1 = full 1..D).
+int compute_resume_start_depth(const Options& opts, const PlyResult& parent,
+                               const std::string& enteredViaUci) {
+    if (opts.resume == 0 || opts.cold != 0)
+        return 1;
+
+    const int prev   = parent.bestDepth;
+    const int target = opts.depth;
+    if (prev <= 1)
+        return 1;
+
+    if (opts.resume == 1)
+        return std::max(1, std::min(prev, target) - 1);
+
+    // Smart resume (default): reuse parent's ID work only when the move into this
+    // position was on the PV and not a large inaccuracy (otherwise subtree was pruned).
+    const int rank = find_played_rank(parent, enteredViaUci);
+    const int cpl  = played_move_cpl(parent, enteredViaUci);
+
+    if (rank == 1 && cpl <= 25)
+        return std::max(1, std::min(prev, target));
+
+    if (rank == 1 && cpl <= 90)
+        return std::max(1, std::min(prev, target) - 1);
+
+    if (rank > 1 && rank <= opts.multiPv && cpl <= 60)
+        return std::max(1, std::min(prev, target) - 3);
+
+    return 1;
+}
+
 void emit_grade(int moveNumber, const std::string& playedUci, const PlyResult& parent,
                 const PrintFn& out) {
     const int rank = find_played_rank(parent, playedUci);
@@ -243,10 +291,18 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         Search::LimitsType limits;
         limits.depth     = opts.depth;
         limits.startTime = now();
-        if (useResume && previousPly && previousPly->bestDepth > 1)
+        if (useResume && previousPly && gamePly > 0)
         {
-            const int prev = previousPly->bestDepth;
-            limits.startDepth = std::max(1, std::min(prev, opts.depth) - 1);
+            const std::string& via = game.moves[gamePly - 1];
+            limits.startDepth        = compute_resume_start_depth(opts, *previousPly, via);
+            if (limits.startDepth > 1)
+            {
+                std::ostringstream rs;
+                rs << "gameanalysis resume gameply " << gamePly << " startdepth "
+                   << limits.startDepth << " rank " << find_played_rank(*previousPly, via)
+                   << " cpl " << played_move_cpl(*previousPly, via);
+                print(out, rs.str());
+            }
         }
         engine.go(limits);
         engine.wait_for_search_finished();
@@ -401,6 +457,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 
     if (opts.threads < 0)
         return "threads must be >= 0 (0 = all CPUs)";
+
+    if (opts.resume < 0 || opts.resume > 2)
+        return "resume must be 0, 1, or 2";
 
     return std::nullopt;
 }

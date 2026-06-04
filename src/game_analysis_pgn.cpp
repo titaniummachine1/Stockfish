@@ -205,12 +205,145 @@ std::string move_to_san(const Position& pos, Move m) {
     return san;
 }
 
+struct SanParts {
+    PieceType pt       = NO_PIECE_TYPE;
+    Square    to       = SQ_NONE;
+    File      disFile  = FILE_NB;
+    Rank      disRank  = RANK_NB;
+};
+
+PieceType piece_type_from_char(char c) {
+    switch (c)
+    {
+    case 'N' :
+        return KNIGHT;
+    case 'B' :
+        return BISHOP;
+    case 'R' :
+        return ROOK;
+    case 'Q' :
+        return QUEEN;
+    case 'K' :
+        return KING;
+    default :
+        return NO_PIECE_TYPE;
+    }
+}
+
+Square square_from_chars(char f, char r) {
+    if (f < 'a' || f > 'h' || r < '1' || r > '8')
+        return SQ_NONE;
+    return make_square(File(f - 'a'), Rank(r - '1'));
+}
+
+bool parse_piece_san(const std::string& san, SanParts& sp) {
+    const PieceType pt = piece_type_from_char(san[0]);
+    if (pt == NO_PIECE_TYPE)
+        return false;
+
+    size_t end = san.size();
+    if (end >= 3 && san[end - 2] == '=')
+        end -= 2;
+    if (end < 3)
+        return false;
+
+    sp.pt = pt;
+    sp.to = square_from_chars(san[end - 2], san[end - 1]);
+    if (sp.to == SQ_NONE)
+        return false;
+
+    size_t j = 1;
+    if (j < end - 2 && san[j] == 'x')
+        ++j;
+    if (j < end - 2 && san[j] >= 'a' && san[j] <= 'h')
+        sp.disFile = File(san[j++] - 'a');
+    if (j < end - 2 && san[j] >= '1' && san[j] <= '8')
+        sp.disRank = Rank(san[j++] - '1');
+    if (j < end - 2 && san[j] == 'x')
+        ++j;
+    return j == end - 2;
+}
+
+bool parse_pawn_san(const std::string& san, SanParts& sp) {
+    if (san.empty() || san[0] < 'a' || san[0] > 'h')
+        return false;
+
+    size_t end = san.size();
+    if (end >= 3 && san[end - 2] == '=')
+        end -= 2;
+    if (end < 2)
+        return false;
+
+    const size_t destOff = end - 2;
+    sp.pt                = PAWN;
+    sp.to                = square_from_chars(san[destOff], san[destOff + 1]);
+    if (sp.to == SQ_NONE)
+        return false;
+
+    if (end == 2)
+        return san[1] >= '1' && san[1] <= '8';
+
+    return san[1] == 'x' && destOff >= 2;
+}
+
+Move match_san_parts(const Position& pos, const SanParts& sp) {
+    for (const auto& m : MoveList<LEGAL>(pos))
+    {
+        if (type_of(pos.moved_piece(m)) != sp.pt)
+            continue;
+        if (m.to_sq() != sp.to)
+            continue;
+        if (sp.disFile != FILE_NB && file_of(m.from_sq()) != sp.disFile)
+            continue;
+        if (sp.disRank != RANK_NB && rank_of(m.from_sq()) != sp.disRank)
+            continue;
+        return m;
+    }
+    return Move::none();
+}
+
 Move san_to_move(const Position& pos, std::string san) {
     san = normalize_san(std::move(san));
+
+    if (san == "O-O" || san == "O-O-O")
+    {
+        const bool     kingside = (san == "O-O");
+        const Color    us       = pos.side_to_move();
+        const Square   ksq      = pos.square<KING>(us);
+        const File     kfile    = kingside ? FILE_G : FILE_C;
+        const std::string uci =
+          UCIEngine::square(ksq) + UCIEngine::square(make_square(kfile, rank_of(ksq)));
+        const Move m = UCIEngine::to_move(pos, uci);
+        if (m != Move::none())
+            return m;
+
+        for (const auto& cand : MoveList<LEGAL>(pos))
+            if (cand.type_of() == CASTLING)
+            {
+                if (pos.is_chess960())
+                {
+                    if (kingside == (file_of(cand.to_sq()) > file_of(cand.from_sq())))
+                        return cand;
+                }
+                else if (kingside && file_of(cand.to_sq()) == FILE_G)
+                    return cand;
+                else if (!kingside && file_of(cand.to_sq()) == FILE_C)
+                    return cand;
+            }
+        return Move::none();
+    }
 
     for (const auto& m : MoveList<LEGAL>(pos))
         if (normalize_san(move_to_san(pos, m)) == san)
             return m;
+
+    SanParts sp;
+    if (parse_piece_san(san, sp) || parse_pawn_san(san, sp))
+    {
+        const Move m = match_san_parts(pos, sp);
+        if (m != Move::none())
+            return m;
+    }
 
     return Move::none();
 }

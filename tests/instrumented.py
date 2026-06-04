@@ -128,6 +128,29 @@ class TestCLI(metaclass=OrderedClassMembers):
         assert "gameanalysis grade" in out
         assert "played e2e4" in out or "played e7e5" in out
 
+    def test_gameanalysis_resume_nodes(self):
+        base = "gameanalysis depth 10 startpos moves e2e4 e7e5 g1f3 b8c6 f1b5 a7a6".split(" ")
+
+        def summary_nodes(args):
+            p = Stockfish(args, True)
+            assert p.process.returncode == 0
+            out = p.process.stdout or ""
+            for line in out.split("\n"):
+                if "gameanalysis summary" in line and "nodes" in line:
+                    parts = line.split()
+                    for i, tok in enumerate(parts):
+                        if tok == "nodes" and i + 1 < len(parts):
+                            return int(parts[i + 1])
+            return None
+
+        nSmart = summary_nodes(base + ["resume", "2", "cold", "0"])
+        nLegacy = summary_nodes(base + ["resume", "1", "cold", "0"])
+        nFull = summary_nodes(base + ["resume", "0", "cold", "0"])
+        assert nSmart is not None and nFull is not None
+        assert nSmart < nFull
+        assert nSmart <= nLegacy
+        self.stockfish = Stockfish(base + ["resume", "2"], True)
+
     def test_gameanalysis_cold_nodes(self):
         moves = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")
 
@@ -143,7 +166,7 @@ class TestCLI(metaclass=OrderedClassMembers):
                             return int(parts[i + 1])
             return None
 
-        n0 = summary_nodes(moves + ["cold", "0"])
+        n0 = summary_nodes(moves + ["cold", "0", "resume", "1"])
         n1 = summary_nodes(moves + ["cold", "1"])
         assert n0 is not None and n1 is not None
         assert n0 <= n1

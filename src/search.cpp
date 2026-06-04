@@ -324,6 +324,14 @@ bool Search::Worker::iterative_deepening() {
         for (int i = 0; i < UINT_16_HISTORY_SIZE; i++)
             mainHistory[c][i] = (mainHistory[c][i] + 5) * 789 / 1024;
 
+    // Optional: skip shallow iterations when TT/PV already warm (game-analysis spine resume).
+    if (limits.startDepth > 1)
+    {
+        const int target = limits.depth ? limits.depth : int(MAX_PLY) - 1;
+        const int begin  = std::clamp(limits.startDepth, 1, target);
+        rootDepth        = begin - 1;
+    }
+
     // Iterative deepening loop until requested to stop or the target depth is reached
     while (rootDepth + 1 < MAX_PLY && !threads.stop
            && !(limits.depth && mainThread && rootDepth >= limits.depth))

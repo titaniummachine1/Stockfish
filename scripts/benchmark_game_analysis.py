@@ -58,19 +58,21 @@ class RunResult:
     nps: int
 
 
-def parse_summary(stdout: str) -> tuple[int, int]:
-    """Return (nodes, wall_ms) from gameanalysis summary line."""
-    nodes = time_ms = 0
+def parse_summary(stdout: str) -> tuple[int, int, int]:
+    """Return (nodes, wall_ms, plies) from gameanalysis summary line."""
+    nodes = time_ms = plies = 0
     for line in stdout.splitlines():
         if "gameanalysis summary" not in line:
             continue
         parts = line.split()
         for i, tok in enumerate(parts):
+            if tok == "plies" and i + 1 < len(parts):
+                plies = int(parts[i + 1])
             if tok == "nodes" and i + 1 < len(parts):
                 nodes = int(parts[i + 1])
             if tok == "time" and i + 1 < len(parts):
                 time_ms = int(parts[i + 1])
-    return nodes, time_ms
+    return nodes, time_ms, plies
 
 
 def run_integrated(
@@ -105,10 +107,11 @@ def run_integrated(
     if p.returncode != 0:
         raise RuntimeError(f"integrated failed: {p.stderr or p.stdout}")
     out = p.stdout or ""
-    nodes, reported_ms = parse_summary(out)
+    nodes, reported_ms, plies = parse_summary(out)
     if reported_ms > 0:
         wall_ms = reported_ms
-    plies = len(moves) + 1
+    if plies <= 0:
+        plies = len(moves) + 1
     nps = (nodes * 1000 // wall_ms) if wall_ms else 0
     return RunResult("integrated", "", depth, multipv, plies, wall_ms, nodes, nps)
 
@@ -229,13 +232,14 @@ def run_integrated_pgn(
     wall_ms = int((time.perf_counter() - t0) * 1000)
     if p.returncode != 0:
         raise RuntimeError(f"integrated pgn failed: {p.stderr or p.stdout}")
-    nodes, reported_ms = parse_summary(p.stdout or "")
+    nodes, reported_ms, plies = parse_summary(p.stdout or "")
     if reported_ms > 0:
         wall_ms = reported_ms
-    # sample.pgn: 6 moves -> 7 plies
-    plies = 7
+    if plies <= 0:
+        raise RuntimeError("no gameanalysis summary in PGN run")
     nps = (nodes * 1000 // wall_ms) if wall_ms else 0
-    mode = "integrated_pgn_resume" if resume else "integrated_pgn_full_id"
+    suffix = {0: "full_id", 1: "legacy", 2: "smart"}.get(resume, str(resume))
+    mode = f"integrated_pgn_{suffix}"
     return RunResult(mode, pgn_path.stem, depth, multipv, plies, wall_ms, nodes, nps)
 
 
@@ -247,10 +251,15 @@ def run_case(exe: Path, case: dict) -> List[RunResult]:
     moves = case["moves"]
     results: List[RunResult] = []
 
-    r0 = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=1)
-    r0.case = name
-    r0.mode = "integrated_resume"
-    results.append(r0)
+    rSmart = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=2)
+    rSmart.case = name
+    rSmart.mode = "integrated_smart"
+    results.append(rSmart)
+
+    rLegacy = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=1)
+    rLegacy.case = name
+    rLegacy.mode = "integrated_legacy"
+    results.append(rLegacy)
 
     rFull = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=0)
     rFull.case = name
@@ -283,13 +292,15 @@ def format_table(rows: List[RunResult]) -> str:
         "|------|------|-------|-------|---------|---------|-------|-----|---------------|",
     ]
     for case, rs in by_case.items():
-        base = next((x for x in rs if x.mode == "integrated_resume"), None)
+        base = next((x for x in rs if x.mode == "integrated_smart"), None)
+        if not base:
+            base = next((x for x in rs if x.mode == "integrated_resume"), None)
         if not base:
             base = next((x for x in rs if x.mode == "integrated"), None)
         base_ms = base.wall_ms if base else 1
         for r in sorted(rs, key=lambda x: x.mode):
             ratio = f"{r.wall_ms / base_ms:.2f}x" if base and r.mode != "integrated" else "1.00x"
-            if r.mode in ("integrated", "integrated_resume"):
+            if r.mode in ("integrated", "integrated_resume", "integrated_smart"):
                 ratio = "baseline"
             lines.append(
                 f"| {case} | {r.mode} | {r.plies} | {r.depth} | {r.multipv} | "
@@ -325,12 +336,18 @@ def main() -> int:
     for pgn_path in sorted(corpus_dir.glob("*.pgn")):
         print(f"=== {pgn_path.name} (depth 10, multipv 1) ===")
         try:
+            rs = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=2)
             rp = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=1)
             rf = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=0)
-            all_results.extend([rp, rf])
-            print(f"  {rp.mode:22}  {rp.wall_ms:6} ms  nodes {rp.nodes:10}")
-            print(f"  {rf.mode:22}  {rf.wall_ms:6} ms  nodes {rf.nodes:10}  "
-                  f"({'%.0f%% nodes' % (100 * rp.nodes / rf.nodes) if rf.nodes else 'n/a'})")
+            all_results.extend([rs, rp, rf])
+            print(
+                f"  {rs.mode:28}  {rs.wall_ms:6} ms  nodes {rs.nodes:10}  plies {rs.plies}"
+            )
+            print(f"  {rp.mode:28}  {rp.wall_ms:6} ms  nodes {rp.nodes:10}")
+            print(
+                f"  {rf.mode:28}  {rf.wall_ms:6} ms  nodes {rf.nodes:10}  "
+                f"({'%.0f%% nodes vs full' % (100 * rs.nodes / rf.nodes) if rf.nodes else 'n/a'})"
+            )
         except Exception as e:
             print(f"  FAILED: {e}")
         print()
