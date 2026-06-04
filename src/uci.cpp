@@ -32,6 +32,7 @@
 
 #include "benchmark.h"
 #include "engine.h"
+#include "game_analysis.h"
 #include "memory.h"
 #include "movegen.h"
 #include "position.h"
@@ -148,6 +149,8 @@ void UCIEngine::loop() {
             sync_cout << engine.visualize() << sync_endl;
         else if (token == "eval")
             engine.trace_eval();
+        else if (token == "gameanalysis")
+            game_analysis(is);
         else if (token == "compiler")
             sync_cout << compiler_info() << sync_endl;
         else if (token == "export_net")
@@ -291,6 +294,22 @@ void UCIEngine::bench(std::istream& args) {
 
     // reset callback, to not capture a dangling reference to nodesSearched
     engine.set_on_update_full([&](const auto& i) { on_update_full(i, options["UCI_ShowWDL"]); });
+}
+
+void UCIEngine::game_analysis(std::istream& args) {
+    engine.wait_for_search_finished();
+
+    GameAnalysis::Options opts;
+    if (auto err = GameAnalysis::parse_options(args, opts))
+    {
+        print_info_string("gameanalysis error " + *err);
+        return;
+    }
+
+    if (auto err = GameAnalysis::run(engine, opts, {}))
+        print_info_string("gameanalysis error " + *err);
+
+    init_search_update_listeners();
 }
 
 void UCIEngine::benchmark(std::istream& args) {

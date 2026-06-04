@@ -85,6 +85,58 @@ class TestCLI(metaclass=OrderedClassMembers):
         self.stockfish = Stockfish("eval".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
+    def _gameanalysis_stdout(self):
+        return self.stockfish.process.stdout or ""
+
+    def test_gameanalysis_short(self):
+        self.stockfish = Stockfish(
+            "gameanalysis depth 8 startpos moves e2e4 e7e5".split(" "), True
+        )
+        assert self.stockfish.process.returncode == 0
+        out = self._gameanalysis_stdout()
+        assert "gameanalysis final" in out
+        assert "gameanalysis summary" in out
+        assert "gameanalysis grade" in out
+
+    def test_gameanalysis_multipv(self):
+        self.stockfish = Stockfish(
+            "gameanalysis depth 6 multipv 2 startpos moves e2e4".split(" "), True
+        )
+        assert self.stockfish.process.returncode == 0
+        out = self._gameanalysis_stdout()
+        assert out.count("multipv 1") >= 1
+        assert out.count("multipv 2") >= 1
+
+    def test_gameanalysis_file(self):
+        games = os.path.join(PATH, "game_analysis_games.txt")
+        self.stockfish = Stockfish(
+            f"gameanalysis depth 6 file {games}".split(" "), True
+        )
+        assert self.stockfish.process.returncode == 0
+        out = self._gameanalysis_stdout()
+        assert "gameanalysis summary" in out
+
+    def test_gameanalysis_cold_nodes(self):
+        moves = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")
+
+        def summary_nodes(args):
+            p = Stockfish(args, True)
+            assert p.process.returncode == 0
+            out = p.process.stdout or ""
+            for line in out.split("\n"):
+                if "gameanalysis summary" in line and "nodes" in line:
+                    parts = line.split()
+                    for i, tok in enumerate(parts):
+                        if tok == "nodes" and i + 1 < len(parts):
+                            return int(parts[i + 1])
+            return None
+
+        n0 = summary_nodes(moves + ["cold", "0"])
+        n1 = summary_nodes(moves + ["cold", "1"])
+        assert n0 is not None and n1 is not None
+        assert n0 <= n1
+        self.stockfish = Stockfish(moves + ["cold", "0"], True)
+
     def test_go_nodes_1000(self):
         self.stockfish = Stockfish("go nodes 1000".split(" "), True)
         assert self.stockfish.process.returncode == 0
