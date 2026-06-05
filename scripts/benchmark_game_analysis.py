@@ -217,8 +217,28 @@ def run_uci_loop(
     return RunResult(mode, "", depth, multipv, plies, wall_ms, total_nodes, nps)
 
 
+def load_pgn_start_fen_and_moves(pgn_path: Path) -> tuple[str, List[str]]:
+    import chess.pgn
+
+    with pgn_path.open(encoding="utf-8") as f:
+        game = chess.pgn.read_game(f)
+    if game is None:
+        raise ValueError(f"no game in {pgn_path}")
+    board = game.board()
+    fen = board.fen()
+    moves = [m.uci() for m in game.mainline_moves()]
+    return fen, moves
+
+
 def run_integrated_pgn(
-    exe: Path, pgn_path: Path, depth: int, multipv: int, resume: int = 1
+    exe: Path,
+    pgn_path: Path,
+    depth: int,
+    multipv: int,
+    resume: int = 1,
+    refine: int = 1,
+    strict: int = 0,
+    mode_name: str = "",
 ) -> RunResult:
     args = [
         str(exe),
@@ -228,8 +248,14 @@ def run_integrated_pgn(
         *thread_args(),
         "multipv",
         str(multipv),
+        "cold",
+        "0",
         "resume",
         str(resume),
+        "refine",
+        str(refine),
+        "strict",
+        str(strict),
         "pgn",
         str(pgn_path),
     ]
@@ -244,9 +270,83 @@ def run_integrated_pgn(
     if plies <= 0:
         raise RuntimeError("no gameanalysis summary in PGN run")
     nps = (nodes * 1000 // wall_ms) if wall_ms else 0
-    suffix = {0: "full_id", 1: "legacy", 2: "smart"}.get(resume, str(resume))
-    mode = f"integrated_pgn_{suffix}"
+    if mode_name:
+        mode = mode_name
+    else:
+        suffix = {0: "full_id", 1: "legacy", 2: "smart"}.get(resume, str(resume))
+        mode = f"integrated_pgn_{suffix}"
     return RunResult(mode, pgn_path.stem, depth, multipv, plies, wall_ms, nodes, nps)
+
+
+def run_pgn_case(exe: Path, pgn_path: Path, depth: int, multipv: int = 1) -> List[RunResult]:
+    """Full comparison: integrated parity/smart/full + naive UCI (ChessKit-style)."""
+    fen, moves = load_pgn_start_fen_and_moves(pgn_path)
+    name = pgn_path.stem
+    results: List[RunResult] = []
+
+    rParity = run_integrated_pgn(
+        exe,
+        pgn_path,
+        depth,
+        multipv,
+        resume=2,
+        refine=1,
+        strict=1,
+        mode_name="integrated_parity",
+    )
+    rParity.case = name
+    results.append(rParity)
+
+    rSmart = run_integrated_pgn(
+        exe,
+        pgn_path,
+        depth,
+        multipv,
+        resume=2,
+        refine=1,
+        strict=0,
+        mode_name="integrated_smart",
+    )
+    rSmart.case = name
+    results.append(rSmart)
+
+    rMerge = run_integrated_pgn(
+        exe,
+        pgn_path,
+        depth,
+        multipv,
+        resume=3,
+        refine=1,
+        strict=0,
+        mode_name="integrated_merge",
+    )
+    rMerge.case = name
+    results.append(rMerge)
+
+    rFull = run_integrated_pgn(
+        exe,
+        pgn_path,
+        depth,
+        multipv,
+        resume=0,
+        refine=0,
+        strict=0,
+        mode_name="integrated_full_id",
+    )
+    rFull.case = name
+    results.append(rFull)
+
+    rs = run_uci_loop(exe, fen, moves, depth, multipv, fresh_each_ply=False, cold=0)
+    rs.case = name
+    rs.mode = "uci_session"
+    results.append(rs)
+
+    rf = run_uci_loop(exe, fen, moves, depth, multipv, fresh_each_ply=True, cold=0)
+    rf.case = name
+    rf.mode = "uci_fresh"
+    results.append(rf)
+
+    return results
 
 
 def run_case(exe: Path, case: dict) -> List[RunResult]:
@@ -270,6 +370,13 @@ def run_case(exe: Path, case: dict) -> List[RunResult]:
     rSmart.case = name
     rSmart.mode = "integrated_smart"
     results.append(rSmart)
+
+    rMerge = run_integrated(
+        exe, fen, moves, depth, multipv, cold=0, resume=3, refine=1, strict=0
+    )
+    rMerge.case = name
+    rMerge.mode = "integrated_merge"
+    results.append(rMerge)
 
     rLegacy = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=1)
     rLegacy.case = name
@@ -331,6 +438,14 @@ def main() -> int:
     parser.add_argument("stockfish", type=Path, help="Path to stockfish binary")
     parser.add_argument("--json", type=Path, help="Write JSON results")
     parser.add_argument("--cases", type=str, default="", help="Comma-separated case names")
+    parser.add_argument(
+        "--pgn-only",
+        type=str,
+        default="",
+        help="Comma-separated PGN filenames in benchmark_corpus (empty = all)",
+    )
+    parser.add_argument("--pgn-depth", type=int, default=10, help="Depth for PGN corpus runs")
+    parser.add_argument("--skip-json", action="store_true", help="Only run PGN corpus")
     args = parser.parse_args()
 
     exe = args.stockfish.resolve()
@@ -347,27 +462,34 @@ def main() -> int:
     th = resolved_threads()
     print(f"Benchmark: {exe}")
     print(f"Threads: {th} (set STOCKFISH_THREADS or omit for all logical CPUs)")
-    print(f"Cases: {', '.join(g['name'] for g in games)}\n")
+    if not args.skip_json:
+        print(f"JSON cases: {', '.join(g['name'] for g in games)}")
+    print(f"PGN depth: {args.pgn_depth}\n")
 
     corpus_dir = ROOT / "tests" / "benchmark_corpus"
+    pgn_want = set(args.pgn_only.split(",")) if args.pgn_only else None
     for pgn_path in sorted(corpus_dir.glob("*.pgn")):
-        print(f"=== {pgn_path.name} (depth 10, multipv 1) ===")
+        if pgn_want and pgn_path.stem not in pgn_want and pgn_path.name not in pgn_want:
+            continue
+        print(f"=== {pgn_path.name} (depth {args.pgn_depth}, {pgn_path.stem}) ===")
         try:
-            rs = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=2)
-            rp = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=1)
-            rf = run_integrated_pgn(exe, pgn_path, depth=10, multipv=1, resume=0)
-            all_results.extend([rs, rp, rf])
-            print(
-                f"  {rs.mode:28}  {rs.wall_ms:6} ms  nodes {rs.nodes:10}  plies {rs.plies}"
-            )
-            print(f"  {rp.mode:28}  {rp.wall_ms:6} ms  nodes {rp.nodes:10}")
-            print(
-                f"  {rf.mode:28}  {rf.wall_ms:6} ms  nodes {rf.nodes:10}  "
-                f"({'%.0f%% nodes vs full' % (100 * rs.nodes / rf.nodes) if rf.nodes else 'n/a'})"
-            )
+            rows = run_pgn_case(exe, pgn_path, depth=args.pgn_depth, multipv=1)
+            all_results.extend(rows)
+            base = next((x for x in rows if x.mode == "integrated_smart"), rows[0])
+            for r in sorted(rows, key=lambda x: x.mode):
+                vs = "baseline" if r.mode == "integrated_smart" else f"{r.wall_ms / base.wall_ms:.2f}x"
+                if r.mode == "uci_session":
+                    vs = f"{r.wall_ms / base.wall_ms:.2f}x vs smart"
+                print(
+                    f"  {r.mode:22}  {r.wall_ms:6} ms  nodes {r.nodes:10}  "
+                    f"plies {r.plies}  {vs}"
+                )
         except Exception as e:
             print(f"  FAILED: {e}")
         print()
+
+    if args.skip_json:
+        games = []
 
     for game in games:
         print(f"=== {game['name']} (depth {game['depth']}, multipv {game.get('multipv',1)}) ===")

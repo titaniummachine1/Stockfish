@@ -329,11 +329,49 @@ bool Search::Worker::iterative_deepening() {
     if (limits.spineStrictParity)
         limits.startDepth = 1;
 
+    int spineLadderFloor = 0;
     if (limits.startDepth > 1)
     {
         const int target = limits.depth ? limits.depth : int(MAX_PLY) - 1;
         const int begin  = std::clamp(limits.startDepth, 1, target);
-        rootDepth        = begin - 1;
+        if (!limits.spineStrictParity)
+        {
+            // Virtual ladder: replay TT scores for depths 1..begin-1 (no nodes) so aspiration
+            // at the frontier matches a full ID chain as closely as possible.
+            for (int d = 1; d < begin; ++d)
+            {
+                auto [ttHit, ttData, ttWriter] = tt.probe(rootPos.key());
+                (void) ttWriter;
+                if (ttHit && limits.spineTtMinDepth > 0 && ttData.depth < limits.spineTtMinDepth)
+                    ttHit = false;
+                if (!ttHit || ttData.depth < d || ttData.depth == DEPTH_UNSEARCHED)
+                    break;
+
+                const Value ttValue =
+                  value_from_tt(ttData.value, ss->ply, rootPos.rule50_count());
+                if (!is_valid(ttValue))
+                    break;
+
+                spineLadderFloor = d;
+                for (RootMove& rm : rootMoves)
+                {
+                    rm.previousScore = ttValue;
+                    rm.averageScore    = ttValue;
+                    if (ttData.move && rm.pv[0] == ttData.move)
+                    {
+                        rm.score    = ttValue;
+                        rm.uciScore = ttValue;
+                    }
+                }
+                if (mainThread)
+                {
+                    mainThread->iterValue.fill(ttValue);
+                    mainThread->bestPreviousScore        = ttValue;
+                    mainThread->bestPreviousAverageScore = ttValue;
+                }
+            }
+        }
+        rootDepth = limits.spineStrictParity ? begin - 1 : spineLadderFloor;
     }
 
     if (!limits.spinePvOrder.empty())
@@ -349,6 +387,9 @@ bool Search::Worker::iterative_deepening() {
                              return rank_hint(a) < rank_hint(b);
                          });
     }
+
+    const bool spineTtSeeded =
+      !limits.spineStrictParity && limits.startDepth > 1 && spineLadderFloor >= limits.startDepth - 1;
 
     // Iterative deepening loop until requested to stop or the target depth is reached
     while (rootDepth + 1 < MAX_PLY && !threads.stop
@@ -391,12 +432,19 @@ bool Search::Worker::iterative_deepening() {
             // Reset aspiration window starting size
             delta     = 5 + threadIdx % 8 + std::abs(rootMoves[pvIdx].meanSquaredScore) / 10588;
             Value avg = rootMoves[pvIdx].averageScore;
-            // Frontier entry after skipped ID rungs: avoid asphyxiated windows (speed mode only).
+            // Frontier after skipped ID: wide window only when TT did not seed aspiration.
             if (!limits.spineStrictParity && limits.startDepth > 1 && rootDepth == limits.startDepth
-                && pvIdx == 0)
+                && pvIdx == 0 && !spineTtSeeded)
             {
                 alpha = -VALUE_INFINITE;
                 beta  = VALUE_INFINITE;
+            }
+            else if (!limits.spineStrictParity && limits.startDepth > 1
+                     && rootDepth == limits.startDepth && spineTtSeeded)
+            {
+                delta *= 2;
+                alpha = std::max(avg - delta, -VALUE_INFINITE);
+                beta  = std::min(avg + delta, VALUE_INFINITE);
             }
             else
             {

@@ -11,12 +11,13 @@
 | Flag | Summary `mode` | Meaning |
 |------|----------------|---------|
 | `strict 1` | `parity` | Full 1..D ID every ply; **resume shortcuts disabled**; matches `resume 0` scores @ 1 thread |
-| `strict 0` + `resume 2` | `resume` | Speed path: `startDepth` skip, `spinePvOrder`, TT breaks on off-PV |
+| `strict 0` + `resume 2` | `resume` | Speed: parent-policy `startDepth`, TT cap, `spinePvOrder` |
+| `strict 0` + `resume 3` | `resume` | Speed: merge — TT-primary skip + policy gates (default) |
 | `resume 0` | `full` | Reference spine (full ID, no resume policy) |
 
 `startdepth` in summary = max `startDepth` used on forward spine (1 = full ladder every ply).
 
-**Defaults:** `resume 2`, `refine 1`, `strict 0`, `cold 0`.
+**Defaults:** `resume 3` (merge), `refine 1`, `strict 0`, `cold 0`.
 
 Hosts needing depth-D parity: `gameanalysis depth D … strict 1` (optional `resume 2` — ignored for search path when strict).
 
@@ -37,7 +38,9 @@ python scripts/gameanalysis_quality.py src/stockfish.exe
 
 - `LimitsType.spineStrictParity` — forces `startDepth = 1` in [`search.cpp`](../src/search.cpp)
 - `strict 1` in gameanalysis — disables `useResume` (no skip, no `spinePvOrder`)
-- Speed only: frontier aspiration widen when `startDepth > 1` and not strict
+- **TT cap:** probe `spine_tt_depth()` at child before `go`; `startDepth ≤ ttDepth+1` (not blind `parent−1`)
+- **Virtual aspiration ladder:** replay TT scores for depths `1..startDepth−1` (zero nodes) before frontier search
+- **Frontier aspiration:** wide window if TT did not seed; `2× delta` if virtual ladder filled
 
 ## Benchmarks (8 threads, latest)
 
@@ -47,10 +50,12 @@ See [`scripts/benchmark_results/benchmark_latest.md`](../scripts/benchmark_resul
 |------|------|
 | `integrated_full_id` | Reference |
 | `integrated_parity` | Correctness (`strict 1`) |
-| `integrated_smart` | Speed (`strict 0`) — **not** same eval as full ID |
+| `integrated_merge` | Default speed (`resume 3`) |
+| `integrated_smart` | `resume 2` speed variant |
 | `uci_session` | External per-ply baseline |
 
-Example `opening_6` d10: parity 269 ms; smart 134 ms (~2× faster, ~55% nodes); uci_session 628 ms.
+PGN depth 10 vs `uci_session`: **1.3–2.5×** wall (merge); **~20–35%** fewer nodes on long games.  
+Still **~89 separate `go` calls** per game — major ceiling until single-spine `Search` refactor.
 
 ## Gated experiments (@ 1 thread, 3 min)
 
@@ -61,11 +66,11 @@ Example `opening_6` d10: parity 269 ms; smart 134 ms (~2× faster, ~55% nodes); 
 
 \*Quality CI uses strict 1; smart mode is not score-gated in CI.
 
-## Out of scope
+## Out of scope (next big wins)
 
-- Backward propagation changing per-ply eval meaning
-- Virtual TT / aspiration Strategy 1
-- Default `strict 1`
+- Single internal `go` / spine walk inside `Search` (drop per-ply thread sync)
+- TT-exact ply skip (`BOUND_EXACT` + `ttDepth ≥ D`) without full root search
+- Default `strict 1` for hosts needing depth-D parity without flag
 - Elo
 
 ## Reproduce

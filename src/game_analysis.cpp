@@ -195,8 +195,26 @@ int apply_resume_horizon_cap(int startDepth, int prev, int target, int horizon) 
     return std::min(startDepth, maxStart);
 }
 
+// TT depth d means ply d was stored; next ID rung to search is d+1 (capped at target).
+int start_depth_after_tt(int ttDepth, int target) {
+    if (ttDepth <= 0)
+        return 0;
+    if (ttDepth >= target)
+        return target;
+    return std::min(target, ttDepth + 1);
+}
+
+int cap_start_with_tt(int start, int ttDepth, int target) {
+    if (start <= 1)
+        return 1;
+    const int afterTt = start_depth_after_tt(ttDepth, target);
+    if (afterTt <= 0)
+        return 1;
+    return std::min(start, afterTt);
+}
+
 SpineStep compute_spine_step(const Options& opts, const PlyResult& parent,
-                             const std::string& enteredViaUci) {
+                             const std::string& enteredViaUci, int ttDepthAtRoot) {
     SpineStep step;
     if (opts.resume == 0 || opts.cold != 0)
         return step;
@@ -221,8 +239,20 @@ SpineStep compute_spine_step(const Options& opts, const PlyResult& parent,
         step.continueTt = false;
     }
 
-    step.startDepth =
-      apply_resume_horizon_cap(step.startDepth, prev, target, opts.resumeHorizon);
+    if (opts.resume >= 3 && step.continueTt)
+    {
+        const int evidence = std::max(prev, ttDepthAtRoot);
+        const int afterTt  = start_depth_after_tt(ttDepthAtRoot, target);
+        if (afterTt > 0)
+            step.startDepth = std::max(step.startDepth, afterTt);
+        step.startDepth =
+          apply_resume_horizon_cap(step.startDepth, evidence, target, opts.resumeHorizon);
+    }
+    else
+        step.startDepth =
+          apply_resume_horizon_cap(step.startDepth, prev, target, opts.resumeHorizon);
+
+    step.startDepth = cap_start_with_tt(step.startDepth, ttDepthAtRoot, target);
 
     // Depth-D eval must come from a full iterative deepening chain 1..D (same as naive go depth D).
     if (opts.strict)
@@ -236,7 +266,8 @@ int consolidate_start_depth(int targetDepth, int completedDepth, int ttDepth) {
         return 0;
     if (completedDepth >= targetDepth)
         return targetDepth;
-    return std::max(1, std::min(targetDepth, ttDepth));
+    const int afterTt = start_depth_after_tt(ttDepth, targetDepth);
+    return afterTt > 0 ? afterTt : 1;
 }
 
 std::vector<std::string> parent_pv_suffix(const PlyResult& parent, const std::string& via) {
@@ -260,11 +291,12 @@ std::optional<std::string> search_spine_ply(Engine& engine, const Options& opts,
                                             const GameSpec& game,
                                             const std::vector<std::string>& prefix,
                                             Search::LimitsType limits, PlyResult& out,
-                                            const PrintFn& printOut) {
+                                            const PrintFn& printOut, bool positionReady) {
     engine.wait_for_search_finished();
 
-    if (auto err = engine.set_position(game.fen, prefix))
-        return err->what();
+    if (!positionReady)
+        if (auto err = engine.set_position(game.fen, prefix))
+            return err->what();
 
     PlyAccumulator acc;
 
@@ -351,13 +383,21 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
     for (int gamePly = 0; gamePly < spinePlies; ++gamePly)
     {
         Search::LimitsType limits;
+        limits.startTime         = now();
         limits.spineContinueTt  = opts.cold == 0 && gamePly > 0;
         limits.spineStrictParity = opts.strict != 0;
+
+        engine.wait_for_search_finished();
+        if (auto err = engine.set_position(game.fen, prefix))
+            return err->what();
+
+        const int ttDepthAtRoot =
+          (opts.cold == 0 && gamePly > 0) ? engine.spine_tt_depth() : 0;
 
         if (useResume && previousPly && gamePly > 0)
         {
             const std::string& via  = game.moves[gamePly - 1];
-            const SpineStep    step = compute_spine_step(opts, *previousPly, via);
+            const SpineStep    step = compute_spine_step(opts, *previousPly, via, ttDepthAtRoot);
             limits.startDepth       = step.startDepth;
             if (!step.continueTt)
                 limits.spineContinueTt = false;
@@ -369,8 +409,9 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             {
                 std::ostringstream rs;
                 rs << "gameanalysis resume gameply " << gamePly << " startdepth "
-                   << limits.startDepth << " rank " << find_played_rank(*previousPly, via)
-                   << " cpl " << played_move_cpl(*previousPly, via);
+                   << limits.startDepth << " ttdepth " << ttDepthAtRoot << " rank "
+                   << find_played_rank(*previousPly, via) << " cpl "
+                   << played_move_cpl(*previousPly, via);
                 print(out, rs.str());
             }
         }
@@ -378,7 +419,8 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         maxSpineStartDepth = std::max(maxSpineStartDepth, std::max(1, limits.startDepth));
 
         PlyResult ply;
-        if (auto err = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
+        if (auto err =
+              search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out, true))
             return err;
 
         emit_final(ply, out);
@@ -436,6 +478,7 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             }
 
             Search::LimitsType limits;
+            limits.startTime          = now();
             limits.depth              = opts.depth;
             limits.startDepth         = start;
             limits.spineContinueTt    = true;
@@ -443,7 +486,8 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
             limits.spineStrictParity  = opts.strict != 0;
 
             PlyResult ply;
-            if (auto serr = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
+            if (auto serr =
+                  search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out, true))
                 return serr;
 
             consolidateNodes += ply.nodes;
