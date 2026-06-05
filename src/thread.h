@@ -21,6 +21,7 @@
 
 #include <atomic>
 #include <condition_variable>
+#include <mutex>
 #include <cstddef>
 #include <cstdint>
 #include <functional>
@@ -148,6 +149,9 @@ class ThreadPool {
     Thread*                get_best_thread() const;
     void                   start_searching();
     void                   wait_for_search_finished() const;
+    void                   sync_barrier();
+    void                   spine_record_move(Position& pos, Move m, std::string& outFen);
+    void                   spine_install_position(Search::Worker& worker, const std::string& fen);
 
     std::vector<size_t> get_bound_thread_to_numa_node() const;
     std::vector<size_t> get_bound_thread_count_by_numa_node() const;
@@ -168,6 +172,10 @@ class ThreadPool {
     StateListPtr                         setupStates;
     std::vector<std::unique_ptr<Thread>> threads;
     std::vector<NumaIndex>               boundThreadToNumaNode;
+    std::mutex           barrierMutex;
+    std::condition_variable barrierCv;
+    int                  barrierWaiting = 0;
+    int                  barrierGeneration = 0;
 
     uint64_t accumulate(std::atomic<uint64_t> Search::Worker::* member) const {
 

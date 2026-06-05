@@ -103,6 +103,7 @@ class Engine {
 
     // TT depth stored for the current position (0 if missing). Used by game-analysis consolidate.
     int spine_tt_depth() const;
+    int spine_tt_depth_at(const Position& p) const;
 
     std::string                            fen() const;
     void                                   flip();

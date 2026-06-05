@@ -1,0 +1,392 @@
+[
+  {
+    "mode": "integrated_pgn_smart",
+    "case": "club_1400",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 37,
+    "wall_ms": 1091,
+    "nodes": 1844971,
+    "nps": 1691082
+  },
+  {
+    "mode": "integrated_pgn_legacy",
+    "case": "club_1400",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 37,
+    "wall_ms": 1343,
+    "nodes": 1314003,
+    "nps": 978408
+  },
+  {
+    "mode": "integrated_pgn_full_id",
+    "case": "club_1400",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 37,
+    "wall_ms": 1122,
+    "nodes": 2015294,
+    "nps": 1796162
+  },
+  {
+    "mode": "integrated_pgn_smart",
+    "case": "gm_wijk_aan_zee",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 58,
+    "wall_ms": 1553,
+    "nodes": 2266706,
+    "nps": 1459566
+  },
+  {
+    "mode": "integrated_pgn_legacy",
+    "case": "gm_wijk_aan_zee",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 58,
+    "wall_ms": 1669,
+    "nodes": 1513401,
+    "nps": 906771
+  },
+  {
+    "mode": "integrated_pgn_full_id",
+    "case": "gm_wijk_aan_zee",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 58,
+    "wall_ms": 2488,
+    "nodes": 3910224,
+    "nps": 1571633
+  },
+  {
+    "mode": "integrated_pgn_smart",
+    "case": "rapid_600_style",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 526,
+    "nodes": 895703,
+    "nps": 1702857
+  },
+  {
+    "mode": "integrated_pgn_legacy",
+    "case": "rapid_600_style",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 629,
+    "nodes": 747301,
+    "nps": 1188077
+  },
+  {
+    "mode": "integrated_pgn_full_id",
+    "case": "rapid_600_style",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 715,
+    "nodes": 1338632,
+    "nps": 1872212
+  },
+  {
+    "mode": "integrated_smart",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 207,
+    "nodes": 376824,
+    "nps": 1820405
+  },
+  {
+    "mode": "integrated_legacy",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 232,
+    "nodes": 303029,
+    "nps": 1306159
+  },
+  {
+    "mode": "integrated_full_id",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 244,
+    "nodes": 301848,
+    "nps": 1237081
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 220,
+    "nodes": 366028,
+    "nps": 1663763
+  },
+  {
+    "mode": "uci_session",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 1543,
+    "nodes": 429763,
+    "nps": 278524
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "opening_6",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 7,
+    "wall_ms": 5885,
+    "nodes": 572207,
+    "nps": 97231
+  },
+  {
+    "mode": "integrated_smart",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 114,
+    "nodes": 128610,
+    "nps": 1128157
+  },
+  {
+    "mode": "integrated_legacy",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 58,
+    "nodes": 93604,
+    "nps": 1613862
+  },
+  {
+    "mode": "integrated_full_id",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 303,
+    "nodes": 285493,
+    "nps": 942221
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 79,
+    "nodes": 98286,
+    "nps": 1244126
+  },
+  {
+    "mode": "uci_session",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 663,
+    "nodes": 164550,
+    "nps": 248190
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "tactical_14",
+    "depth": 10,
+    "multipv": 1,
+    "plies": 2,
+    "wall_ms": 2344,
+    "nodes": 434368,
+    "nps": 185310
+  },
+  {
+    "mode": "integrated_smart",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 311,
+    "nodes": 1173901,
+    "nps": 3774601
+  },
+  {
+    "mode": "integrated_legacy",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 693,
+    "nodes": 909452,
+    "nps": 1312340
+  },
+  {
+    "mode": "integrated_full_id",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 275,
+    "nodes": 887039,
+    "nps": 3225596
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 287,
+    "nodes": 1143159,
+    "nps": 3983132
+  },
+  {
+    "mode": "uci_session",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 1352,
+    "nodes": 792054,
+    "nps": 585838
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "endgame_8",
+    "depth": 12,
+    "multipv": 1,
+    "plies": 5,
+    "wall_ms": 4428,
+    "nodes": 1023746,
+    "nps": 231198
+  },
+  {
+    "mode": "integrated_smart",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 276,
+    "nodes": 408027,
+    "nps": 1478358
+  },
+  {
+    "mode": "integrated_legacy",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 323,
+    "nodes": 382314,
+    "nps": 1183634
+  },
+  {
+    "mode": "integrated_full_id",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 255,
+    "nodes": 589228,
+    "nps": 2310698
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 288,
+    "nodes": 536382,
+    "nps": 1862437
+  },
+  {
+    "mode": "uci_session",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 597,
+    "nodes": 599938,
+    "nps": 1004921
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "opening_6_multipv3",
+    "depth": 8,
+    "multipv": 3,
+    "plies": 7,
+    "wall_ms": 3299,
+    "nodes": 639924,
+    "nps": 193975
+  },
+  {
+    "mode": "integrated_smart",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 198,
+    "nodes": 408178,
+    "nps": 2061505
+  },
+  {
+    "mode": "integrated_legacy",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 236,
+    "nodes": 358903,
+    "nps": 1520775
+  },
+  {
+    "mode": "integrated_full_id",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 209,
+    "nodes": 455904,
+    "nps": 2181358
+  },
+  {
+    "mode": "integrated_cold1",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 152,
+    "nodes": 378334,
+    "nps": 2489039
+  },
+  {
+    "mode": "uci_session",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 675,
+    "nodes": 430863,
+    "nps": 638315
+  },
+  {
+    "mode": "uci_fresh",
+    "case": "long_20",
+    "depth": 8,
+    "multipv": 1,
+    "plies": 21,
+    "wall_ms": 9945,
+    "nodes": 762336,
+    "nps": 76655
+  }
+]

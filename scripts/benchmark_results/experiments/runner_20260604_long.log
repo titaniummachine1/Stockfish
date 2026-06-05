@@ -1,0 +1,2206 @@
+Experiments until 10.0h — log C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\experiment_20260604_111708.jsonl
+
+=== Round 1 ===
+  opening_6 r0 h2: 99ms 217031n
+  tactical_14 r0 h2: 118ms 219550n
+  endgame_8 r0 h2: 486ms 1566193n
+  opening_6_multipv3 r0 h2: 345ms 578203n
+  long_20 r0 h2: 242ms 518102n
+  club_1400 r0 h2: 1338ms 2221619n
+  gm_wijk_aan_zee r0 h2: 3634ms 5866512n
+  rapid_600_style r0 h2: 1080ms 1647762n
+  opening_6 r2 h2: 347ms 377520n
+  tactical_14 r2 h2: 266ms 281793n
+  endgame_8 r2 h2: 238ms 820569n
+  opening_6_multipv3 r2 h2: 495ms 542851n
+  long_20 r2 h2: 292ms 457076n
+  club_1400 r2 h2: 1372ms 1806969n
+  gm_wijk_aan_zee r2 h2: 1990ms 2804808n
+  rapid_600_style r2 h2: 828ms 899276n
+  opening_6 r2 h3: 158ms 312093n
+  tactical_14 r2 h3: 84ms 91393n
+  endgame_8 r2 h3: 195ms 752666n
+  opening_6_multipv3 r2 h3: 344ms 557416n
+  long_20 r2 h3: 481ms 432663n
+  club_1400 r2 h3: 1420ms 2219069n
+  gm_wijk_aan_zee r2 h3: 1774ms 2803455n
+  rapid_600_style r2 h3: 585ms 1019662n
+  opening_6 r2 h4: 276ms 446878n
+  tactical_14 r2 h4: 126ms 222705n
+  endgame_8 r2 h4: 213ms 789191n
+  opening_6_multipv3 r2 h4: 350ms 492703n
+  long_20 r2 h4: 224ms 385180n
+  club_1400 r2 h4: 1199ms 1986254n
+  gm_wijk_aan_zee r2 h4: 1980ms 3138876n
+  rapid_600_style r2 h4: 769ms 1182923n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1119 ms  nodes    1789954  plies 37
+  integrated_pgn_legacy           1066 ms  nodes    1268914
+  integrated_pgn_full_id          1176 ms  nodes    1860397  (96% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1254 ms  nodes    1874795  plies 58
+  integrated_pgn_legacy           1221 ms  nodes    1422569
+  integrated_pgn_full_id          2720 ms  nodes    3756887  (50% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             638 ms  nodes     897859  plies 21
+  integrated_pgn_legacy            530 ms  nodes     718351
+  integrated_pgn_full_id           679 ms  nodes    1311964  (68% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     181 ms  nodes     344433  nps    1902944
+  integrated_legacy     152 ms  nodes     220572  nps    1451131
+  integrated_full_id     108 ms  nodes     251669  nps    2330268
+  integrated_cold1     139 ms  nodes     318557  nps    2291776
+  uci_session          829 ms  nodes     317702  nps     383235
+  uci_fresh           8063 ms  nodes     572004  nps      70941
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart      87 ms  nodes     137909  nps    1585160
+  integrated_legacy      57 ms  nodes      86303  nps    1514087
+  integrated_full_id      40 ms  nodes      83015  nps    2075375
+  integrated_cold1      73 ms  nodes     134707  nps    1845301
+  uci_session          666 ms  nodes     121428  nps     182324
+  uci_fresh           1105 ms  nodes     131585  nps     119081
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     168 ms  nodes     667434  nps    3972821
+  integrated_legacy     291 ms  nodes     663153  nps    2278876
+  integrated_full_id     427 ms  nodes     894116  nps    2093948
+  integrated_cold1     248 ms  nodes     893598  nps    3603217
+  uci_session         1353 ms  nodes    1230026  nps     909110
+  uci_fresh           6397 ms  nodes    1435733  nps     224438
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     368 ms  nodes     449232  nps    1220739
+  integrated_legacy     292 ms  nodes     419633  nps    1437099
+  integrated_full_id     337 ms  nodes     552140  nps    1638397
+  integrated_cold1     286 ms  nodes     446333  nps    1560604
+  uci_session         1273 ms  nodes     606675  nps     476571
+  uci_fresh           4779 ms  nodes     786361  nps     164545
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     235 ms  nodes     396984  nps    1689293
+  integrated_legacy     312 ms  nodes     343345  nps    1100464
+  integrated_full_id     201 ms  nodes     460521  nps    2291149
+  integrated_cold1     214 ms  nodes     492432  nps    2301084
+  uci_session          631 ms  nodes     388629  nps     615893
+  uci_fresh          11012 ms  nodes     787926  nps      71551
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1176 | 1860397 | 1581970 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1066 | 1268914 | 1190350 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1119 | 1789954 | 1599601 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2720 | 3756887 | 1381208 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1221 | 1422569 | 1165085 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 1254 | 1874795 | 1495051 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 679 | 1311964 | 1932200 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 530 | 718351 | 1355379 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 638 | 897859 | 1407302 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 139 | 318557 | 2291776 | 0.77x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 108 | 251669 | 2330268 | 0.60x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 152 | 220572 | 1451131 | 0.84x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 181 | 344433 | 1902944 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 8063 | 572004 | 70941 | 44.55x |
+| opening_6 | uci_session | 7 | 10 | 1 | 829 | 317702 | 383235 | 4.58x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 73 | 134707 | 1845301 | 0.84x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 40 | 83015 | 2075375 | 0.46x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 57 | 86303 | 1514087 | 0.66x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 87 | 137909 | 1585160 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1105 | 131585 | 119081 | 12.70x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 666 | 121428 | 182324 | 7.66x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 248 | 893598 | 3603217 | 1.48x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 427 | 894116 | 2093948 | 2.54x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 291 | 663153 | 2278876 | 1.73x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 168 | 667434 | 3972821 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 6397 | 1435733 | 224438 | 38.08x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 1353 | 1230026 | 909110 | 8.05x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 286 | 446333 | 1560604 | 0.78x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 337 | 552140 | 1638397 | 0.92x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 292 | 419633 | 1437099 | 0.79x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 368 | 449232 | 1220739 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 4779 | 786361 | 164545 | 12.99x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 1273 | 606675 | 476571 | 3.46x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 214 | 492432 | 2301084 | 0.91x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 201 | 460521 | 2291149 | 0.86x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 312 | 343345 | 1100464 | 1.33x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 235 | 396984 | 1689293 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 11012 | 787926 | 71551 | 46.86x |
+| long_20 | uci_session | 21 | 8 | 1 | 631 | 388629 | 615893 | 2.69x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_131929.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0001.json
+
+=== Round 2 ===
+  opening_6 r0 h2: 94ms 222437n
+  tactical_14 r0 h2: 123ms 254263n
+  endgame_8 r0 h2: 313ms 1228588n
+  opening_6_multipv3 r0 h2: 270ms 480923n
+  long_20 r0 h2: 265ms 474570n
+  club_1400 r0 h2: 867ms 1626469n
+  gm_wijk_aan_zee r0 h2: 3764ms 6188904n
+  rapid_600_style r0 h2: 650ms 1226257n
+  opening_6 r2 h2: 187ms 288603n
+  tactical_14 r2 h2: 43ms 76063n
+  endgame_8 r2 h2: 244ms 985364n
+  opening_6_multipv3 r2 h2: 292ms 454583n
+  long_20 r2 h2: 241ms 402329n
+  club_1400 r2 h2: 1016ms 1686436n
+  gm_wijk_aan_zee r2 h2: 1547ms 2372013n
+  rapid_600_style r2 h2: 392ms 654959n
+  opening_6 r2 h3: 294ms 532340n
+  tactical_14 r2 h3: 59ms 104178n
+  endgame_8 r2 h3: 187ms 844938n
+  opening_6_multipv3 r2 h3: 310ms 549799n
+  long_20 r2 h3: 283ms 438684n
+  club_1400 r2 h3: 1200ms 1887762n
+  gm_wijk_aan_zee r2 h3: 1573ms 2354103n
+  rapid_600_style r2 h3: 532ms 774484n
+  opening_6 r2 h4: 215ms 373139n
+  tactical_14 r2 h4: 70ms 101968n
+  endgame_8 r2 h4: 180ms 694864n
+  opening_6_multipv3 r2 h4: 408ms 618560n
+  long_20 r2 h4: 517ms 520437n
+  club_1400 r2 h4: 1430ms 2001000n
+  gm_wijk_aan_zee r2 h4: 2400ms 3396311n
+  rapid_600_style r2 h4: 1022ms 1175261n
+
+=== Round 3 ===
+  opening_6 r0 h2: 166ms 341903n
+  tactical_14 r0 h2: 72ms 132525n
+  endgame_8 r0 h2: 224ms 787998n
+  opening_6_multipv3 r0 h2: 199ms 477369n
+  long_20 r0 h2: 253ms 546720n
+  club_1400 r0 h2: 1161ms 2191747n
+  gm_wijk_aan_zee r0 h2: 1798ms 2955462n
+  rapid_600_style r0 h2: 584ms 1205431n
+  opening_6 r2 h2: 155ms 311618n quality=50%
+  tactical_14 r2 h2: 28ms 52924n
+  endgame_8 r2 h2: 177ms 669040n
+  opening_6_multipv3 r2 h2: 367ms 546918n
+  long_20 r2 h2: 292ms 319550n
+  club_1400 r2 h2: 1975ms 2060740n
+  gm_wijk_aan_zee r2 h2: 1897ms 2387468n
+  rapid_600_style r2 h2: 459ms 768925n
+  opening_6 r2 h3: 189ms 296298n quality=100%
+  tactical_14 r2 h3: 114ms 201660n
+  endgame_8 r2 h3: 441ms 859106n
+  opening_6_multipv3 r2 h3: 322ms 545963n
+  long_20 r2 h3: 440ms 434143n
+  club_1400 r2 h3: 1554ms 1866715n
+  gm_wijk_aan_zee r2 h3: 2038ms 3458159n
+  rapid_600_style r2 h3: 824ms 1255547n
+  opening_6 r2 h4: 156ms 309605n quality=67%
+  tactical_14 r2 h4: 56ms 100968n
+  endgame_8 r2 h4: 174ms 671956n
+  opening_6_multipv3 r2 h4: 303ms 468289n
+  long_20 r2 h4: 348ms 543866n
+  club_1400 r2 h4: 1825ms 2668714n
+  gm_wijk_aan_zee r2 h4: 1699ms 2257759n
+  rapid_600_style r2 h4: 1139ms 1326523n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1091 ms  nodes    1844971  plies 37
+  integrated_pgn_legacy           1343 ms  nodes    1314003
+  integrated_pgn_full_id          1122 ms  nodes    2015294  (92% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1553 ms  nodes    2266706  plies 58
+  integrated_pgn_legacy           1669 ms  nodes    1513401
+  integrated_pgn_full_id          2488 ms  nodes    3910224  (58% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             526 ms  nodes     895703  plies 21
+  integrated_pgn_legacy            629 ms  nodes     747301
+  integrated_pgn_full_id           715 ms  nodes    1338632  (67% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     207 ms  nodes     376824  nps    1820405
+  integrated_legacy     232 ms  nodes     303029  nps    1306159
+  integrated_full_id     244 ms  nodes     301848  nps    1237081
+  integrated_cold1     220 ms  nodes     366028  nps    1663763
+  uci_session         1543 ms  nodes     429763  nps     278524
+  uci_fresh           5885 ms  nodes     572207  nps      97231
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     114 ms  nodes     128610  nps    1128157
+  integrated_legacy      58 ms  nodes      93604  nps    1613862
+  integrated_full_id     303 ms  nodes     285493  nps     942221
+  integrated_cold1      79 ms  nodes      98286  nps    1244126
+  uci_session          663 ms  nodes     164550  nps     248190
+  uci_fresh           2344 ms  nodes     434368  nps     185310
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     311 ms  nodes    1173901  nps    3774601
+  integrated_legacy     693 ms  nodes     909452  nps    1312340
+  integrated_full_id     275 ms  nodes     887039  nps    3225596
+  integrated_cold1     287 ms  nodes    1143159  nps    3983132
+  uci_session         1352 ms  nodes     792054  nps     585838
+  uci_fresh           4428 ms  nodes    1023746  nps     231198
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     276 ms  nodes     408027  nps    1478358
+  integrated_legacy     323 ms  nodes     382314  nps    1183634
+  integrated_full_id     255 ms  nodes     589228  nps    2310698
+  integrated_cold1     288 ms  nodes     536382  nps    1862437
+  uci_session          597 ms  nodes     599938  nps    1004921
+  uci_fresh           3299 ms  nodes     639924  nps     193975
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     198 ms  nodes     408178  nps    2061505
+  integrated_legacy     236 ms  nodes     358903  nps    1520775
+  integrated_full_id     209 ms  nodes     455904  nps    2181358
+  integrated_cold1     152 ms  nodes     378334  nps    2489039
+  uci_session          675 ms  nodes     430863  nps     638315
+  uci_fresh           9945 ms  nodes     762336  nps      76655
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1122 | 2015294 | 1796162 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1343 | 1314003 | 978408 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1091 | 1844971 | 1691082 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2488 | 3910224 | 1571633 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1669 | 1513401 | 906771 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 1553 | 2266706 | 1459566 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 715 | 1338632 | 1872212 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 629 | 747301 | 1188077 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 526 | 895703 | 1702857 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 220 | 366028 | 1663763 | 1.06x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 244 | 301848 | 1237081 | 1.18x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 232 | 303029 | 1306159 | 1.12x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 207 | 376824 | 1820405 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 5885 | 572207 | 97231 | 28.43x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1543 | 429763 | 278524 | 7.45x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 79 | 98286 | 1244126 | 0.69x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 303 | 285493 | 942221 | 2.66x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 58 | 93604 | 1613862 | 0.51x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 114 | 128610 | 1128157 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 2344 | 434368 | 185310 | 20.56x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 663 | 164550 | 248190 | 5.82x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 287 | 1143159 | 3983132 | 0.92x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 275 | 887039 | 3225596 | 0.88x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 693 | 909452 | 1312340 | 2.23x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 311 | 1173901 | 3774601 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 4428 | 1023746 | 231198 | 14.24x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 1352 | 792054 | 585838 | 4.35x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 288 | 536382 | 1862437 | 1.04x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 255 | 589228 | 2310698 | 0.92x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 323 | 382314 | 1183634 | 1.17x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 276 | 408027 | 1478358 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 3299 | 639924 | 193975 | 11.95x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 597 | 599938 | 1004921 | 2.16x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 152 | 378334 | 2489039 | 0.77x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 209 | 455904 | 2181358 | 1.06x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 236 | 358903 | 1520775 | 1.19x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 198 | 408178 | 2061505 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 9945 | 762336 | 76655 | 50.23x |
+| long_20 | uci_session | 21 | 8 | 1 | 675 | 430863 | 638315 | 3.41x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_132242.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0003.json
+
+=== Round 4 ===
+  opening_6 r0 h2: 111ms 283865n
+  tactical_14 r0 h2: 123ms 271588n
+  endgame_8 r0 h2: 208ms 839040n
+  opening_6_multipv3 r0 h2: 164ms 483629n
+  long_20 r0 h2: 147ms 380270n
+  club_1400 r0 h2: 740ms 1764456n
+  gm_wijk_aan_zee r0 h2: 1767ms 3855719n
+  rapid_600_style r0 h2: 483ms 1198154n
+  opening_6 r2 h2: 209ms 328176n
+  tactical_14 r2 h2: 61ms 145521n
+  endgame_8 r2 h2: 371ms 1735139n
+  opening_6_multipv3 r2 h2: 210ms 379314n
+  long_20 r2 h2: 195ms 401787n
+  club_1400 r2 h2: 891ms 1833344n
+  gm_wijk_aan_zee r2 h2: 1224ms 2386698n
+  rapid_600_style r2 h2: 424ms 886523n
+  opening_6 r2 h3: 150ms 313845n
+  tactical_14 r2 h3: 96ms 171984n
+  endgame_8 r2 h3: 191ms 744701n
+  opening_6_multipv3 r2 h3: 231ms 475099n
+  long_20 r2 h3: 256ms 451563n
+  club_1400 r2 h3: 1049ms 1947689n
+  gm_wijk_aan_zee r2 h3: 1763ms 2931723n
+  rapid_600_style r2 h3: 502ms 864068n
+  opening_6 r2 h4: 202ms 411457n
+  tactical_14 r2 h4: 88ms 152331n
+  endgame_8 r2 h4: 614ms 1356786n
+  opening_6_multipv3 r2 h4: 414ms 457965n
+  long_20 r2 h4: 266ms 415290n
+  club_1400 r2 h4: 1351ms 2146080n
+  gm_wijk_aan_zee r2 h4: 2103ms 2855776n
+  rapid_600_style r2 h4: 728ms 1133769n
+
+=== Round 5 ===
+  opening_6 r0 h2: 340ms 418281n
+  tactical_14 r0 h2: 58ms 95884n
+  endgame_8 r0 h2: 316ms 946554n
+  opening_6_multipv3 r0 h2: 225ms 507379n
+  long_20 r0 h2: 213ms 433510n
+  club_1400 r0 h2: 897ms 1878812n
+  gm_wijk_aan_zee r0 h2: 2866ms 4548349n
+  rapid_600_style r0 h2: 570ms 1042396n
+  opening_6 r2 h2: 196ms 334333n
+  tactical_14 r2 h2: 96ms 136596n
+  endgame_8 r2 h2: 217ms 729233n
+  opening_6_multipv3 r2 h2: 392ms 514437n
+  long_20 r2 h2: 307ms 422470n
+  club_1400 r2 h2: 1421ms 1979739n
+  gm_wijk_aan_zee r2 h2: 2832ms 3749722n
+  rapid_600_style r2 h2: 718ms 996391n
+  opening_6 r2 h3: 320ms 571555n
+  tactical_14 r2 h3: 39ms 69991n
+  endgame_8 r2 h3: 280ms 799896n
+  opening_6_multipv3 r2 h3: 532ms 570830n
+  long_20 r2 h3: 448ms 444799n
+  club_1400 r2 h3: 1580ms 2038563n
+  gm_wijk_aan_zee r2 h3: 2503ms 3293722n
+  rapid_600_style r2 h3: 695ms 1016404n
+  opening_6 r2 h4: 194ms 313846n
+  tactical_14 r2 h4: 115ms 173886n
+  endgame_8 r2 h4: 272ms 1007149n
+  opening_6_multipv3 r2 h4: 375ms 541894n
+  long_20 r2 h4: 269ms 394271n
+  club_1400 r2 h4: 1336ms 1967309n
+  gm_wijk_aan_zee r2 h4: 2620ms 2839392n
+  rapid_600_style r2 h4: 651ms 963470n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1111 ms  nodes    1644489  plies 37
+  integrated_pgn_legacy           1082 ms  nodes    1154820
+  integrated_pgn_full_id          1060 ms  nodes    1958741  (84% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1453 ms  nodes    2038876  plies 58
+  integrated_pgn_legacy           2163 ms  nodes    1741216
+  integrated_pgn_full_id          4813 ms  nodes    5645020  (36% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             539 ms  nodes     896605  plies 21
+  integrated_pgn_legacy            433 ms  nodes     560596
+  integrated_pgn_full_id           518 ms  nodes    1098167  (82% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     136 ms  nodes     243167  nps    1787992
+  integrated_legacy     123 ms  nodes     192307  nps    1563471
+  integrated_full_id     277 ms  nodes     520075  nps    1877527
+  integrated_cold1     284 ms  nodes     444923  nps    1566630
+  uci_session         1324 ms  nodes     442697  nps     334363
+  uci_fresh           5890 ms  nodes     600425  nps     101939
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart      62 ms  nodes     103702  nps    1672612
+  integrated_legacy      32 ms  nodes      45443  nps    1420093
+  integrated_full_id     197 ms  nodes     172567  nps     875974
+  integrated_cold1      94 ms  nodes     133090  nps    1415851
+  uci_session         1780 ms  nodes     180229  nps     101252
+  uci_fresh           1928 ms  nodes     226846  nps     117658
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     163 ms  nodes     628632  nps    3856638
+  integrated_legacy     343 ms  nodes     661247  nps    1927833
+  integrated_full_id     692 ms  nodes    1223244  nps    1767693
+  integrated_cold1     357 ms  nodes    1021329  nps    2860865
+  uci_session         2872 ms  nodes     898887  nps     312982
+  uci_fresh           8218 ms  nodes    1491690  nps     181514
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     504 ms  nodes     519909  nps    1031565
+  integrated_legacy     298 ms  nodes     418389  nps    1403989
+  integrated_full_id     326 ms  nodes     665321  nps    2040861
+  integrated_cold1     266 ms  nodes     638603  nps    2400763
+  uci_session          899 ms  nodes     458410  nps     509911
+  uci_fresh           4277 ms  nodes     621273  nps     145259
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     222 ms  nodes     383429  nps    1727157
+  integrated_legacy     246 ms  nodes     339002  nps    1378056
+  integrated_full_id     176 ms  nodes     396748  nps    2254250
+  integrated_cold1     173 ms  nodes     373298  nps    2157791
+  uci_session          818 ms  nodes     464999  nps     568458
+  uci_fresh          13270 ms  nodes     847167  nps      63840
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1060 | 1958741 | 1847868 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1082 | 1154820 | 1067301 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1111 | 1644489 | 1480188 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 4813 | 5645020 | 1172869 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 2163 | 1741216 | 805000 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 1453 | 2038876 | 1403218 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 518 | 1098167 | 2120013 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 433 | 560596 | 1294678 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 539 | 896605 | 1663460 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 284 | 444923 | 1566630 | 2.09x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 277 | 520075 | 1877527 | 2.04x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 123 | 192307 | 1563471 | 0.90x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 136 | 243167 | 1787992 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 5890 | 600425 | 101939 | 43.31x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1324 | 442697 | 334363 | 9.74x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 94 | 133090 | 1415851 | 1.52x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 197 | 172567 | 875974 | 3.18x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 32 | 45443 | 1420093 | 0.52x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 62 | 103702 | 1672612 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1928 | 226846 | 117658 | 31.10x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 1780 | 180229 | 101252 | 28.71x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 357 | 1021329 | 2860865 | 2.19x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 692 | 1223244 | 1767693 | 4.25x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 343 | 661247 | 1927833 | 2.10x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 163 | 628632 | 3856638 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 8218 | 1491690 | 181514 | 50.42x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 2872 | 898887 | 312982 | 17.62x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 266 | 638603 | 2400763 | 0.53x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 326 | 665321 | 2040861 | 0.65x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 298 | 418389 | 1403989 | 0.59x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 504 | 519909 | 1031565 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 4277 | 621273 | 145259 | 8.49x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 899 | 458410 | 509911 | 1.78x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 173 | 373298 | 2157791 | 0.78x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 176 | 396748 | 2254250 | 0.79x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 246 | 339002 | 1378056 | 1.11x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 222 | 383429 | 1727157 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 13270 | 847167 | 63840 | 59.77x |
+| long_20 | uci_session | 21 | 8 | 1 | 818 | 464999 | 568458 | 3.68x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_132611.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0005.json
+
+=== Round 6 ===
+  opening_6 r0 h2: 156ms 331724n
+  tactical_14 r0 h2: 68ms 129291n
+  endgame_8 r0 h2: 248ms 863629n
+  opening_6_multipv3 r0 h2: 311ms 646071n
+  long_20 r0 h2: 377ms 497824n
+  club_1400 r0 h2: 1385ms 2281128n
+  gm_wijk_aan_zee r0 h2: 2322ms 3522024n
+  rapid_600_style r0 h2: 806ms 1333877n
+  opening_6 r2 h2: 181ms 345777n quality=83%
+  tactical_14 r2 h2: 65ms 134006n
+  endgame_8 r2 h2: 163ms 680181n
+  opening_6_multipv3 r2 h2: 287ms 458463n
+  long_20 r2 h2: 401ms 431979n
+  club_1400 r2 h2: 1382ms 1954906n
+  gm_wijk_aan_zee r2 h2: 1686ms 2361877n
+  rapid_600_style r2 h2: 919ms 1130863n
+  opening_6 r2 h3: 176ms 280167n quality=83%
+  tactical_14 r2 h3: 60ms 114426n
+  endgame_8 r2 h3: 257ms 1032599n
+  opening_6_multipv3 r2 h3: 351ms 579449n
+  long_20 r2 h3: 218ms 353339n
+  club_1400 r2 h3: 1277ms 2111607n
+  gm_wijk_aan_zee r2 h3: 2332ms 2951183n
+  rapid_600_style r2 h3: 733ms 1120623n
+  opening_6 r2 h4: 195ms 288561n quality=100%
+  tactical_14 r2 h4: 166ms 239220n
+  endgame_8 r2 h4: 649ms 1405112n
+  opening_6_multipv3 r2 h4: 320ms 495167n
+  long_20 r2 h4: 319ms 451167n
+  club_1400 r2 h4: 1505ms 2312573n
+  gm_wijk_aan_zee r2 h4: 3059ms 3803321n
+  rapid_600_style r2 h4: 684ms 1026978n
+
+=== Round 7 ===
+  opening_6 r0 h2: 108ms 258363n
+  tactical_14 r0 h2: 66ms 124488n
+  endgame_8 r0 h2: 188ms 772103n
+  opening_6_multipv3 r0 h2: 237ms 546074n
+  long_20 r0 h2: 152ms 335644n
+  club_1400 r0 h2: 1026ms 2079205n
+  gm_wijk_aan_zee r0 h2: 2413ms 3545499n
+  rapid_600_style r0 h2: 615ms 1263820n
+  opening_6 r2 h2: 162ms 278898n
+  tactical_14 r2 h2: 135ms 252158n
+  endgame_8 r2 h2: 264ms 968620n
+  opening_6_multipv3 r2 h2: 501ms 582793n
+  long_20 r2 h2: 432ms 430027n
+  club_1400 r2 h2: 2135ms 2088434n
+  gm_wijk_aan_zee r2 h2: 2340ms 2160414n
+  rapid_600_style r2 h2: 1449ms 1195555n
+  opening_6 r2 h3: 411ms 651525n
+  tactical_14 r2 h3: 162ms 330501n
+  endgame_8 r2 h3: 188ms 781890n
+  opening_6_multipv3 r2 h3: 387ms 615862n
+  long_20 r2 h3: 293ms 418410n
+  club_1400 r2 h3: 1244ms 1832039n
+  gm_wijk_aan_zee r2 h3: 1888ms 2449319n
+  rapid_600_style r2 h3: 605ms 1028237n
+  opening_6 r2 h4: 261ms 397127n
+  FAIL tactical_14 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL endgame_8 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL opening_6_multipv3 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL long_20 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL club_1400.pgn: [WinError 2] The system cannot find the file specified
+  FAIL gm_wijk_aan_zee.pgn: [WinError 2] The system cannot find the file specified
+  FAIL rapid_600_style.pgn: [WinError 2] The system cannot find the file specified
+
+=== Round 8 ===
+  FAIL opening_6 r0 h2: [WinError 2] The system cannot find the file specified
+  FAIL tactical_14 r0 h2: [WinError 2] The system cannot find the file specified
+  FAIL endgame_8 r0 h2: [WinError 2] The system cannot find the file specified
+  FAIL opening_6_multipv3 r0 h2: [WinError 2] The system cannot find the file specified
+  FAIL long_20 r0 h2: [WinError 2] The system cannot find the file specified
+  FAIL club_1400.pgn: [WinError 2] The system cannot find the file specified
+  FAIL gm_wijk_aan_zee.pgn: [WinError 2] The system cannot find the file specified
+  FAIL rapid_600_style.pgn: [WinError 2] The system cannot find the file specified
+  FAIL opening_6 r2 h2: [WinError 2] The system cannot find the file specified
+  FAIL tactical_14 r2 h2: [WinError 2] The system cannot find the file specified
+  FAIL endgame_8 r2 h2: [WinError 2] The system cannot find the file specified
+  FAIL opening_6_multipv3 r2 h2: [WinError 2] The system cannot find the file specified
+  FAIL long_20 r2 h2: [WinError 2] The system cannot find the file specified
+  FAIL club_1400.pgn: [WinError 2] The system cannot find the file specified
+  FAIL gm_wijk_aan_zee.pgn: [WinError 2] The system cannot find the file specified
+  FAIL rapid_600_style.pgn: [WinError 2] The system cannot find the file specified
+  FAIL opening_6 r2 h3: [WinError 2] The system cannot find the file specified
+  FAIL tactical_14 r2 h3: [WinError 2] The system cannot find the file specified
+  FAIL endgame_8 r2 h3: [WinError 2] The system cannot find the file specified
+  FAIL opening_6_multipv3 r2 h3: [WinError 2] The system cannot find the file specified
+  FAIL long_20 r2 h3: [WinError 2] The system cannot find the file specified
+  FAIL club_1400.pgn: [WinError 2] The system cannot find the file specified
+  FAIL gm_wijk_aan_zee.pgn: [WinError 2] The system cannot find the file specified
+  FAIL rapid_600_style.pgn: [WinError 2] The system cannot find the file specified
+  FAIL opening_6 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL tactical_14 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL endgame_8 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL opening_6_multipv3 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL long_20 r2 h4: [WinError 2] The system cannot find the file specified
+  FAIL club_1400.pgn: [WinError 2] The system cannot find the file specified
+  FAIL gm_wijk_aan_zee.pgn: [WinError 2] The system cannot find the file specified
+  FAIL rapid_600_style.pgn: [WinError 2] The system cannot find the file specified
+
+=== Round 9 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== opening_6 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== tactical_14 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== endgame_8 (depth 12, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== long_20 (depth 8, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_132831.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0009.json
+
+=== Round 10 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+
+=== Round 11 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== opening_6 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== tactical_14 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== endgame_8 (depth 12, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== long_20 (depth 8, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_132842.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0011.json
+
+=== Round 12 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+
+=== Round 13 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+
+=== opening_6 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== tactical_14 (depth 10, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== endgame_8 (depth 12, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+=== long_20 (depth 8, multipv 1) ===
+  FAILED: [WinError 193] %1 is not a valid Win32 application
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_132852.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0013.json
+
+=== Round 14 ===
+  FAIL opening_6 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r0 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h2: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h3: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL tactical_14 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL endgame_8 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL opening_6_multipv3 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL long_20 r2 h4: [WinError 193] %1 is not a valid Win32 application
+  FAIL club_1400.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL gm_wijk_aan_zee.pgn: [WinError 193] %1 is not a valid Win32 application
+  FAIL rapid_600_style.pgn: [WinError 193] %1 is not a valid Win32 application
+
+=== Round 15 ===
+  opening_6 r0 h2: 472ms 433482n
+  tactical_14 r0 h2: 61ms 126110n
+  endgame_8 r0 h2: 199ms 664405n
+  opening_6_multipv3 r0 h2: 212ms 492125n
+  long_20 r0 h2: 222ms 399949n
+  club_1400 r0 h2: 1599ms 2111468n
+  gm_wijk_aan_zee r0 h2: 4037ms 4713093n
+  rapid_600_style r0 h2: 881ms 1123766n
+  opening_6 r2 h2: 240ms 371772n quality=100%
+  tactical_14 r2 h2: 49ms 87717n
+  endgame_8 r2 h2: 295ms 999175n
+  opening_6_multipv3 r2 h2: 246ms 355204n
+  long_20 r2 h2: 310ms 433793n
+  club_1400 r2 h2: 1603ms 1877264n
+  gm_wijk_aan_zee r2 h2: 2287ms 3198819n
+  rapid_600_style r2 h2: 738ms 906936n
+  opening_6 r2 h3: 380ms 398061n quality=83%
+  tactical_14 r2 h3: 201ms 208580n
+  endgame_8 r2 h3: 481ms 1009995n
+  opening_6_multipv3 r2 h3: 442ms 471756n
+  long_20 r2 h3: 321ms 352659n
+  club_1400 r2 h3: 1215ms 1884064n
+  gm_wijk_aan_zee r2 h3: 1858ms 2285186n
+  rapid_600_style r2 h3: 770ms 1073938n
+  opening_6 r2 h4: 247ms 430303n quality=67%
+  tactical_14 r2 h4: 199ms 229626n
+  endgame_8 r2 h4: 471ms 698267n
+  opening_6_multipv3 r2 h4: 253ms 393789n
+  long_20 r2 h4: 352ms 573611n
+  club_1400 r2 h4: 1942ms 2079882n
+  gm_wijk_aan_zee r2 h4: 2510ms 3148179n
+  rapid_600_style r2 h4: 851ms 1020289n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1615 ms  nodes    1928220  plies 37
+  integrated_pgn_legacy           1803 ms  nodes    1243630
+  integrated_pgn_full_id          2104 ms  nodes    2181698  (88% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2868 ms  nodes    3074926  plies 58
+  integrated_pgn_legacy           1759 ms  nodes    1659889
+  integrated_pgn_full_id          2844 ms  nodes    4176927  (74% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             754 ms  nodes     988740  plies 21
+  integrated_pgn_legacy            547 ms  nodes     622360
+  integrated_pgn_full_id           928 ms  nodes    1121766  (88% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     350 ms  nodes     409648  nps    1170422
+  integrated_legacy     307 ms  nodes     272592  nps     887921
+  integrated_full_id     396 ms  nodes     435329  nps    1099315
+  integrated_cold1     308 ms  nodes     369810  nps    1200681
+  uci_session         1145 ms  nodes     385133  nps     336360
+  uci_fresh           5951 ms  nodes     627533  nps     105450
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     130 ms  nodes     195183  nps    1501407
+  integrated_legacy     279 ms  nodes     308210  nps    1104695
+  integrated_full_id      59 ms  nodes      86862  nps    1472237
+  integrated_cold1      87 ms  nodes     125609  nps    1443781
+  uci_session         1106 ms  nodes      84665  nps      76550
+  uci_fresh           1747 ms  nodes      82158  nps      47028
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     426 ms  nodes     881318  nps    2068821
+  integrated_legacy     404 ms  nodes     589644  nps    1459514
+  integrated_full_id     429 ms  nodes    1088573  nps    2537466
+  integrated_cold1     366 ms  nodes    1095246  nps    2992475
+  uci_session         1502 ms  nodes     967788  nps     644332
+  uci_fresh           4276 ms  nodes     921754  nps     215564
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     354 ms  nodes     538131  nps    1520144
+  integrated_legacy     314 ms  nodes     449100  nps    1430254
+  integrated_full_id     256 ms  nodes     561431  nps    2193089
+  integrated_cold1     210 ms  nodes     462237  nps    2201128
+  uci_session         1010 ms  nodes     465308  nps     460700
+  uci_fresh           6519 ms  nodes     632253  nps      96986
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     346 ms  nodes     369686  nps    1068456
+  integrated_legacy     362 ms  nodes     312070  nps     862071
+  integrated_full_id     312 ms  nodes     439598  nps    1408967
+  integrated_cold1     300 ms  nodes     423122  nps    1410406
+  uci_session         1049 ms  nodes     410702  nps     391517
+  uci_fresh          14672 ms  nodes     926996  nps      63181
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 2104 | 2181698 | 1036928 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1803 | 1243630 | 689755 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1615 | 1928220 | 1193944 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2844 | 4176927 | 1468680 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1759 | 1659889 | 943654 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2868 | 3074926 | 1072149 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 928 | 1121766 | 1208799 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 547 | 622360 | 1137769 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 754 | 988740 | 1311326 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 308 | 369810 | 1200681 | 0.88x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 396 | 435329 | 1099315 | 1.13x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 307 | 272592 | 887921 | 0.88x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 350 | 409648 | 1170422 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 5951 | 627533 | 105450 | 17.00x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1145 | 385133 | 336360 | 3.27x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 87 | 125609 | 1443781 | 0.67x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 59 | 86862 | 1472237 | 0.45x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 279 | 308210 | 1104695 | 2.15x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 130 | 195183 | 1501407 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1747 | 82158 | 47028 | 13.44x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 1106 | 84665 | 76550 | 8.51x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 366 | 1095246 | 2992475 | 0.86x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 429 | 1088573 | 2537466 | 1.01x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 404 | 589644 | 1459514 | 0.95x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 426 | 881318 | 2068821 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 4276 | 921754 | 215564 | 10.04x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 1502 | 967788 | 644332 | 3.53x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 210 | 462237 | 2201128 | 0.59x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 256 | 561431 | 2193089 | 0.72x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 314 | 449100 | 1430254 | 0.89x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 354 | 538131 | 1520144 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 6519 | 632253 | 96986 | 18.42x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 1010 | 465308 | 460700 | 2.85x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 300 | 423122 | 1410406 | 0.87x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 312 | 439598 | 1408967 | 0.90x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 362 | 312070 | 862071 | 1.05x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 346 | 369686 | 1068456 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 14672 | 926996 | 63181 | 42.40x |
+| long_20 | uci_session | 21 | 8 | 1 | 1049 | 410702 | 391517 | 3.03x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_133204.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0015.json
+
+=== Round 16 ===
+  opening_6 r0 h2: 229ms 337042n
+  tactical_14 r0 h2: 132ms 125864n
+  endgame_8 r0 h2: 187ms 728168n
+  opening_6_multipv3 r0 h2: 368ms 514472n
+  long_20 r0 h2: 201ms 410008n
+  club_1400 r0 h2: 1291ms 2053526n
+  gm_wijk_aan_zee r0 h2: 2678ms 4014672n
+  rapid_600_style r0 h2: 759ms 1249191n
+  opening_6 r2 h2: 266ms 382236n
+  tactical_14 r2 h2: 93ms 155079n
+  endgame_8 r2 h2: 356ms 919158n
+  opening_6_multipv3 r2 h2: 764ms 579346n
+  long_20 r2 h2: 431ms 374374n
+  club_1400 r2 h2: 1145ms 1732589n
+  gm_wijk_aan_zee r2 h2: 2111ms 2482566n
+  rapid_600_style r2 h2: 712ms 967708n
+  opening_6 r2 h3: 220ms 369977n
+  tactical_14 r2 h3: 176ms 304679n
+  endgame_8 r2 h3: 201ms 696806n
+  opening_6_multipv3 r2 h3: 323ms 460032n
+  long_20 r2 h3: 332ms 493506n
+  club_1400 r2 h3: 1488ms 1919151n
+  gm_wijk_aan_zee r2 h3: 2461ms 2998182n
+  rapid_600_style r2 h3: 633ms 963526n
+  opening_6 r2 h4: 261ms 444863n
+  tactical_14 r2 h4: 69ms 116094n
+  endgame_8 r2 h4: 246ms 861486n
+  opening_6_multipv3 r2 h4: 305ms 453706n
+  long_20 r2 h4: 369ms 579721n
+  club_1400 r2 h4: 1412ms 2032619n
+  gm_wijk_aan_zee r2 h4: 3685ms 3597727n
+  rapid_600_style r2 h4: 1545ms 1168256n
+
+=== Round 17 ===
+  opening_6 r0 h2: 187ms 420678n
+  tactical_14 r0 h2: 79ms 145579n
+  endgame_8 r0 h2: 450ms 1335554n
+  opening_6_multipv3 r0 h2: 289ms 534641n
+  long_20 r0 h2: 242ms 442367n
+  club_1400 r0 h2: 1454ms 2316895n
+  gm_wijk_aan_zee r0 h2: 3651ms 4597280n
+  rapid_600_style r0 h2: 1035ms 1268310n
+  opening_6 r2 h2: 300ms 337511n
+  tactical_14 r2 h2: 168ms 275135n
+  endgame_8 r2 h2: 337ms 1245764n
+  opening_6_multipv3 r2 h2: 438ms 544121n
+  long_20 r2 h2: 299ms 393320n
+  club_1400 r2 h2: 1283ms 1942887n
+  gm_wijk_aan_zee r2 h2: 2176ms 2833873n
+  rapid_600_style r2 h2: 800ms 992028n
+  opening_6 r2 h3: 466ms 376567n
+  tactical_14 r2 h3: 116ms 229742n
+  endgame_8 r2 h3: 287ms 622363n
+  opening_6_multipv3 r2 h3: 439ms 566214n
+  long_20 r2 h3: 277ms 431712n
+  club_1400 r2 h3: 1641ms 1842581n
+  gm_wijk_aan_zee r2 h3: 2010ms 2421993n
+  rapid_600_style r2 h3: 753ms 926906n
+  opening_6 r2 h4: 566ms 417862n
+  tactical_14 r2 h4: 131ms 154597n
+  endgame_8 r2 h4: 646ms 1369971n
+  opening_6_multipv3 r2 h4: 457ms 488444n
+  long_20 r2 h4: 344ms 449297n
+  club_1400 r2 h4: 1714ms 2183163n
+  gm_wijk_aan_zee r2 h4: 2340ms 2849417n
+  rapid_600_style r2 h4: 717ms 1080031n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1586 ms  nodes    1895794  plies 37
+  integrated_pgn_legacy           1833 ms  nodes    1449715
+  integrated_pgn_full_id          2336 ms  nodes    2277693  (83% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2264 ms  nodes    2096077  plies 58
+  integrated_pgn_legacy           1511 ms  nodes    1300308
+  integrated_pgn_full_id          5069 ms  nodes    5604688  (37% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             824 ms  nodes     868301  plies 21
+  integrated_pgn_legacy           1285 ms  nodes     834075
+  integrated_pgn_full_id           785 ms  nodes    1413130  (61% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     154 ms  nodes     293803  nps    1907811
+  integrated_legacy     170 ms  nodes     213352  nps    1255011
+  integrated_full_id     300 ms  nodes     371338  nps    1237793
+  integrated_cold1     340 ms  nodes     373067  nps    1097255
+  uci_session          944 ms  nodes     449587  nps     476257
+  uci_fresh           6094 ms  nodes     660811  nps     108436
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     129 ms  nodes     240426  nps    1863767
+  integrated_legacy      75 ms  nodes      76415  nps    1018866
+  integrated_full_id      32 ms  nodes      51898  nps    1621812
+  integrated_cold1      94 ms  nodes     141065  nps    1500691
+  uci_session          970 ms  nodes     203446  nps     209738
+  uci_fresh           1767 ms  nodes     285624  nps     161643
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     365 ms  nodes     763390  nps    2091479
+  integrated_legacy     791 ms  nodes    1161726  nps    1468680
+  integrated_full_id     539 ms  nodes    1245834  nps    2311380
+  integrated_cold1     542 ms  nodes    1091116  nps    2013129
+  uci_session         1293 ms  nodes     862147  nps     666780
+  uci_fresh           4307 ms  nodes    1271010  nps     295103
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     244 ms  nodes     325070  nps    1332254
+  integrated_legacy     386 ms  nodes     452162  nps    1171404
+  integrated_full_id     228 ms  nodes     500442  nps    2194921
+  integrated_cold1     207 ms  nodes     483696  nps    2336695
+  uci_session          877 ms  nodes     573755  nps     654224
+  uci_fresh           5998 ms  nodes     642965  nps     107196
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     270 ms  nodes     380012  nps    1407451
+  integrated_legacy     257 ms  nodes     319618  nps    1243649
+  integrated_full_id     160 ms  nodes     335181  nps    2094881
+  integrated_cold1     219 ms  nodes     489250  nps    2234018
+  uci_session          880 ms  nodes     378145  nps     429710
+  uci_fresh          15466 ms  nodes     803853  nps      51975
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 2336 | 2277693 | 975039 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1833 | 1449715 | 790897 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1586 | 1895794 | 1195330 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 5069 | 5604688 | 1105679 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1511 | 1300308 | 860561 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2264 | 2096077 | 925829 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 785 | 1413130 | 1800165 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 1285 | 834075 | 649085 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 824 | 868301 | 1053763 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 340 | 373067 | 1097255 | 2.21x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 300 | 371338 | 1237793 | 1.95x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 170 | 213352 | 1255011 | 1.10x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 154 | 293803 | 1907811 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 6094 | 660811 | 108436 | 39.57x |
+| opening_6 | uci_session | 7 | 10 | 1 | 944 | 449587 | 476257 | 6.13x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 94 | 141065 | 1500691 | 0.73x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 32 | 51898 | 1621812 | 0.25x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 75 | 76415 | 1018866 | 0.58x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 129 | 240426 | 1863767 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1767 | 285624 | 161643 | 13.70x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 970 | 203446 | 209738 | 7.52x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 542 | 1091116 | 2013129 | 1.48x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 539 | 1245834 | 2311380 | 1.48x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 791 | 1161726 | 1468680 | 2.17x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 365 | 763390 | 2091479 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 4307 | 1271010 | 295103 | 11.80x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 1293 | 862147 | 666780 | 3.54x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 207 | 483696 | 2336695 | 0.85x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 228 | 500442 | 2194921 | 0.93x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 386 | 452162 | 1171404 | 1.58x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 244 | 325070 | 1332254 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 5998 | 642965 | 107196 | 24.58x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 877 | 573755 | 654224 | 3.59x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 219 | 489250 | 2234018 | 0.81x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 160 | 335181 | 2094881 | 0.59x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 257 | 319618 | 1243649 | 0.95x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 270 | 380012 | 1407451 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 15466 | 803853 | 51975 | 57.28x |
+| long_20 | uci_session | 21 | 8 | 1 | 880 | 378145 | 429710 | 3.26x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_133615.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0017.json
+
+=== Round 18 ===
+  opening_6 r0 h2: 315ms 405048n
+  tactical_14 r0 h2: 60ms 80314n
+  endgame_8 r0 h2: 387ms 877986n
+  opening_6_multipv3 r0 h2: 348ms 521238n
+  long_20 r0 h2: 274ms 471548n
+  club_1400 r0 h2: 1603ms 2346883n
+  gm_wijk_aan_zee r0 h2: 4038ms 6292836n
+  rapid_600_style r0 h2: 962ms 1187126n
+  opening_6 r2 h2: 655ms 402839n quality=50%
+  tactical_14 r2 h2: 225ms 351668n
+  endgame_8 r2 h2: 264ms 893893n
+  opening_6_multipv3 r2 h2: 437ms 468452n
+  long_20 r2 h2: 384ms 433162n
+  club_1400 r2 h2: 1425ms 1679695n
+  gm_wijk_aan_zee r2 h2: 2308ms 2604651n
+  rapid_600_style r2 h2: 1164ms 1060075n
+  opening_6 r2 h3: 401ms 345388n quality=67%
+  tactical_14 r2 h3: 131ms 122058n
+  endgame_8 r2 h3: 279ms 1000171n
+  opening_6_multipv3 r2 h3: 539ms 507220n
+  long_20 r2 h3: 268ms 403592n
+  club_1400 r2 h3: 1613ms 2135701n
+  gm_wijk_aan_zee r2 h3: 2407ms 2799050n
+  rapid_600_style r2 h3: 967ms 1122455n
+  opening_6 r2 h4: 173ms 350753n quality=67%
+  tactical_14 r2 h4: 133ms 227246n
+  endgame_8 r2 h4: 190ms 658417n
+  opening_6_multipv3 r2 h4: 403ms 507428n
+  long_20 r2 h4: 471ms 468349n
+  club_1400 r2 h4: 1789ms 2126496n
+  gm_wijk_aan_zee r2 h4: 2218ms 2863804n
+  rapid_600_style r2 h4: 774ms 1202275n
+
+=== Round 19 ===
+  opening_6 r0 h2: 174ms 352423n
+  tactical_14 r0 h2: 298ms 278335n
+  endgame_8 r0 h2: 241ms 921839n
+  opening_6_multipv3 r0 h2: 288ms 444090n
+  long_20 r0 h2: 239ms 481575n
+  club_1400 r0 h2: 1432ms 2332297n
+  gm_wijk_aan_zee r0 h2: 2704ms 3692882n
+  rapid_600_style r0 h2: 672ms 1221589n
+  opening_6 r2 h2: 195ms 303997n
+  tactical_14 r2 h2: 72ms 96625n
+  endgame_8 r2 h2: 571ms 1312837n
+  opening_6_multipv3 r2 h2: 496ms 414917n
+  long_20 r2 h2: 224ms 377812n
+  club_1400 r2 h2: 1240ms 1754862n
+  gm_wijk_aan_zee r2 h2: 1591ms 2343819n
+  rapid_600_style r2 h2: 821ms 943121n
+  opening_6 r2 h3: 361ms 366754n
+  tactical_14 r2 h3: 189ms 202981n
+  endgame_8 r2 h3: 423ms 853323n
+  opening_6_multipv3 r2 h3: 698ms 590182n
+  long_20 r2 h3: 462ms 457844n
+  club_1400 r2 h3: 1881ms 1822656n
+  gm_wijk_aan_zee r2 h3: 2831ms 2735939n
+  rapid_600_style r2 h3: 940ms 1047303n
+  opening_6 r2 h4: 199ms 364846n
+  tactical_14 r2 h4: 31ms 57053n
+  endgame_8 r2 h4: 340ms 937364n
+  opening_6_multipv3 r2 h4: 356ms 559822n
+  long_20 r2 h4: 293ms 471108n
+  club_1400 r2 h4: 1940ms 2201534n
+  gm_wijk_aan_zee r2 h4: 3367ms 3454486n
+  rapid_600_style r2 h4: 1162ms 1017073n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1823 ms  nodes    2049000  plies 37
+  integrated_pgn_legacy           1466 ms  nodes    1389129
+  integrated_pgn_full_id          1711 ms  nodes    2083947  (98% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2506 ms  nodes    2813785  plies 58
+  integrated_pgn_legacy           1697 ms  nodes    1410897
+  integrated_pgn_full_id          2922 ms  nodes    4378521  (64% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1294 ms  nodes     957197  plies 21
+  integrated_pgn_legacy            858 ms  nodes     708188
+  integrated_pgn_full_id          1021 ms  nodes    1243487  (77% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     247 ms  nodes     432519  nps    1751089
+  integrated_legacy     126 ms  nodes     201846  nps    1601952
+  integrated_full_id     166 ms  nodes     344245  nps    2073765
+  integrated_cold1     237 ms  nodes     468935  nps    1978628
+  uci_session         1003 ms  nodes     377054  nps     375926
+  uci_fresh           5151 ms  nodes     765113  nps     148536
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart      55 ms  nodes     102612  nps    1865672
+  integrated_legacy      77 ms  nodes     120950  nps    1570779
+  integrated_full_id      81 ms  nodes      76695  nps     946851
+  integrated_cold1      74 ms  nodes     133460  nps    1803513
+  uci_session          695 ms  nodes      57014  nps      82034
+  uci_fresh           1528 ms  nodes     117572  nps      76945
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     267 ms  nodes     807954  nps    3026044
+  integrated_legacy     158 ms  nodes     448787  nps    2840424
+  integrated_full_id     357 ms  nodes     908990  nps    2546190
+  integrated_cold1     282 ms  nodes     627066  nps    2223638
+  uci_session         1290 ms  nodes    1004187  nps     778439
+  uci_fresh           3840 ms  nodes    1006997  nps     262238
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     230 ms  nodes     333831  nps    1451439
+  integrated_legacy     285 ms  nodes     411224  nps    1442891
+  integrated_full_id     413 ms  nodes     628685  nps    1522239
+  integrated_cold1     408 ms  nodes     557731  nps    1366987
+  uci_session         1054 ms  nodes     454025  nps     430763
+  uci_fresh           5300 ms  nodes     758598  nps     143131
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     244 ms  nodes     386343  nps    1583372
+  integrated_legacy     287 ms  nodes     349433  nps    1217536
+  integrated_full_id     180 ms  nodes     406550  nps    2258611
+  integrated_cold1     258 ms  nodes     425484  nps    1649162
+  uci_session         1108 ms  nodes     425677  nps     384185
+  uci_fresh          13653 ms  nodes     887274  nps      64987
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1711 | 2083947 | 1217970 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1466 | 1389129 | 947564 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1823 | 2049000 | 1123971 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2922 | 4378521 | 1498467 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1697 | 1410897 | 831406 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2506 | 2813785 | 1122819 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 1021 | 1243487 | 1217910 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 858 | 708188 | 825393 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 1294 | 957197 | 739719 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 237 | 468935 | 1978628 | 0.96x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 166 | 344245 | 2073765 | 0.67x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 126 | 201846 | 1601952 | 0.51x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 247 | 432519 | 1751089 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 5151 | 765113 | 148536 | 20.85x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1003 | 377054 | 375926 | 4.06x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 74 | 133460 | 1803513 | 1.35x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 81 | 76695 | 946851 | 1.47x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 77 | 120950 | 1570779 | 1.40x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 55 | 102612 | 1865672 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1528 | 117572 | 76945 | 27.78x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 695 | 57014 | 82034 | 12.64x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 282 | 627066 | 2223638 | 1.06x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 357 | 908990 | 2546190 | 1.34x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 158 | 448787 | 2840424 | 0.59x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 267 | 807954 | 3026044 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 3840 | 1006997 | 262238 | 14.38x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 1290 | 1004187 | 778439 | 4.83x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 408 | 557731 | 1366987 | 1.77x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 413 | 628685 | 1522239 | 1.80x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 285 | 411224 | 1442891 | 1.24x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 230 | 333831 | 1451439 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 5300 | 758598 | 143131 | 23.04x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 1054 | 454025 | 430763 | 4.58x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 258 | 425484 | 1649162 | 1.06x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 180 | 406550 | 2258611 | 0.74x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 287 | 349433 | 1217536 | 1.18x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 244 | 386343 | 1583372 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 13653 | 887274 | 64987 | 55.95x |
+| long_20 | uci_session | 21 | 8 | 1 | 1108 | 425677 | 384185 | 4.54x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_134025.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0019.json
+
+=== Round 20 ===
+  opening_6 r0 h2: 150ms 352885n
+  tactical_14 r0 h2: 103ms 157998n
+  endgame_8 r0 h2: 324ms 928796n
+  opening_6_multipv3 r0 h2: 210ms 487396n
+  long_20 r0 h2: 279ms 520301n
+  club_1400 r0 h2: 1045ms 1903955n
+  gm_wijk_aan_zee r0 h2: 3309ms 4307001n
+  rapid_600_style r0 h2: 1094ms 1109161n
+  opening_6 r2 h2: 288ms 326812n
+  tactical_14 r2 h2: 98ms 176466n
+  endgame_8 r2 h2: 343ms 1126462n
+  opening_6_multipv3 r2 h2: 455ms 527535n
+  long_20 r2 h2: 237ms 324765n
+  club_1400 r2 h2: 1921ms 1974120n
+  gm_wijk_aan_zee r2 h2: 1790ms 2124756n
+  rapid_600_style r2 h2: 663ms 996146n
+  opening_6 r2 h3: 408ms 410264n
+  tactical_14 r2 h3: 125ms 173128n
+  endgame_8 r2 h3: 255ms 862049n
+  opening_6_multipv3 r2 h3: 340ms 529148n
+  long_20 r2 h3: 259ms 427464n
+  club_1400 r2 h3: 1375ms 1821086n
+  gm_wijk_aan_zee r2 h3: 4185ms 4752374n
+  rapid_600_style r2 h3: 727ms 907192n
+  opening_6 r2 h4: 139ms 249214n
+  tactical_14 r2 h4: 156ms 181526n
+  endgame_8 r2 h4: 207ms 708515n
+  opening_6_multipv3 r2 h4: 421ms 505591n
+  long_20 r2 h4: 461ms 569128n
+  club_1400 r2 h4: 1634ms 2225678n
+  gm_wijk_aan_zee r2 h4: 4143ms 4374550n
+  rapid_600_style r2 h4: 1055ms 890461n
+
+=== Round 21 ===
+  opening_6 r0 h2: 306ms 493830n
+  tactical_14 r0 h2: 51ms 107104n
+  endgame_8 r0 h2: 491ms 1813842n
+  opening_6_multipv3 r0 h2: 230ms 522996n
+  long_20 r0 h2: 298ms 533970n
+  club_1400 r0 h2: 1396ms 2102876n
+  gm_wijk_aan_zee r0 h2: 3211ms 3994583n
+  rapid_600_style r0 h2: 574ms 1008760n
+  opening_6 r2 h2: 192ms 245349n quality=67%
+  tactical_14 r2 h2: 64ms 103283n
+  endgame_8 r2 h2: 238ms 803083n
+  opening_6_multipv3 r2 h2: 230ms 375487n
+  long_20 r2 h2: 215ms 334776n
+  club_1400 r2 h2: 1061ms 1710104n
+  gm_wijk_aan_zee r2 h2: 1999ms 2257864n
+  rapid_600_style r2 h2: 785ms 956365n
+  opening_6 r2 h3: 245ms 356834n quality=100%
+  tactical_14 r2 h3: 171ms 244340n
+  endgame_8 r2 h3: 408ms 1004696n
+  opening_6_multipv3 r2 h3: 485ms 602490n
+  long_20 r2 h3: 318ms 424142n
+  club_1400 r2 h3: 2204ms 2246681n
+  gm_wijk_aan_zee r2 h3: 2887ms 2713999n
+  rapid_600_style r2 h3: 845ms 1024325n
+  opening_6 r2 h4: 306ms 379034n quality=100%
+  tactical_14 r2 h4: 80ms 107328n
+  endgame_8 r2 h4: 327ms 1124178n
+  opening_6_multipv3 r2 h4: 425ms 583168n
+  long_20 r2 h4: 518ms 470648n
+  club_1400 r2 h4: 2554ms 2342295n
+  gm_wijk_aan_zee r2 h4: 3639ms 4215678n
+  rapid_600_style r2 h4: 1856ms 1659029n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1943 ms  nodes    2387023  plies 37
+  integrated_pgn_legacy           1546 ms  nodes    1404374
+  integrated_pgn_full_id          1460 ms  nodes    1821298  (131% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2434 ms  nodes    2510882  plies 58
+  integrated_pgn_legacy           2388 ms  nodes    1594449
+  integrated_pgn_full_id          2747 ms  nodes    3975666  (63% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             583 ms  nodes     914979  plies 21
+  integrated_pgn_legacy            626 ms  nodes     695841
+  integrated_pgn_full_id           825 ms  nodes    1361837  (67% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     413 ms  nodes     437623  nps    1059619
+  integrated_legacy     210 ms  nodes     215157  nps    1024557
+  integrated_full_id     181 ms  nodes     408022  nps    2254265
+  integrated_cold1     173 ms  nodes     319871  nps    1848965
+  uci_session          678 ms  nodes     486326  nps     717294
+  uci_fresh           6535 ms  nodes     674714  nps     103246
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     175 ms  nodes     202000  nps    1154285
+  integrated_legacy     102 ms  nodes      75754  nps     742686
+  integrated_full_id     127 ms  nodes     120791  nps     951110
+  integrated_cold1     209 ms  nodes     285996  nps    1368401
+  uci_session          643 ms  nodes     164917  nps     256480
+  uci_fresh           2000 ms  nodes      78140  nps      39070
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     393 ms  nodes     758335  nps    1929605
+  integrated_legacy     671 ms  nodes     842857  nps    1256120
+  integrated_full_id     215 ms  nodes     773305  nps    3596767
+  integrated_cold1     271 ms  nodes     757890  nps    2796642
+  uci_session          969 ms  nodes     854707  nps     882050
+  uci_fresh           5202 ms  nodes    1744848  nps     335418
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     340 ms  nodes     464508  nps    1366200
+  integrated_legacy     284 ms  nodes     395879  nps    1393940
+  integrated_full_id     257 ms  nodes     601791  nps    2341599
+  integrated_cold1     216 ms  nodes     533455  nps    2469699
+  uci_session         1043 ms  nodes     565652  nps     542331
+  uci_fresh           6024 ms  nodes     657089  nps     109078
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     300 ms  nodes     390649  nps    1302163
+  integrated_legacy     335 ms  nodes     372652  nps    1112394
+  integrated_full_id     302 ms  nodes     493716  nps    1634821
+  integrated_cold1     217 ms  nodes     456965  nps    2105829
+  uci_session          845 ms  nodes     504237  nps     596730
+  uci_fresh          13660 ms  nodes     922520  nps      67534
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1460 | 1821298 | 1247464 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1546 | 1404374 | 908391 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1943 | 2387023 | 1228524 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2747 | 3975666 | 1447275 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 2388 | 1594449 | 667692 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2434 | 2510882 | 1031586 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 825 | 1361837 | 1650711 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 626 | 695841 | 1111567 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 583 | 914979 | 1569432 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 173 | 319871 | 1848965 | 0.42x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 181 | 408022 | 2254265 | 0.44x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 210 | 215157 | 1024557 | 0.51x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 413 | 437623 | 1059619 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 6535 | 674714 | 103246 | 15.82x |
+| opening_6 | uci_session | 7 | 10 | 1 | 678 | 486326 | 717294 | 1.64x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 209 | 285996 | 1368401 | 1.19x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 127 | 120791 | 951110 | 0.73x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 102 | 75754 | 742686 | 0.58x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 175 | 202000 | 1154285 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 2000 | 78140 | 39070 | 11.43x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 643 | 164917 | 256480 | 3.67x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 271 | 757890 | 2796642 | 0.69x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 215 | 773305 | 3596767 | 0.55x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 671 | 842857 | 1256120 | 1.71x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 393 | 758335 | 1929605 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 5202 | 1744848 | 335418 | 13.24x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 969 | 854707 | 882050 | 2.47x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 216 | 533455 | 2469699 | 0.64x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 257 | 601791 | 2341599 | 0.76x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 284 | 395879 | 1393940 | 0.84x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 340 | 464508 | 1366200 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 6024 | 657089 | 109078 | 17.72x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 1043 | 565652 | 542331 | 3.07x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 217 | 456965 | 2105829 | 0.72x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 302 | 493716 | 1634821 | 1.01x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 335 | 372652 | 1112394 | 1.12x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 300 | 390649 | 1302163 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 13660 | 922520 | 67534 | 45.53x |
+| long_20 | uci_session | 21 | 8 | 1 | 845 | 504237 | 596730 | 2.82x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_134443.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0021.json
+
+=== Round 22 ===
+  opening_6 r0 h2: 147ms 324619n
+  tactical_14 r0 h2: 125ms 225997n
+  endgame_8 r0 h2: 334ms 1193696n
+  opening_6_multipv3 r0 h2: 175ms 428334n
+  long_20 r0 h2: 197ms 454407n
+  club_1400 r0 h2: 2127ms 2448055n
+  gm_wijk_aan_zee r0 h2: 4359ms 5346013n
+  rapid_600_style r0 h2: 827ms 1108491n
+  opening_6 r2 h2: 298ms 479436n
+  tactical_14 r2 h2: 390ms 595048n
+  endgame_8 r2 h2: 391ms 1214478n
+  opening_6_multipv3 r2 h2: 383ms 513684n
+  long_20 r2 h2: 299ms 393057n
+  club_1400 r2 h2: 1363ms 1713922n
+  gm_wijk_aan_zee r2 h2: 2799ms 3240409n
+  rapid_600_style r2 h2: 726ms 999709n
+  opening_6 r2 h3: 272ms 471422n
+  tactical_14 r2 h3: 116ms 191757n
+  endgame_8 r2 h3: 199ms 719362n
+  opening_6_multipv3 r2 h3: 554ms 739609n
+  long_20 r2 h3: 312ms 391440n
+  club_1400 r2 h3: 1659ms 1813810n
+  gm_wijk_aan_zee r2 h3: 2375ms 2700858n
+  rapid_600_style r2 h3: 1013ms 956636n
+  opening_6 r2 h4: 328ms 325389n
+  tactical_14 r2 h4: 36ms 59894n
+  endgame_8 r2 h4: 481ms 1052414n
+  opening_6_multipv3 r2 h4: 479ms 536000n
+  long_20 r2 h4: 229ms 395690n
+  club_1400 r2 h4: 1821ms 2069486n
+  gm_wijk_aan_zee r2 h4: 1752ms 2516462n
+  rapid_600_style r2 h4: 883ms 1121160n
+
+=== Round 23 ===
+  opening_6 r0 h2: 219ms 346816n
+  tactical_14 r0 h2: 154ms 163477n
+  endgame_8 r0 h2: 140ms 639990n
+  opening_6_multipv3 r0 h2: 318ms 562156n
+  long_20 r0 h2: 290ms 510109n
+  club_1400 r0 h2: 1285ms 2027001n
+  gm_wijk_aan_zee r0 h2: 3458ms 5546241n
+  rapid_600_style r0 h2: 663ms 1156096n
+  opening_6 r2 h2: 153ms 237820n
+  tactical_14 r2 h2: 59ms 111728n
+  endgame_8 r2 h2: 509ms 1731654n
+  opening_6_multipv3 r2 h2: 598ms 514958n
+  long_20 r2 h2: 221ms 388665n
+  club_1400 r2 h2: 1249ms 1699109n
+  gm_wijk_aan_zee r2 h2: 2016ms 2941563n
+  rapid_600_style r2 h2: 629ms 807328n
+  opening_6 r2 h3: 252ms 454805n
+  tactical_14 r2 h3: 25ms 48953n
+  endgame_8 r2 h3: 386ms 1245766n
+  opening_6_multipv3 r2 h3: 656ms 497979n
+  long_20 r2 h3: 381ms 477246n
+  club_1400 r2 h3: 1472ms 2012711n
+  gm_wijk_aan_zee r2 h3: 1618ms 2183208n
+  rapid_600_style r2 h3: 596ms 851924n
+  opening_6 r2 h4: 277ms 531921n
+  tactical_14 r2 h4: 188ms 222638n
+  endgame_8 r2 h4: 279ms 1014516n
+  opening_6_multipv3 r2 h4: 444ms 536883n
+  long_20 r2 h4: 355ms 407147n
+  club_1400 r2 h4: 1550ms 2225226n
+  gm_wijk_aan_zee r2 h4: 2428ms 3360915n
+  rapid_600_style r2 h4: 871ms 963337n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1695 ms  nodes    1752112  plies 37
+  integrated_pgn_legacy           1669 ms  nodes    1338051
+  integrated_pgn_full_id          1120 ms  nodes    2026983  (86% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2187 ms  nodes    2606561  plies 58
+  integrated_pgn_legacy           1256 ms  nodes    1179070
+  integrated_pgn_full_id          2542 ms  nodes    3477199  (75% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             880 ms  nodes     856919  plies 21
+  integrated_pgn_legacy            448 ms  nodes     563166
+  integrated_pgn_full_id           396 ms  nodes     899373  (95% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     304 ms  nodes     381098  nps    1253611
+  integrated_legacy     221 ms  nodes     195446  nps     884371
+  integrated_full_id     195 ms  nodes     426999  nps    2189738
+  integrated_cold1     135 ms  nodes     312436  nps    2314340
+  uci_session         1156 ms  nodes     509976  nps     441155
+  uci_fresh           5301 ms  nodes     629711  nps     118790
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart      87 ms  nodes     177148  nps    2036183
+  integrated_legacy      50 ms  nodes      67914  nps    1358280
+  integrated_full_id      84 ms  nodes     104495  nps    1243988
+  integrated_cold1     102 ms  nodes     205780  nps    2017450
+  uci_session          720 ms  nodes     279278  nps     387886
+  uci_fresh           1312 ms  nodes      64869  nps      49442
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     196 ms  nodes     829495  nps    4232117
+  integrated_legacy     162 ms  nodes     474189  nps    2927092
+  integrated_full_id     273 ms  nodes    1184857  nps    4340135
+  integrated_cold1     156 ms  nodes     714661  nps    4581160
+  uci_session          676 ms  nodes     619712  nps     916733
+  uci_fresh           3652 ms  nodes    1047005  nps     286693
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     218 ms  nodes     399205  nps    1831215
+  integrated_legacy     278 ms  nodes     406214  nps    1461201
+  integrated_full_id     139 ms  nodes     408320  nps    2937553
+  integrated_cold1     160 ms  nodes     441204  nps    2757525
+  uci_session          907 ms  nodes     579810  nps     639261
+  uci_fresh           4883 ms  nodes     631311  nps     129287
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     223 ms  nodes     425924  nps    1909973
+  integrated_legacy     255 ms  nodes     363967  nps    1427321
+  integrated_full_id     217 ms  nodes     450965  nps    2078179
+  integrated_cold1     146 ms  nodes     361202  nps    2473986
+  uci_session          811 ms  nodes     382719  nps     471909
+  uci_fresh          13002 ms  nodes     820157  nps      63079
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1120 | 2026983 | 1809806 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1669 | 1338051 | 801708 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1695 | 1752112 | 1033694 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2542 | 3477199 | 1367898 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1256 | 1179070 | 938750 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2187 | 2606561 | 1191843 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 396 | 899373 | 2271143 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 448 | 563166 | 1257066 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 880 | 856919 | 973771 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 135 | 312436 | 2314340 | 0.44x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 195 | 426999 | 2189738 | 0.64x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 221 | 195446 | 884371 | 0.73x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 304 | 381098 | 1253611 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 5301 | 629711 | 118790 | 17.44x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1156 | 509976 | 441155 | 3.80x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 102 | 205780 | 2017450 | 1.17x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 84 | 104495 | 1243988 | 0.97x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 50 | 67914 | 1358280 | 0.57x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 87 | 177148 | 2036183 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1312 | 64869 | 49442 | 15.08x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 720 | 279278 | 387886 | 8.28x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 156 | 714661 | 4581160 | 0.80x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 273 | 1184857 | 4340135 | 1.39x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 162 | 474189 | 2927092 | 0.83x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 196 | 829495 | 4232117 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 3652 | 1047005 | 286693 | 18.63x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 676 | 619712 | 916733 | 3.45x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 160 | 441204 | 2757525 | 0.73x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 139 | 408320 | 2937553 | 0.64x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 278 | 406214 | 1461201 | 1.28x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 218 | 399205 | 1831215 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 4883 | 631311 | 129287 | 22.40x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 907 | 579810 | 639261 | 4.16x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 146 | 361202 | 2473986 | 0.65x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 217 | 450965 | 2078179 | 0.97x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 255 | 363967 | 1427321 | 1.14x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 223 | 425924 | 1909973 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 13002 | 820157 | 63079 | 58.30x |
+| long_20 | uci_session | 21 | 8 | 1 | 811 | 382719 | 471909 | 3.64x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_134829.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0023.json
+
+=== Round 24 ===
+  opening_6 r0 h2: 244ms 502188n
+  tactical_14 r0 h2: 75ms 143785n
+  endgame_8 r0 h2: 178ms 817191n
+  opening_6_multipv3 r0 h2: 174ms 510459n
+  long_20 r0 h2: 190ms 376137n
+  club_1400 r0 h2: 1118ms 1833077n
+  gm_wijk_aan_zee r0 h2: 2485ms 3933400n
+  rapid_600_style r0 h2: 624ms 1430076n
+  opening_6 r2 h2: 160ms 359246n quality=83%
+  tactical_14 r2 h2: 128ms 254487n
+  endgame_8 r2 h2: 310ms 1378441n
+  opening_6_multipv3 r2 h2: 219ms 445631n
+  long_20 r2 h2: 266ms 413352n
+  club_1400 r2 h2: 983ms 1547146n
+  gm_wijk_aan_zee r2 h2: 2292ms 2883407n
+  rapid_600_style r2 h2: 676ms 943133n
+  opening_6 r2 h3: 268ms 390523n quality=100%
+  tactical_14 r2 h3: 91ms 150773n
+  endgame_8 r2 h3: 298ms 783977n
+  opening_6_multipv3 r2 h3: 442ms 461546n
+  long_20 r2 h3: 369ms 388225n
+  club_1400 r2 h3: 1590ms 1722008n
+  gm_wijk_aan_zee r2 h3: 2371ms 2385316n
+  rapid_600_style r2 h3: 759ms 969545n
+  opening_6 r2 h4: 141ms 286036n quality=83%
+  tactical_14 r2 h4: 66ms 124010n
+  endgame_8 r2 h4: 275ms 945970n
+  opening_6_multipv3 r2 h4: 409ms 492378n
+  long_20 r2 h4: 311ms 364213n
+  club_1400 r2 h4: 1826ms 2084138n
+  gm_wijk_aan_zee r2 h4: 2079ms 2804794n
+  rapid_600_style r2 h4: 885ms 1121205n
+
+=== Round 25 ===
+  opening_6 r0 h2: 114ms 296512n
+  tactical_14 r0 h2: 72ms 152883n
+  endgame_8 r0 h2: 209ms 910658n
+  opening_6_multipv3 r0 h2: 289ms 469410n
+  long_20 r0 h2: 226ms 426760n
+  club_1400 r0 h2: 1138ms 2008404n
+  gm_wijk_aan_zee r0 h2: 2510ms 4271813n
+  rapid_600_style r0 h2: 741ms 1188811n
+  opening_6 r2 h2: 250ms 259392n
+  tactical_14 r2 h2: 73ms 159017n
+  endgame_8 r2 h2: 612ms 1359147n
+  opening_6_multipv3 r2 h2: 322ms 390949n
+  long_20 r2 h2: 268ms 397511n
+  club_1400 r2 h2: 1390ms 1616770n
+  gm_wijk_aan_zee r2 h2: 1677ms 2103602n
+  rapid_600_style r2 h2: 442ms 767534n
+  opening_6 r2 h3: 212ms 373967n
+  tactical_14 r2 h3: 123ms 260919n
+  endgame_8 r2 h3: 160ms 628987n
+  opening_6_multipv3 r2 h3: 241ms 463144n
+  long_20 r2 h3: 204ms 369415n
+  club_1400 r2 h3: 1264ms 1670978n
+  gm_wijk_aan_zee r2 h3: 2064ms 2732178n
+  rapid_600_style r2 h3: 658ms 1107152n
+  opening_6 r2 h4: 167ms 348294n
+  tactical_14 r2 h4: 30ms 56814n
+  endgame_8 r2 h4: 289ms 817539n
+  opening_6_multipv3 r2 h4: 261ms 487383n
+  long_20 r2 h4: 305ms 540739n
+  club_1400 r2 h4: 1327ms 1929503n
+  gm_wijk_aan_zee r2 h4: 2527ms 3581100n
+  rapid_600_style r2 h4: 758ms 1023682n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1159 ms  nodes    1522706  plies 37
+  integrated_pgn_legacy           1399 ms  nodes    1231128
+  integrated_pgn_full_id          1409 ms  nodes    1972726  (77% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2256 ms  nodes    2630207  plies 58
+  integrated_pgn_legacy           1142 ms  nodes    1224259
+  integrated_pgn_full_id          2857 ms  nodes    3906496  (67% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             465 ms  nodes     786378  plies 21
+  integrated_pgn_legacy            737 ms  nodes     648115
+  integrated_pgn_full_id           600 ms  nodes    1137188  (69% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     325 ms  nodes     406891  nps    1251972
+  integrated_legacy     176 ms  nodes     215923  nps    1226835
+  integrated_full_id     224 ms  nodes     400707  nps    1788870
+  integrated_cold1     161 ms  nodes     375781  nps    2334043
+  uci_session         1369 ms  nodes     517942  nps     378336
+  uci_fresh           4844 ms  nodes     638751  nps     131864
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart      50 ms  nodes      59450  nps    1189000
+  integrated_legacy     141 ms  nodes     119312  nps     846184
+  integrated_full_id     163 ms  nodes     205935  nps    1263404
+  integrated_cold1      77 ms  nodes     169816  nps    2205402
+  uci_session          778 ms  nodes     167525  nps     215327
+  uci_fresh           1561 ms  nodes     220361  nps     141166
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     198 ms  nodes     849293  nps    4289358
+  integrated_legacy     224 ms  nodes     470680  nps    2101250
+  integrated_full_id     249 ms  nodes     996969  nps    4003891
+  integrated_cold1     196 ms  nodes     813482  nps    4150418
+  uci_session          995 ms  nodes     923489  nps     928129
+  uci_fresh           3844 ms  nodes     932254  nps     242521
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     327 ms  nodes     420986  nps    1287418
+  integrated_legacy     239 ms  nodes     386736  nps    1618142
+  integrated_full_id     197 ms  nodes     522062  nps    2650060
+  integrated_cold1     198 ms  nodes     520854  nps    2630575
+  uci_session          936 ms  nodes     486756  nps     520038
+  uci_fresh           5379 ms  nodes     699531  nps     130048
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     250 ms  nodes     375338  nps    1501352
+  integrated_legacy     256 ms  nodes     360145  nps    1406816
+  integrated_full_id     221 ms  nodes     539576  nps    2441520
+  integrated_cold1     166 ms  nodes     399145  nps    2404487
+  uci_session          913 ms  nodes     346994  nps     380059
+  uci_fresh          12649 ms  nodes     752115  nps      59460
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1409 | 1972726 | 1400089 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1399 | 1231128 | 880005 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1159 | 1522706 | 1313810 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2857 | 3906496 | 1367341 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1142 | 1224259 | 1072030 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2256 | 2630207 | 1165871 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 600 | 1137188 | 1895313 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 737 | 648115 | 879396 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 465 | 786378 | 1691135 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 161 | 375781 | 2334043 | 0.50x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 224 | 400707 | 1788870 | 0.69x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 176 | 215923 | 1226835 | 0.54x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 325 | 406891 | 1251972 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 4844 | 638751 | 131864 | 14.90x |
+| opening_6 | uci_session | 7 | 10 | 1 | 1369 | 517942 | 378336 | 4.21x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 77 | 169816 | 2205402 | 1.54x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 163 | 205935 | 1263404 | 3.26x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 141 | 119312 | 846184 | 2.82x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 50 | 59450 | 1189000 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1561 | 220361 | 141166 | 31.22x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 778 | 167525 | 215327 | 15.56x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 196 | 813482 | 4150418 | 0.99x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 249 | 996969 | 4003891 | 1.26x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 224 | 470680 | 2101250 | 1.13x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 198 | 849293 | 4289358 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 3844 | 932254 | 242521 | 19.41x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 995 | 923489 | 928129 | 5.03x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 198 | 520854 | 2630575 | 0.61x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 197 | 522062 | 2650060 | 0.60x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 239 | 386736 | 1618142 | 0.73x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 327 | 420986 | 1287418 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 5379 | 699531 | 130048 | 16.45x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 936 | 486756 | 520038 | 2.86x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 166 | 399145 | 2404487 | 0.66x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 221 | 539576 | 2441520 | 0.88x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 256 | 360145 | 1406816 | 1.02x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 250 | 375338 | 1501352 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 12649 | 752115 | 59460 | 50.60x |
+| long_20 | uci_session | 21 | 8 | 1 | 913 | 346994 | 380059 | 3.65x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_135158.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0025.json
+
+=== Round 26 ===
+  opening_6 r0 h2: 112ms 294665n
+  tactical_14 r0 h2: 143ms 303131n
+  endgame_8 r0 h2: 201ms 805275n
+  opening_6_multipv3 r0 h2: 178ms 508403n
+  long_20 r0 h2: 187ms 468236n
+  club_1400 r0 h2: 1280ms 2125384n
+  gm_wijk_aan_zee r0 h2: 1899ms 3129615n
+  rapid_600_style r0 h2: 699ms 1146017n
+  opening_6 r2 h2: 390ms 325033n
+  tactical_14 r2 h2: 40ms 87040n
+  endgame_8 r2 h2: 226ms 994425n
+  opening_6_multipv3 r2 h2: 266ms 436926n
+  long_20 r2 h2: 206ms 366118n
+  club_1400 r2 h2: 1256ms 1685509n
+  gm_wijk_aan_zee r2 h2: 2167ms 2778722n
+  rapid_600_style r2 h2: 981ms 1061164n
+  opening_6 r2 h3: 137ms 257936n
+  tactical_14 r2 h3: 68ms 92118n
+  endgame_8 r2 h3: 432ms 1478424n
+  opening_6_multipv3 r2 h3: 323ms 431993n
+  long_20 r2 h3: 282ms 373873n
+  club_1400 r2 h3: 1377ms 1859867n
+  gm_wijk_aan_zee r2 h3: 2207ms 2535544n
+  rapid_600_style r2 h3: 850ms 910882n
+  opening_6 r2 h4: 321ms 487697n
+  tactical_14 r2 h4: 76ms 166175n
+  endgame_8 r2 h4: 266ms 1137649n
+  opening_6_multipv3 r2 h4: 264ms 420206n
+  long_20 r2 h4: 228ms 433478n
+  club_1400 r2 h4: 1295ms 1961172n
+  gm_wijk_aan_zee r2 h4: 3967ms 5408320n
+  rapid_600_style r2 h4: 759ms 1095362n
+
+=== Round 27 ===
+  opening_6 r0 h2: 247ms 370770n
+  tactical_14 r0 h2: 56ms 135043n
+  endgame_8 r0 h2: 764ms 2296010n
+  opening_6_multipv3 r0 h2: 313ms 495408n
+  long_20 r0 h2: 278ms 471734n
+  club_1400 r0 h2: 1173ms 2120606n
+  gm_wijk_aan_zee r0 h2: 2026ms 2707324n
+  rapid_600_style r0 h2: 748ms 1074114n
+  opening_6 r2 h2: 94ms 174517n quality=83%
+  tactical_14 r2 h2: 93ms 193385n
+  endgame_8 r2 h2: 338ms 846847n
+  opening_6_multipv3 r2 h2: 275ms 439463n
+  long_20 r2 h2: 348ms 393003n
+  club_1400 r2 h2: 1262ms 1429440n
+  gm_wijk_aan_zee r2 h2: 2186ms 2210565n
+  rapid_600_style r2 h2: 895ms 1060779n
+  opening_6 r2 h3: 213ms 269286n quality=67%
+  tactical_14 r2 h3: 211ms 166177n
+  endgame_8 r2 h3: 578ms 1120033n
+  opening_6_multipv3 r2 h3: 530ms 485868n
+  long_20 r2 h3: 242ms 356214n
+  club_1400 r2 h3: 1591ms 1838194n
+  gm_wijk_aan_zee r2 h3: 1935ms 2791653n
+  rapid_600_style r2 h3: 660ms 992382n
+  opening_6 r2 h4: 167ms 363882n quality=83%
+  tactical_14 r2 h4: 42ms 93160n
+  endgame_8 r2 h4: 344ms 767361n
+  opening_6_multipv3 r2 h4: 464ms 516810n
+  long_20 r2 h4: 347ms 391692n
+  club_1400 r2 h4: 1855ms 2189506n
+  gm_wijk_aan_zee r2 h4: 2762ms 2777787n
+  rapid_600_style r2 h4: 1109ms 1141809n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1397 ms  nodes    1557346  plies 37
+  integrated_pgn_legacy           1984 ms  nodes    1469817
+  integrated_pgn_full_id          1477 ms  nodes    1644450  (95% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            2583 ms  nodes    2621801  plies 58
+  integrated_pgn_legacy           1160 ms  nodes    1296740
+  integrated_pgn_full_id          2067 ms  nodes    3351958  (78% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             488 ms  nodes     799993  plies 21
+  integrated_pgn_legacy            784 ms  nodes     819941
+  integrated_pgn_full_id           822 ms  nodes    1326120  (60% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     224 ms  nodes     273312  nps    1220142
+  integrated_legacy     178 ms  nodes     197044  nps    1106988
+  integrated_full_id     157 ms  nodes     284182  nps    1810076
+  integrated_cold1     116 ms  nodes     266121  nps    2294146
+  uci_session          852 ms  nodes     425543  nps     499463
+  uci_fresh           4282 ms  nodes     523633  nps     122287
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     112 ms  nodes     182564  nps    1630035
+  integrated_legacy      53 ms  nodes     101924  nps    1923094
+  integrated_full_id      89 ms  nodes      93596  nps    1051640
+  integrated_cold1     121 ms  nodes     150838  nps    1246595
+  uci_session          718 ms  nodes     192878  nps     268632
+  uci_fresh           1593 ms  nodes     225253  nps     141401
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     292 ms  nodes     816257  nps    2795400
+  integrated_legacy     211 ms  nodes     411392  nps    1949725
+  integrated_full_id     245 ms  nodes     854050  nps    3485918
+  integrated_cold1     186 ms  nodes     793422  nps    4265709
+  uci_session          823 ms  nodes     841480  nps    1022454
+  uci_fresh           3316 ms  nodes     767411  nps     231426
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     265 ms  nodes     443308  nps    1672860
+  integrated_legacy     243 ms  nodes     396711  nps    1632555
+  integrated_full_id     243 ms  nodes     594468  nps    2446370
+  integrated_cold1     162 ms  nodes     475607  nps    2935845
+  uci_session          765 ms  nodes     499944  nps     653521
+  uci_fresh           5243 ms  nodes     697700  nps     133072
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     391 ms  nodes     390601  nps     998979
+  integrated_legacy     349 ms  nodes     313817  nps     899189
+  integrated_full_id     219 ms  nodes     348511  nps    1591374
+  integrated_cold1     216 ms  nodes     351837  nps    1628875
+  uci_session          788 ms  nodes     457433  nps     580498
+  uci_fresh          12190 ms  nodes     846425  nps      69436
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1477 | 1644450 | 1113371 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1984 | 1469817 | 740835 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1397 | 1557346 | 1114778 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 2067 | 3351958 | 1621653 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 1160 | 1296740 | 1117879 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 2583 | 2621801 | 1015021 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 822 | 1326120 | 1613284 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 784 | 819941 | 1045843 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 488 | 799993 | 1639329 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 116 | 266121 | 2294146 | 0.52x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 157 | 284182 | 1810076 | 0.70x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 178 | 197044 | 1106988 | 0.79x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 224 | 273312 | 1220142 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 4282 | 523633 | 122287 | 19.12x |
+| opening_6 | uci_session | 7 | 10 | 1 | 852 | 425543 | 499463 | 3.80x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 121 | 150838 | 1246595 | 1.08x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 89 | 93596 | 1051640 | 0.79x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 53 | 101924 | 1923094 | 0.47x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 112 | 182564 | 1630035 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1593 | 225253 | 141401 | 14.22x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 718 | 192878 | 268632 | 6.41x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 186 | 793422 | 4265709 | 0.64x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 245 | 854050 | 3485918 | 0.84x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 211 | 411392 | 1949725 | 0.72x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 292 | 816257 | 2795400 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 3316 | 767411 | 231426 | 11.36x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 823 | 841480 | 1022454 | 2.82x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 162 | 475607 | 2935845 | 0.61x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 243 | 594468 | 2446370 | 0.92x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 243 | 396711 | 1632555 | 0.92x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 265 | 443308 | 1672860 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 5243 | 697700 | 133072 | 19.78x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 765 | 499944 | 653521 | 2.89x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 216 | 351837 | 1628875 | 0.55x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 219 | 348511 | 1591374 | 0.56x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 349 | 313817 | 899189 | 0.89x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 391 | 390601 | 998979 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 12190 | 846425 | 69436 | 31.18x |
+| long_20 | uci_session | 21 | 8 | 1 | 788 | 457433 | 580498 | 2.02x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260604_135523.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0027.json
+
+=== Round 28 ===
+  opening_6 r0 h2: 166ms 401086n
+  tactical_14 r0 h2: 37ms 76473n
+  endgame_8 r0 h2: 326ms 944658n
+  opening_6_multipv3 r0 h2: 226ms 595804n
+  long_20 r0 h2: 328ms 491967n
+  club_1400 r0 h2: 1018ms 2094512n
+  gm_wijk_aan_zee r0 h2: 2152ms 3828704n
+  rapid_600_style r0 h2: 611ms 1216822n
+  opening_6 r2 h2: 175ms 299732n
+  tactical_14 r2 h2: 73ms 150617n
+  endgame_8 r2 h2: 259ms 837344n
+  opening_6_multipv3 r2 h2: 383ms 359450n
+  long_20 r2 h2: 450ms 364375n
+  club_1400 r2 h2: 1158ms 1500054n
+  gm_wijk_aan_zee r2 h2: 1488ms 2068628n
+  rapid_600_style r2 h2: 633ms 909231n
+  opening_6 r2 h3: 174ms 255162n
+  tactical_14 r2 h3: 84ms 99380n
+  endgame_8 r2 h3: 380ms 1127101n
+  opening_6_multipv3 r2 h3: 426ms 532473n
+  long_20 r2 h3: 309ms 426731n
+  club_1400 r2 h3: 1061ms 1848129n
+  gm_wijk_aan_zee r2 h3: 2305ms 2945109n
+  rapid_600_style r2 h3: 502ms 902338n
+  opening_6 r2 h4: 192ms 385994n
+  tactical_14 r2 h4: 118ms 219508n
+  endgame_8 r2 h4: 300ms 1196111n
+  opening_6_multipv3 r2 h4: 412ms 447332n
+  long_20 r2 h4: 369ms 479467n
+  club_1400 r2 h4: 1538ms 2044161n
+  gm_wijk_aan_zee r2 h4: 2921ms 3740735n
+  rapid_600_style r2 h4: 578ms 888024n
+
+=== Round 29 ===
+  opening_6 r0 h2: 153ms 407417n
+  tactical_14 r0 h2: 104ms 217213n
+  endgame_8 r0 h2: 217ms 820063n
+  opening_6_multipv3 r0 h2: 193ms 532983n
+  long_20 r0 h2: 173ms 435585n
+  club_1400 r0 h2: 1391ms 2065082n
+  gm_wijk_aan_zee r0 h2: 3026ms 4591290n
+  rapid_600_style r0 h2: 932ms 1170803n
+  opening_6 r2 h2: 329ms 374876n
+  tactical_14 r2 h2: 123ms 230033n
+  endgame_8 r2 h2: 298ms 604424n
+  opening_6_multipv3 r2 h2: 420ms 485011n
+  long_20 r2 h2: 252ms 358422n
+  club_1400 r2 h2: 1165ms 1821425n
+  gm_wijk_aan_zee r2 h2: 2169ms 2549233n
+  rapid_600_style r2 h2: 629ms 727512n
+  opening_6 r2 h3: 202ms 254610n
+  tactical_14 r2 h3: 176ms 256191n
+  endgame_8 r2 h3: 351ms 737295n
+  opening_6_multipv3 r2 h3: 509ms 575281n
+  long_20 r2 h3: 281ms 417775n
+  club_1400 r2 h3: 1663ms 2269109n
+  FAIL gm_wijk_aan_zee.pgn: Command '['C:\\gitProjects\\Stockfish\\src\\stockfish.exe', 'gameanalysis', 'depth', '10', 'threads', '8', 'multipv', '1', 'resume', '2', 'resumehorizon', '3', 'pgn', 'C:\\gitProjects\\Stockfish\\tests\\benchmark_corpus\\gm_wijk_aan_zee.pgn']' timed out after -6600.811999999998 seconds
+  rapid_600_style r2 h3: 964ms 948991n
+  opening_6 r2 h4: 364ms 381069n
+  FAIL tactical_14 r2 h4: Command '['C:\\gitProjects\\Stockfish\\src\\stockfish.exe', 'gameanalysis', 'depth', '10', 'threads', '8', 'multipv', '1', 'cold', '0', 'resume', '2', 'resumehorizon', '4', 'fen', 'rq3rk1/ppp2ppp/1bnpb3/3N2B1/3NP3/7P/PPPQ1PP1/2KR3R', 'w', '-', '-', '7', '14', 'moves', 'd4e6']' timed out after -30147.062000000005 seconds
+  endgame_8 r2 h4: 754ms 887027n
+  opening_6_multipv3 r2 h4: 298ms 485613n
+  long_20 r2 h4: 396ms 446635n
+  club_1400 r2 h4: 1582ms 2266415n
+  gm_wijk_aan_zee r2 h4: 2365ms 2669281n
+  rapid_600_style r2 h4: 958ms 1025936n
+Benchmark: C:\gitProjects\Stockfish\src\stockfish.exe
+Threads: 8 (set STOCKFISH_THREADS or omit for all logical CPUs)
+Cases: opening_6, tactical_14, endgame_8, opening_6_multipv3, long_20
+
+=== club_1400.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1071 ms  nodes    1569146  plies 37
+  integrated_pgn_legacy           1022 ms  nodes    1262998
+  integrated_pgn_full_id          1045 ms  nodes    2089222  (75% nodes vs full)
+
+=== gm_wijk_aan_zee.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart            1525 ms  nodes    2475556  plies 58
+  integrated_pgn_legacy            941 ms  nodes    1190972
+  integrated_pgn_full_id          1775 ms  nodes    3433042  (72% nodes vs full)
+
+=== rapid_600_style.pgn (depth 10, multipv 1) ===
+  integrated_pgn_smart             592 ms  nodes     882612  plies 21
+  integrated_pgn_legacy            702 ms  nodes     652052
+  integrated_pgn_full_id           947 ms  nodes    1213391  (73% nodes vs full)
+
+=== opening_6 (depth 10, multipv 1) ===
+  integrated_smart     173 ms  nodes     254428  nps    1470682
+  integrated_legacy     167 ms  nodes     265159  nps    1587778
+  integrated_full_id     168 ms  nodes     382662  nps    2277750
+  integrated_cold1     136 ms  nodes     310962  nps    2286485
+  uci_session          749 ms  nodes     386978  nps     516659
+  uci_fresh           4906 ms  nodes     586196  nps     119485
+
+=== tactical_14 (depth 10, multipv 1) ===
+  integrated_smart     109 ms  nodes     233673  nps    2143788
+  integrated_legacy      61 ms  nodes     100295  nps    1644180
+  integrated_full_id      52 ms  nodes      98284  nps    1890076
+  integrated_cold1      58 ms  nodes     137370  nps    2368448
+  uci_session          570 ms  nodes     111042  nps     194810
+  uci_fresh           1213 ms  nodes      86609  nps      71400
+
+=== endgame_8 (depth 12, multipv 1) ===
+  integrated_smart     190 ms  nodes     674080  nps    3547789
+  integrated_legacy     224 ms  nodes     643878  nps    2874455
+  integrated_full_id     162 ms  nodes     688299  nps    4248759
+  integrated_cold1     184 ms  nodes     796782  nps    4330336
+  uci_session          527 ms  nodes     664120  nps    1260189
+  uci_fresh           2841 ms  nodes     832487  nps     293026
+
+=== opening_6_multipv3 (depth 8, multipv 3) ===
+  integrated_smart     253 ms  nodes     373295  nps    1475474
+  integrated_legacy     236 ms  nodes     391756  nps    1659983
+  integrated_full_id     211 ms  nodes     586567  nps    2779938
+  integrated_cold1     169 ms  nodes     441612  nps    2613088
+  uci_session          837 ms  nodes     498963  nps     596132
+  uci_fresh           3667 ms  nodes     704649  nps     192159
+
+=== long_20 (depth 8, multipv 1) ===
+  integrated_smart     215 ms  nodes     385521  nps    1793120
+  integrated_legacy     251 ms  nodes     374953  nps    1493836
+  integrated_full_id     182 ms  nodes     452892  nps    2488417
+  integrated_cold1     223 ms  nodes     388153  nps    1740596
+  uci_session         1212 ms  nodes     501280  nps     413597
+  uci_fresh          10359 ms  nodes     836401  nps      80741
+
+| case | mode | plies | depth | multipv | time_ms | nodes | nps | vs integrated |
+|------|------|-------|-------|---------|---------|-------|-----|---------------|
+| club_1400 | integrated_pgn_full_id | 37 | 10 | 1 | 1045 | 2089222 | 1999255 | 1.00x |
+| club_1400 | integrated_pgn_legacy | 37 | 10 | 1 | 1022 | 1262998 | 1235810 | 1.00x |
+| club_1400 | integrated_pgn_smart | 37 | 10 | 1 | 1071 | 1569146 | 1465122 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_full_id | 58 | 10 | 1 | 1775 | 3433042 | 1934108 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_legacy | 58 | 10 | 1 | 941 | 1190972 | 1265645 | 1.00x |
+| gm_wijk_aan_zee | integrated_pgn_smart | 58 | 10 | 1 | 1525 | 2475556 | 1623315 | 1.00x |
+| rapid_600_style | integrated_pgn_full_id | 21 | 10 | 1 | 947 | 1213391 | 1281299 | 1.00x |
+| rapid_600_style | integrated_pgn_legacy | 21 | 10 | 1 | 702 | 652052 | 928849 | 1.00x |
+| rapid_600_style | integrated_pgn_smart | 21 | 10 | 1 | 592 | 882612 | 1490898 | 1.00x |
+| opening_6 | integrated_cold1 | 7 | 10 | 1 | 136 | 310962 | 2286485 | 0.79x |
+| opening_6 | integrated_full_id | 7 | 10 | 1 | 168 | 382662 | 2277750 | 0.97x |
+| opening_6 | integrated_legacy | 7 | 10 | 1 | 167 | 265159 | 1587778 | 0.97x |
+| opening_6 | integrated_smart | 7 | 10 | 1 | 173 | 254428 | 1470682 | baseline |
+| opening_6 | uci_fresh | 7 | 10 | 1 | 4906 | 586196 | 119485 | 28.36x |
+| opening_6 | uci_session | 7 | 10 | 1 | 749 | 386978 | 516659 | 4.33x |
+| tactical_14 | integrated_cold1 | 2 | 10 | 1 | 58 | 137370 | 2368448 | 0.53x |
+| tactical_14 | integrated_full_id | 2 | 10 | 1 | 52 | 98284 | 1890076 | 0.48x |
+| tactical_14 | integrated_legacy | 2 | 10 | 1 | 61 | 100295 | 1644180 | 0.56x |
+| tactical_14 | integrated_smart | 2 | 10 | 1 | 109 | 233673 | 2143788 | baseline |
+| tactical_14 | uci_fresh | 2 | 10 | 1 | 1213 | 86609 | 71400 | 11.13x |
+| tactical_14 | uci_session | 2 | 10 | 1 | 570 | 111042 | 194810 | 5.23x |
+| endgame_8 | integrated_cold1 | 5 | 12 | 1 | 184 | 796782 | 4330336 | 0.97x |
+| endgame_8 | integrated_full_id | 5 | 12 | 1 | 162 | 688299 | 4248759 | 0.85x |
+| endgame_8 | integrated_legacy | 5 | 12 | 1 | 224 | 643878 | 2874455 | 1.18x |
+| endgame_8 | integrated_smart | 5 | 12 | 1 | 190 | 674080 | 3547789 | baseline |
+| endgame_8 | uci_fresh | 5 | 12 | 1 | 2841 | 832487 | 293026 | 14.95x |
+| endgame_8 | uci_session | 5 | 12 | 1 | 527 | 664120 | 1260189 | 2.77x |
+| opening_6_multipv3 | integrated_cold1 | 7 | 8 | 3 | 169 | 441612 | 2613088 | 0.67x |
+| opening_6_multipv3 | integrated_full_id | 7 | 8 | 3 | 211 | 586567 | 2779938 | 0.83x |
+| opening_6_multipv3 | integrated_legacy | 7 | 8 | 3 | 236 | 391756 | 1659983 | 0.93x |
+| opening_6_multipv3 | integrated_smart | 7 | 8 | 3 | 253 | 373295 | 1475474 | baseline |
+| opening_6_multipv3 | uci_fresh | 7 | 8 | 3 | 3667 | 704649 | 192159 | 14.49x |
+| opening_6_multipv3 | uci_session | 7 | 8 | 3 | 837 | 498963 | 596132 | 3.31x |
+| long_20 | integrated_cold1 | 21 | 8 | 1 | 223 | 388153 | 1740596 | 1.04x |
+| long_20 | integrated_full_id | 21 | 8 | 1 | 182 | 452892 | 2488417 | 0.85x |
+| long_20 | integrated_legacy | 21 | 8 | 1 | 251 | 374953 | 1493836 | 1.17x |
+| long_20 | integrated_smart | 21 | 8 | 1 | 215 | 385521 | 1793120 | baseline |
+| long_20 | uci_fresh | 21 | 8 | 1 | 10359 | 836401 | 80741 | 48.18x |
+| long_20 | uci_session | 21 | 8 | 1 | 1212 | 501280 | 413597 | 5.64x |
+
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\benchmark_20260605_003119.md
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\benchmark_round_0029.json
+
+Done. Log: C:\gitProjects\Stockfish\scripts\benchmark_results\experiments\experiment_20260604_111708.jsonl

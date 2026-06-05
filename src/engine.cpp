@@ -336,8 +336,10 @@ std::string Engine::visualize() const {
 
 int Engine::get_hashfull(int maxAge) const { return tt.hashfull(maxAge); }
 
-int Engine::spine_tt_depth() const {
-    const auto [hit, data, writer] = tt.probe(pos.key());
+int Engine::spine_tt_depth() const { return spine_tt_depth_at(pos); }
+
+int Engine::spine_tt_depth_at(const Position& p) const {
+    const auto [hit, data, writer] = tt.probe(p.key());
     (void) writer;
     if (!hit || data.depth == DEPTH_UNSEARCHED)
         return 0;

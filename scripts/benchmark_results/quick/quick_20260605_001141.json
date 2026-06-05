@@ -1,0 +1,2555 @@
+{
+  "results": [
+    {
+      "ts": "2026-06-05T00:11:42.287971+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 81,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:42.768283+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 167,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:43.170936+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 124,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:44.265067+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:44.726321+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 163,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:45.156128+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:46.275327+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 97,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:46.677269+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 125,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:47.069192+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 101,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:48.184593+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 87,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:48.600430+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 123,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:48.981180+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 100,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:49.342559+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 79,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:49.811064+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 161,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:50.228251+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 127,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:51.319988+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 79,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:51.865933+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 183,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:52.471923+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:53.600895+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 84,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:54.002499+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 126,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:54.367906+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 96,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:55.497568+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 98,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:55.911939+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:56.292028+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 92,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:56.669773+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 85,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:57.108027+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 159,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:57.510193+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 125,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:58.592939+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 75,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:11:59.044197+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 163,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:11:59.453264+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 125,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:00.649361+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:01.050043+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:01.429003+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 91,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:02.492977+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 80,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:02.888236+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:03.300880+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 100,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:03.659542+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 78,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:04.092864+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:04.505169+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:05.595986+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 79,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:06.039155+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 159,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:06.426948+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:07.497180+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:07.897490+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:08.272726+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 99,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:09.355023+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 89,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:09.776218+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:10.143480+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:10.494311+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 74,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:10.954378+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:11.383360+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:12.435712+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 70,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:12.879325+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 147,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:13.269478+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:14.343324+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 79,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:14.748502+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:15.107252+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 97,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:16.152080+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 78,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:16.544890+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:16.911465+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:17.264474+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 75,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:17.697303+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:18.085457+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:19.142094+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 77,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:19.587794+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:20.023641+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 130,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:21.096514+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 80,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:21.490489+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:21.888721+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 97,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:22.976670+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 90,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:23.386462+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:23.752859+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 92,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:24.112488+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:24.554699+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:24.940658+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:26.034807+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 77,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:26.459795+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 146,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:26.852579+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:27.929852+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 79,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:28.337085+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:28.736887+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:29.841509+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 89,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:30.250357+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:30.636932+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 98,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:30.996685+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:31.464351+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:31.843068+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:32.881491+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:33.324303+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:33.712645+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:34.814639+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 77,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:35.196399+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:35.571170+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:36.686346+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:37.090652+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:37.482847+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:37.825534+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:38.238339+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 148,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:38.630707+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:39.708963+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:40.140800+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:40.537134+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:41.613776+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:42.003051+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:42.372866+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 96,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:43.445883+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:43.850679+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:44.228552+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:44.566683+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:44.994961+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:45.379817+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:46.472453+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:46.906559+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:47.320961+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 141,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:48.392759+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 84,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:48.786007+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:49.151696+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:50.231843+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 103,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:50.655537+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 131,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:51.051734+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 90,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:51.395522+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:51.896216+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 185,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:52.299382+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:53.380313+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:53.836757+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:54.222103+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:55.293478+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 88,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:55.672215+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:56.045408+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 98,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:57.121720+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 86,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:12:57.516990+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 128,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:57.882772+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 99,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:58.215420+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 70,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:58.638272+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:12:59.041531+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 126,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:00.075462+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 74,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:00.499798+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 157,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:00.891275+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:01.979775+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 84,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:02.373249+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 123,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:02.731087+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:03.814552+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:04.209808+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:04.573695+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:04.926389+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 77,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:05.364132+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 161,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:05.772451+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:06.816543+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 75,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:07.277372+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:07.676191+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:08.750141+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:09.170662+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:09.543473+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 99,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:10.594498+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:10.998521+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:11.360787+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 96,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:11.715391+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 79,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:12.144580+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:12.544343+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:13.584265+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 74,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:14.014246+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:14.418744+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:15.495476+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:15.905161+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:16.258078+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 90,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:17.335467+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:17.732671+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 125,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:18.097343+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 95,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:18.454476+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:18.870151+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 149,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:19.279438+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 125,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:20.343562+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:20.771799+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:21.214143+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 127,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:22.282842+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:22.677036+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 126,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:23.050736+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 95,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:24.140729+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:24.570869+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 134,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:24.963516+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 97,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:25.323585+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 77,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:25.761832+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:26.173483+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 126,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:27.250439+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:27.723034+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 188,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:28.120046+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 128,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:29.210916+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:29.590523+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:29.943749+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:31.018823+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:31.427247+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:31.809126+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 92,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:32.157775+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:32.599291+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:33.010491+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:34.317153+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 80,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:34.761093+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 158,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:35.182763+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 128,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:36.301747+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:36.699492+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:37.060761+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:38.163102+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 84,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:38.576333+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 127,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:38.941533+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 97,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:39.301875+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 75,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:39.730268+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 160,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:40.127982+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:41.188971+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:41.623374+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 162,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:42.016354+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:43.070349+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 79,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:43.473396+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:43.827470+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:44.930882+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 84,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:45.337411+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:45.728780+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 92,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:46.069660+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 76,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:46.488868+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 148,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:46.884697+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:47.931491+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:48.384104+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 151,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:48.771398+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:49.887978+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:50.277207+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:50.653421+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:51.766667+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 89,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:52.172121+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:52.553607+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 93,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:52.897392+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:53.320706+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:53.702497+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:54.749442+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 78,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:55.191760+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 163,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:55.590024+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:56.680783+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 92,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:57.074131+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:57.454431+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 100,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:58.550240+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:13:58.953484+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:59.332403+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 91,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:13:59.676133+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 73,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:00.198905+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 172,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:00.733872+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:01.804350+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 78,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:02.251616+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 149,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:02.661289+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:03.728772+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 83,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:04.119026+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:04.508877+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:05.613489+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:06.017749+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:06.388426+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:06.765219+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 82,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:07.198494+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 160,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:07.592728+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:08.642385+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:09.068881+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 150,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:09.466246+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:10.578666+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 87,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:10.997841+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:11.365566+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 94,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:12.439372+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:12.847565+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:13.232938+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 90,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:13.563766+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 69,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:13.992165+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 154,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:14.377308+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:15.419984+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:15.859988+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 170,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:16.247867+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:17.350178+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 87,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:17.731819+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 115,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:18.104082+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 87,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:19.153542+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 78,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:19.536511+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 112,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:19.913220+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 90,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:20.253473+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 67,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:20.665629+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:21.075845+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 119,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:22.094607+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 68,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:22.517796+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 153,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:22.901300+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 122,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:23.970522+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:24.358828+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 118,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:24.779138+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 105,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:25.875093+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 85,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:26.256775+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 113,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:26.619064+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 96,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:26.951259+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 74,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:27.389665+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 155,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:27.772801+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 111,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:28.807742+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 71,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:29.260448+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:29.663789+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:30.743743+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 81,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:31.142875+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:31.508611+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 92,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:32.568925+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:32.971644+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 120,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:33.339782+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 89,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:33.705446+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 75,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:34.126713+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:34.530888+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 116,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:35.574301+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 76,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:36.019207+00:00",
+      "config": "parity_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 156,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:36.443040+00:00",
+      "config": "parity_h1",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 117,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:37.478254+00:00",
+      "config": "smart_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 82,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:37.860383+00:00",
+      "config": "smart_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 114,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:38.237078+00:00",
+      "config": "smart_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 90,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:39.346570+00:00",
+      "config": "merge_h1",
+      "case": "opening_6",
+      "nodes": 37304,
+      "wall_ms": 93,
+      "quality": 1.0
+    },
+    {
+      "ts": "2026-06-05T00:14:39.753218+00:00",
+      "config": "merge_h1",
+      "case": "opening_6_multipv3",
+      "nodes": 54183,
+      "wall_ms": 110,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:40.136343+00:00",
+      "config": "merge_h1",
+      "case": "long_20",
+      "nodes": 41407,
+      "wall_ms": 97,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:40.491490+00:00",
+      "config": "full",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 74,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:40.916174+00:00",
+      "config": "full",
+      "case": "opening_6_multipv3",
+      "nodes": 88573,
+      "wall_ms": 152,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:41.312452+00:00",
+      "config": "full",
+      "case": "long_20",
+      "nodes": 57315,
+      "wall_ms": 121,
+      "quality": null
+    },
+    {
+      "ts": "2026-06-05T00:14:42.399371+00:00",
+      "config": "parity_h1",
+      "case": "opening_6",
+      "nodes": 35274,
+      "wall_ms": 72,
+      "quality": 1.0
+    }
+  ],
+  "summary": {
+    "smart_h1": {
+      "mean_ms": 99,
+      "mean_node_pct_of_full": 79.0,
+      "mean_quality": 1.0
+    },
+    "parity_h1": {
+      "mean_ms": 117,
+      "mean_node_pct_of_full": 100.0,
+      "mean_quality": 1.0
+    },
+    "merge_h1": {
+      "mean_ms": 99,
+      "mean_node_pct_of_full": 79.0,
+      "mean_quality": 1.0
+    },
+    "full": {
+      "mean_ms": 116,
+      "mean_node_pct_of_full": 100.0,
+      "mean_quality": null
+    }
+  },
+  "minutes": 3.0
+}

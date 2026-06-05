@@ -342,6 +342,218 @@ void emit_grade(int moveNumber, const std::string& playedUci, const PlyResult& p
     print(out, ss.str());
 }
 
+class SpineGameSession : public Search::ISpineGameCallbacks {
+   public:
+    SpineGameSession(Engine& engine_, const Options& opts_, const GameSpec& game_,
+                     Report& report_, const PrintFn& out_, int spinePlies_, bool useResume_,
+                     int& maxSpineStartDepth_) :
+        engine(engine_),
+        opts(opts_),
+        game(game_),
+        report(report_),
+        out(out_),
+        spinePlies(spinePlies_),
+        useResume(useResume_),
+        maxSpineStartDepth(maxSpineStartDepth_) {}
+
+    void prepare_ply(int gamePly, Search::LimitsType& limits, const Position& pos) override {
+        acc = PlyAccumulator{};
+        limits.depth              = opts.depth;
+        limits.startDepth         = 0;
+        limits.spineTtMinDepth    = 0;
+        limits.spinePvOrder.clear();
+        limits.spineStrictParity  = opts.strict != 0;
+        limits.spineContinueTt    = opts.cold == 0 && gamePly > 0;
+
+        if (useResume && previousPly && gamePly > 0)
+        {
+            const int          ttDepthAtRoot = engine.spine_tt_depth_at(pos);
+            const std::string& via           = game.moves[gamePly - 1];
+            const SpineStep    step          = compute_spine_step(opts, *previousPly, via, ttDepthAtRoot);
+            limits.startDepth                = step.startDepth;
+            if (!step.continueTt)
+                limits.spineContinueTt = false;
+            if (limits.startDepth > 1)
+                limits.spineTtMinDepth = limits.startDepth;
+            if (opts.resume >= 2 && !opts.strict)
+                limits.spinePvOrder = parent_pv_suffix(*previousPly, via);
+            if (limits.startDepth > 1)
+            {
+                std::ostringstream rs;
+                rs << "gameanalysis resume gameply " << gamePly << " startdepth "
+                   << limits.startDepth << " ttdepth " << ttDepthAtRoot << " rank "
+                   << find_played_rank(*previousPly, via) << " cpl "
+                   << played_move_cpl(*previousPly, via);
+                print(out, rs.str());
+            }
+        }
+
+        maxSpineStartDepth = std::max(maxSpineStartDepth, std::max(1, limits.startDepth));
+    }
+
+    void ply_finished(int gamePly, const Search::Worker& worker, uint64_t plyNodes,
+                      std::string_view fen) override {
+        (void) worker;
+        PlyResult ply = acc.freeze(gamePly, std::string(fen));
+        ply.nodes     = plyNodes;
+        ply.hashfull  = engine.get_hashfull();
+
+        emit_final(ply, out);
+
+        if (previousPly && gamePly > 0)
+            emit_grade(gamePly, game.moves[gamePly - 1], *previousPly, out);
+
+        report.totalNodes += ply.nodes;
+        report.totalTimeMs += ply.timeMs;
+        report.lastHashfull = ply.hashfull;
+        report.plies.push_back(std::move(ply));
+        previousPly = report.plies.back();
+    }
+
+    std::string played_move_after(int gamePly) const override {
+        if (gamePly < 0 || gamePly >= int(game.moves.size()))
+            return {};
+        return game.moves[gamePly];
+    }
+
+    void on_info(const Engine::InfoFull& info) { acc.update(info); }
+
+   private:
+    Engine&                  engine;
+    const Options&           opts;
+    const GameSpec&          game;
+    Report&                  report;
+    const PrintFn&           out;
+    int                      spinePlies;
+    bool                     useResume;
+    int&                     maxSpineStartDepth;
+    std::optional<PlyResult> previousPly;
+    PlyAccumulator           acc;
+};
+
+std::optional<std::string> run_single_game_oneshot(Engine& engine, const Options& opts,
+                                                  const GameSpec& game, const PrintFn& out) {
+    const bool useResume = opts.resume && opts.cold == 0 && !opts.strict;
+    const int  spinePlies = std::min(int(game.moves.size()) + 1, opts.maxPlies);
+
+    Report report;
+    int    maxSpineStartDepth = 1;
+  uint64_t consolidateNodes  = 0;
+    bool   allSpineAtDepth    = true;
+
+    SpineGameSession session(engine, opts, game, report, out, spinePlies, useResume,
+                             maxSpineStartDepth);
+
+    engine.set_on_update_no_moves([](const Engine::InfoShort&) {});
+    engine.set_on_iter([](const Engine::InfoIter&) {});
+    engine.set_on_update_full(
+      [&](const Engine::InfoFull& info) { session.on_info(info); });
+
+    bool searchDone = false;
+    engine.set_on_bestmove([&](std::string_view, std::string_view) { searchDone = true; });
+
+    Search::LimitsType limits;
+    limits.depth           = opts.depth;
+    limits.startTime       = now();
+    limits.spineGame       = true;
+    limits.spinePlyCount   = spinePlies;
+    limits.spineCallbacks  = &session;
+
+    if (auto err = engine.set_position(game.fen, {}))
+        return err->what();
+
+    engine.go(limits);
+    engine.wait_for_search_finished();
+
+    if (!searchDone)
+        return "spine search did not complete";
+
+    for (const auto& ply : report.plies)
+        if (ply.bestDepth < opts.depth)
+            allSpineAtDepth = false;
+
+  // Backward refine still uses per-ply go (positions already warm in TT).
+    if (opts.refine && opts.depth > 1 && !allSpineAtDepth)
+    {
+        std::vector<std::string> prefix;
+        if (spinePlies > 1)
+            prefix.assign(game.moves.begin(), game.moves.begin() + spinePlies - 1);
+
+        for (int gamePly = spinePlies - 1; gamePly >= 0; --gamePly)
+        {
+            engine.wait_for_search_finished();
+            if (auto err = engine.set_position(game.fen, prefix))
+                return err->what();
+
+            const int ttDepth = engine.spine_tt_depth();
+            const int have    = report.plies[gamePly].bestDepth;
+
+            int start = 1;
+            if (opts.strict)
+            {
+                if (have >= opts.depth)
+                {
+                    if (!prefix.empty())
+                        prefix.pop_back();
+                    continue;
+                }
+            }
+            else
+            {
+                start                 = consolidate_start_depth(opts.depth, have, ttDepth);
+                const bool freeRefine = have >= opts.depth && ttDepth >= opts.depth - 1;
+                if (start <= 0 || (start <= have && !freeRefine))
+                {
+                    if (!prefix.empty())
+                        prefix.pop_back();
+                    continue;
+                }
+            }
+
+            Search::LimitsType rlimits;
+            rlimits.startTime          = now();
+            rlimits.depth              = opts.depth;
+            rlimits.startDepth         = start;
+            rlimits.spineContinueTt    = true;
+            rlimits.spineTtMinDepth    = 0;
+            rlimits.spineStrictParity  = opts.strict != 0;
+
+            PlyResult ply;
+            if (auto serr = search_spine_ply(engine, opts, gamePly, game, prefix, rlimits, ply, out,
+                                             false))
+                return serr;
+
+            consolidateNodes += ply.nodes;
+
+            std::ostringstream ds;
+            ds << "gameanalysis deepen gameply " << gamePly << " ttdepth " << ttDepth
+               << " startdepth " << start << " nodes " << ply.nodes;
+            print(out, ds.str());
+
+            emit_final(ply, out);
+            report.totalNodes += ply.nodes;
+            report.totalTimeMs += ply.timeMs;
+            report.plies[gamePly] = std::move(ply);
+
+            if (!prefix.empty())
+                prefix.pop_back();
+        }
+    }
+
+    const char* mode = opts.strict ? "parity" : (opts.resume == 0 ? "full" : "resume");
+
+    std::ostringstream ss;
+    ss << "gameanalysis summary plies " << report.plies.size() << " nodes " << report.totalNodes
+       << " time " << report.totalTimeMs << " hashfull " << report.lastHashfull << " threads "
+       << effective_threads(opts.threads) << " mode oneshot/" << mode << " startdepth "
+       << maxSpineStartDepth;
+    if (consolidateNodes > 0)
+        ss << " deepen_nodes " << consolidateNodes;
+    print(out, ss.str());
+
+    return std::nullopt;
+}
+
 std::optional<std::string> run_single_game(Engine& engine, const Options& opts, const GameSpec& game,
                                            const PrintFn& out) {
     if (opts.depth <= 0)
@@ -352,9 +564,6 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
 
     if (opts.cold == 2)
         return "cold 2 not implemented";
-
-    // Strict parity: full 1..D ladder, no resume shortcuts (same search path as resume 0).
-    const bool useResume = opts.resume && opts.cold == 0 && !opts.strict;
 
     engine.wait_for_search_finished();
 
@@ -369,6 +578,13 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         ss << "gameanalysis threads " << effective_threads(opts.threads);
         print(out, ss.str());
     }
+
+    // Whole-game spine in one go() is enabled for 1 thread (barrier sync across workers is 1-thread only for now).
+    if (opts.oneshot && opts.cold == 0 && effective_threads(opts.threads) == 1)
+        return run_single_game_oneshot(engine, opts, game, out);
+
+    // Strict parity: full 1..D ladder, no resume shortcuts (same search path as resume 0).
+    const bool useResume = opts.resume && opts.cold == 0 && !opts.strict;
 
     Report                   report;
     std::vector<std::string> prefix;
@@ -548,7 +764,8 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "resume" || t == "resumehorizon" || t == "refine" || t == "strict" || t == "threads"
+        || t == "resume" || t == "resumehorizon" || t == "refine" || t == "strict" || t == "oneshot"
+        || t == "threads"
         || t == "file"
         || t == "pgn" || t == "fen" || t == "startpos";
 }
@@ -570,6 +787,8 @@ bool parse_inline_option(const std::string& token, std::istream& is, Options& op
         is >> opts.refine;
     else if (token == "strict")
         is >> opts.strict;
+    else if (token == "oneshot")
+        is >> opts.oneshot;
     else if (token == "threads")
         is >> opts.threads;
     else

@@ -428,6 +428,34 @@ void ThreadPool::wait_for_search_finished() const {
             th->wait_for_search_finished();
 }
 
+void ThreadPool::sync_barrier() {
+    std::unique_lock<std::mutex> lk(barrierMutex);
+    const int gen = barrierGeneration;
+    if (++barrierWaiting == int(threads.size()))
+    {
+        barrierWaiting = 0;
+        ++barrierGeneration;
+        lk.unlock();
+        barrierCv.notify_all();
+    }
+    else
+        barrierCv.wait(lk, [&]() { return barrierGeneration != gen; });
+}
+
+void ThreadPool::spine_record_move(Position& pos, Move m, std::string& outFen) {
+    if (!setupStates)
+        setupStates = StateListPtr(new std::deque<StateInfo>(1));
+    setupStates->emplace_back();
+    pos.do_move(m, setupStates->back());
+    outFen = pos.fen();
+}
+
+void ThreadPool::spine_install_position(Search::Worker& worker, const std::string& fen) {
+    worker.rootPos.set(fen, worker.rootPos.is_chess960(), &worker.rootState);
+    if (setupStates && !setupStates->empty())
+        worker.rootState = setupStates->back();
+}
+
 std::vector<size_t> ThreadPool::get_bound_thread_to_numa_node() const {
     return boundThreadToNumaNode;
 }

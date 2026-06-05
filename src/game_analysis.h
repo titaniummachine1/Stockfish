@@ -47,6 +47,7 @@ struct Options {
     int  resumeHorizon = 1;  // min ID plies to (re)run when resuming
     int  refine   = 1;  // end: cheap deepen where TT gained depth from later plies
     int  strict   = 0;  // 1 = full 1..D ID each ply (keep TT reuse); 0 = allow startDepth skip
+    int  oneshot  = 1;  // 1 = single search walks whole spine; 0 = legacy per-ply go
     int  threads  = 0;  // 0 = use all logical CPUs
     int  maxPlies = DefaultMaxPlies;
 

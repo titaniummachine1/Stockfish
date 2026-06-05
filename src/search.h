@@ -58,6 +58,19 @@ class OptionsMap;
 
 namespace Search {
 
+class Worker;
+
+// Game-analysis: one continuous search across the played-move spine (no per-ply go/stop).
+class ISpineGameCallbacks {
+   public:
+    virtual ~ISpineGameCallbacks() = default;
+    virtual void prepare_ply(int gamePly, LimitsType& limits, const Position& pos) = 0;
+    virtual void ply_finished(int gamePly, const Worker& worker, uint64_t plyNodes,
+                            std::string_view fen) = 0;
+    // UCI move from gamePly to gamePly+1; empty when gamePly is the last position.
+    virtual std::string played_move_after(int gamePly) const = 0;
+};
+
 struct PVMoves {
     Move        moves[MAX_PLY + 1];
     std::size_t length = 0;
@@ -166,6 +179,9 @@ struct LimitsType {
         spineTtMinDepth                             = 0;
         spineContinueTt                             = false;
         spineStrictParity                           = false;
+        spineGame                                   = false;
+        spinePlyCount                               = 0;
+        spineCallbacks                              = nullptr;
     }
 
     bool use_time_management() const { return time[WHITE] || time[BLACK]; }
@@ -178,6 +194,9 @@ struct LimitsType {
     int   spineTtMinDepth;   // ignore TT entries below this depth (horizon guard)
     bool  spineContinueTt;   // skip tt.new_search() — keep same generation (spine tree merge)
     bool  spineStrictParity;  // gameanalysis strict 1: full 1..D ID, no skipped rungs
+    bool  spineGame;          // whole-game spine in one search (gameanalysis oneshot)
+    int   spinePlyCount;      // positions to analyze (played moves + 1)
+    ISpineGameCallbacks* spineCallbacks;
     uint64_t                 nodes;
     bool                     ponderMode;
 };
@@ -307,6 +326,10 @@ class SearchManager: public ISearchManager {
     size_t id;
 
     const UpdateContext& updates;
+
+    // Per-ply limits for whole-game spine (main thread writes, workers read after barrier).
+    LimitsType spinePlyLimits;
+    std::string spineNextFen;
 };
 
 class NullSearchManager: public ISearchManager {
@@ -337,6 +360,8 @@ class Worker {
     bool is_mainthread() const { return threadIdx == 0; }
 
     void ensure_network_replicated();
+
+    void spine_reinit_after_advance();
 
     // Public because they need to be updatable by the stats
     ButterflyHistory mainHistory;

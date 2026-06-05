@@ -17,7 +17,7 @@
 
 `startdepth` in summary = max `startDepth` used on forward spine (1 = full ladder every ply).
 
-**Defaults:** `resume 3` (merge), `refine 1`, `strict 0`, `cold 0`.
+**Defaults:** `resume 3` (merge), `refine 1`, `strict 0`, `cold 0`, `oneshot 1`.
 
 Hosts needing depth-D parity: `gameanalysis depth D … strict 1` (optional `resume 2` — ignored for search path when strict).
 
@@ -66,9 +66,15 @@ Still **~89 separate `go` calls** per game — major ceiling until single-spine 
 
 \*Quality CI uses strict 1; smart mode is not score-gated in CI.
 
+## Oneshot spine (shipped)
+
+- **`oneshot 1` (default):** one `go` analyzes every ply inside `iterative_deepening()` via `ISpineGameCallbacks`.
+- **1 thread only** today (multi-thread barrier sync TBD); **2+ threads** fall back to per-ply `go` with TT merge.
+- Summary mode: `oneshot/resume` or `oneshot/parity`.
+
 ## Out of scope (next big wins)
 
-- Single internal `go` / spine walk inside `Search` (drop per-ply thread sync)
+- Multi-thread oneshot (worker barriers without deadlock)
 - TT-exact ply skip (`BOUND_EXACT` + `ttDepth ≥ D`) without full root search
 - Default `strict 1` for hosts needing depth-D parity without flag
 - Elo

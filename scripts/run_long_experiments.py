@@ -8,6 +8,14 @@ Runs until --hours elapsed (default 10). Logs JSONL + periodic markdown summarie
 from __future__ import annotations
 
 import argparse
+import sys
+
+# Line-buffered stdout when redirected to a log file on Windows.
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except Exception:
+        pass
 import json
 import os
 import re

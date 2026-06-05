@@ -1,0 +1,448 @@
+Quick experiments ~600.0 min -> C:\gitProjects\Stockfish\scripts\benchmark_results\quick\quick_20260604_114358.json
+  full         opening_6                324ms    509844
+  full         opening_6_multipv3       306ms    573208
+  full         long_20                  264ms    555813
+  smart_h1     opening_6                185ms    354326 q=100%
+  smart_h1     opening_6_multipv3       300ms    342809
+  smart_h1     long_20                  300ms    426875
+  merge_h1     opening_6                143ms    191677 q=100%
+  merge_h1     opening_6_multipv3       233ms    349700
+  merge_h1     long_20                  207ms    360698
+  full         opening_6                205ms    416234
+  full         opening_6_multipv3       331ms    621499
+  full         long_20                  205ms    391934
+  smart_h1     opening_6                208ms    333117 q=100%
+  smart_h1     opening_6_multipv3       296ms    408759
+  smart_h1     long_20                  270ms    406438
+  merge_h1     opening_6                129ms    249317 q=100%
+  merge_h1     opening_6_multipv3       225ms    337105
+  merge_h1     long_20                  178ms    313420
+  full         opening_6                174ms    373531
+  full         opening_6_multipv3       216ms    537105
+  full         long_20                  238ms    425005
+  smart_h1     opening_6                120ms    213831 q=100%
+  smart_h1     opening_6_multipv3       249ms    373906
+  smart_h1     long_20                  196ms    325691
+  merge_h1     opening_6                181ms    331555 q=100%
+  merge_h1     opening_6_multipv3       283ms    466825
+  merge_h1     long_20                  221ms    352746
+  full         opening_6                212ms    416914
+  full         opening_6_multipv3       209ms    490248
+  full         long_20                  159ms    398871
+  smart_h1     opening_6                156ms    353066 q=100%
+  smart_h1     opening_6_multipv3       181ms    306306
+  smart_h1     long_20                  204ms    328509
+  merge_h1     opening_6                204ms    378019 q=100%
+  merge_h1     opening_6_multipv3       478ms    430260
+  merge_h1     long_20                  397ms    379291
+  full         opening_6                439ms    492291
+  full         opening_6_multipv3       465ms    589088
+  full         long_20                  375ms    454553
+  smart_h1     opening_6                300ms    249093 q=100%
+  smart_h1     opening_6_multipv3       294ms    458236
+  smart_h1     long_20                  188ms    320221
+  merge_h1     opening_6                265ms    275900 q=100%
+  merge_h1     opening_6_multipv3       550ms    484140
+  merge_h1     long_20                  478ms    433518
+  full         opening_6                141ms    328564
+  full         opening_6_multipv3       214ms    537222
+  full         long_20                  264ms    430532
+  smart_h1     opening_6                206ms    283346 q=100%
+  smart_h1     opening_6_multipv3       583ms    458995
+  smart_h1     long_20                  338ms    329290
+  merge_h1     opening_6                172ms    289668 q=100%
+  merge_h1     opening_6_multipv3       467ms    465735
+  merge_h1     long_20                  237ms    393274
+  full         opening_6                183ms    366648
+  full         opening_6_multipv3       184ms    450836
+  full         long_20                  235ms    455594
+  smart_h1     opening_6                630ms    483554 q=100%
+  smart_h1     opening_6_multipv3       181ms    370409
+  smart_h1     long_20                  204ms    394912
+  merge_h1     opening_6                272ms    266893 q=100%
+  merge_h1     opening_6_multipv3       270ms    366378
+  merge_h1     long_20                  202ms    354467
+  full         opening_6                132ms    333093
+  full         opening_6_multipv3       271ms    548304
+  full         long_20                  186ms    432471
+  smart_h1     opening_6                241ms    231152 q=100%
+  smart_h1     opening_6_multipv3       303ms    412561
+  smart_h1     long_20                  199ms    339940
+  merge_h1     opening_6                142ms    267598 q=100%
+  merge_h1     opening_6_multipv3       518ms    471111
+  merge_h1     long_20                  273ms    319468
+  full         opening_6                383ms    460084
+  full         opening_6_multipv3       274ms    489988
+  full         long_20                  271ms    472230
+  smart_h1     opening_6                235ms    301901 q=100%
+  smart_h1     opening_6_multipv3       395ms    451840
+  smart_h1     long_20                  398ms    374468
+  merge_h1     opening_6                146ms    297905 q=100%
+  merge_h1     opening_6_multipv3       318ms    351301
+  merge_h1     long_20                  210ms    315363
+  full         opening_6                272ms    393404
+  full         opening_6_multipv3       256ms    607971
+  full         long_20                  299ms    388013
+  smart_h1     opening_6                129ms    292973 q=100%
+  smart_h1     opening_6_multipv3       202ms    343080
+  smart_h1     long_20                  218ms    245832
+  merge_h1     opening_6                116ms    245991 q=100%
+  merge_h1     opening_6_multipv3       529ms    475285
+  merge_h1     long_20                  406ms    363780
+  full         opening_6                300ms    423397
+  full         opening_6_multipv3       456ms    523364
+  full         long_20                  254ms    341302
+  smart_h1     opening_6                248ms    298703 q=100%
+  smart_h1     opening_6_multipv3       334ms    323105
+  smart_h1     long_20                  327ms    377909
+  merge_h1     opening_6                145ms    319017 q=100%
+  merge_h1     opening_6_multipv3       370ms    355226
+  merge_h1     long_20                  276ms    329053
+  full         opening_6                180ms    309741
+  full         opening_6_multipv3       262ms    476534
+  full         long_20                  170ms    416959
+  smart_h1     opening_6                175ms    384453 q=100%
+  smart_h1     opening_6_multipv3       194ms    314085
+  smart_h1     long_20                  165ms    296614
+  merge_h1     opening_6                160ms    355734 q=100%
+  merge_h1     opening_6_multipv3       208ms    426057
+  merge_h1     long_20                  185ms    352677
+  full         opening_6                134ms    341193
+  full         opening_6_multipv3       184ms    511248
+  full         long_20                  235ms    548733
+  smart_h1     opening_6                118ms    241590 q=100%
+  smart_h1     opening_6_multipv3       173ms    293685
+  smart_h1     long_20                  177ms    356948
+  merge_h1     opening_6                114ms    244620 q=100%
+  merge_h1     opening_6_multipv3       187ms    380139
+  merge_h1     long_20                  193ms    375027
+  full         opening_6                 89ms    209889
+  full         opening_6_multipv3       177ms    502864
+  full         long_20                  187ms    367413
+  smart_h1     opening_6                169ms    322076 q=100%
+  smart_h1     opening_6_multipv3       212ms    327093
+  smart_h1     long_20                  250ms    361003
+  merge_h1     opening_6                127ms    271160 q=100%
+  merge_h1     opening_6_multipv3       175ms    301742
+  merge_h1     long_20                  174ms    326224
+  full         opening_6                220ms    440585
+  full         opening_6_multipv3       235ms    603748
+  full         long_20                  161ms    375277
+  smart_h1     opening_6                 68ms    106002 q=100%
+  smart_h1     opening_6_multipv3       249ms    476235
+  smart_h1     long_20                  163ms    327223
+  merge_h1     opening_6                199ms    403818 q=100%
+  merge_h1     opening_6_multipv3       180ms    278637
+  merge_h1     long_20                  170ms    322937
+  full         opening_6                186ms    432155
+  full         opening_6_multipv3       222ms    532787
+  full         long_20                  221ms    514122
+  smart_h1     opening_6                212ms    422389 q=100%
+  smart_h1     opening_6_multipv3       341ms    444019
+  smart_h1     long_20                  158ms    303148
+  merge_h1     opening_6                 96ms    220052 q=100%
+  merge_h1     opening_6_multipv3       271ms    464092
+  merge_h1     long_20                  217ms    390349
+  full         opening_6                147ms    371552
+  full         opening_6_multipv3       291ms    542556
+  full         long_20                  417ms    400644
+  smart_h1     opening_6                219ms    222909 q=100%
+  smart_h1     opening_6_multipv3       267ms    378573
+  smart_h1     long_20                  196ms    366443
+  merge_h1     opening_6                199ms    268404 q=100%
+  merge_h1     opening_6_multipv3       247ms    379761
+  merge_h1     long_20                  190ms    321339
+  full         opening_6                209ms    507543
+  full         opening_6_multipv3       167ms    451290
+  full         long_20                  188ms    470389
+  smart_h1     opening_6                250ms    313310 q=100%
+  smart_h1     opening_6_multipv3       293ms    302016
+  smart_h1     long_20                  181ms    350903
+  merge_h1     opening_6                162ms    366715 q=100%
+  merge_h1     opening_6_multipv3       344ms    436811
+  merge_h1     long_20                  278ms    361529
+  full         opening_6                309ms    307346
+  full         opening_6_multipv3       181ms    481478
+  full         long_20                  609ms    559560
+  smart_h1     opening_6                122ms    237261 q=100%
+  smart_h1     opening_6_multipv3       256ms    428161
+  smart_h1     long_20                  184ms    357126
+  merge_h1     opening_6                279ms    316973 q=100%
+  merge_h1     opening_6_multipv3       363ms    381489
+  merge_h1     long_20                  311ms    319776
+  full         opening_6                110ms    273775
+  full         opening_6_multipv3       479ms    533230
+  full         long_20                  144ms    367946
+  smart_h1     opening_6                211ms    271826 q=100%
+  smart_h1     opening_6_multipv3       182ms    371600
+  smart_h1     long_20                  176ms    449178
+  merge_h1     opening_6                 83ms    175710 q=100%
+  merge_h1     opening_6_multipv3       186ms    373317
+  merge_h1     long_20                  155ms    312547
+  full         opening_6                297ms    403489
+  full         opening_6_multipv3       310ms    555116
+  full         long_20                  268ms    467064
+  smart_h1     opening_6                121ms    261129 q=100%
+  smart_h1     opening_6_multipv3       309ms    438567
+  smart_h1     long_20                  347ms    306454
+  merge_h1     opening_6                276ms    285708 q=100%
+  merge_h1     opening_6_multipv3       276ms    352216
+  merge_h1     long_20                  303ms    389445
+  full         opening_6                262ms    319105
+  full         opening_6_multipv3       178ms    512571
+  full         long_20                  415ms    447502
+  smart_h1     opening_6                131ms    194914 q=100%
+  smart_h1     opening_6_multipv3       170ms    333274
+  smart_h1     long_20                  198ms    343798
+  merge_h1     opening_6                145ms    343477 q=100%
+  merge_h1     opening_6_multipv3       248ms    355893
+  merge_h1     long_20                  322ms    248478
+  full         opening_6                213ms    321383
+  full         opening_6_multipv3       275ms    527633
+  full         long_20                  222ms    482758
+  smart_h1     opening_6                111ms    228922 q=100%
+  smart_h1     opening_6_multipv3       187ms    318979
+  smart_h1     long_20                  272ms    303417
+  merge_h1     opening_6                142ms    292496 q=100%
+  merge_h1     opening_6_multipv3       250ms    403664
+  merge_h1     long_20                  332ms    307482
+  full         opening_6                227ms    370977
+  full         opening_6_multipv3       230ms    419900
+  full         long_20                  362ms    421380
+  smart_h1     opening_6                261ms    332084 q=100%
+  smart_h1     opening_6_multipv3       248ms    427530
+  smart_h1     long_20                  428ms    342871
+  merge_h1     opening_6                254ms    269404 q=100%
+  merge_h1     opening_6_multipv3       218ms    370653
+  merge_h1     long_20                  352ms    442459
+  full         opening_6                237ms    358359
+  full         opening_6_multipv3       358ms    562312
+  full         long_20                  256ms    524690
+  smart_h1     opening_6                113ms    162485 q=100%
+  smart_h1     opening_6_multipv3       191ms    321357
+  smart_h1     long_20                  218ms    379874
+  merge_h1     opening_6                139ms    279702 q=100%
+  merge_h1     opening_6_multipv3       463ms    423192
+  merge_h1     long_20                  181ms    302862
+  full         opening_6                129ms    320768
+  full         opening_6_multipv3       170ms    466628
+  full         long_20                  166ms    393001
+  smart_h1     opening_6                141ms    273546 q=100%
+  smart_h1     opening_6_multipv3       199ms    354686
+  smart_h1     long_20                  274ms    360423
+  merge_h1     opening_6                216ms    265025 q=100%
+  merge_h1     opening_6_multipv3       209ms    359708
+  merge_h1     long_20                  273ms    332233
+  full         opening_6                181ms    280481
+  full         opening_6_multipv3       198ms    432486
+  full         long_20                  166ms    392669
+  smart_h1     opening_6                100ms    199344 q=100%
+  smart_h1     opening_6_multipv3       210ms    323450
+  smart_h1     long_20                  343ms    386371
+  merge_h1     opening_6                121ms    258240 q=100%
+  merge_h1     opening_6_multipv3       248ms    370616
+  merge_h1     long_20                  208ms    390163
+  full         opening_6                167ms    378231
+  full         opening_6_multipv3       198ms    509166
+  full         long_20                  228ms    447502
+  smart_h1     opening_6                141ms    229687 q=100%
+  smart_h1     opening_6_multipv3       210ms    357151
+  smart_h1     long_20                  176ms    314565
+  merge_h1     opening_6                125ms    254974 q=100%
+  merge_h1     opening_6_multipv3       210ms    371056
+  merge_h1     long_20                  176ms    329744
+  full         opening_6                213ms    423380
+  full         opening_6_multipv3       210ms    530773
+  full         long_20                  167ms    400979
+  smart_h1     opening_6                162ms    366907 q=100%
+  smart_h1     opening_6_multipv3       160ms    323806
+  smart_h1     long_20                  181ms    282611
+  merge_h1     opening_6                 88ms    185502 q=100%
+  merge_h1     opening_6_multipv3       189ms    358439
+  merge_h1     long_20                  167ms    320817
+  full         opening_6                174ms    387327
+  full         opening_6_multipv3       189ms    500453
+  full         long_20                  199ms    463632
+  smart_h1     opening_6                156ms    321289 q=100%
+  smart_h1     opening_6_multipv3       403ms    411034
+  smart_h1     long_20                  363ms    385165
+  merge_h1     opening_6                274ms    335923 q=100%
+  merge_h1     opening_6_multipv3       274ms    377237
+  merge_h1     long_20                  346ms    388194
+  full         opening_6                423ms    453750
+  full         opening_6_multipv3       290ms    500584
+  full         long_20                  422ms    415639
+  smart_h1     opening_6                165ms    322194 q=100%
+  smart_h1     opening_6_multipv3       203ms    336459
+  smart_h1     long_20                  186ms    344350
+  merge_h1     opening_6                122ms    287052 q=100%
+  merge_h1     opening_6_multipv3       157ms    317612
+  merge_h1     long_20                  425ms    358273
+  full         opening_6                125ms    314286
+  full         opening_6_multipv3       263ms    418388
+  full         long_20                  261ms    427052
+  smart_h1     opening_6                 81ms    156465 q=100%
+  smart_h1     opening_6_multipv3       193ms    384084
+  smart_h1     long_20                  343ms    371668
+  merge_h1     opening_6                140ms    280046 q=100%
+  merge_h1     opening_6_multipv3       449ms    449723
+  merge_h1     long_20                  173ms    349818
+  full         opening_6                241ms    507966
+  full         opening_6_multipv3       144ms    456673
+  full         long_20                  182ms    364720
+  smart_h1     opening_6                102ms    255649 q=100%
+  smart_h1     opening_6_multipv3       276ms    400638
+  smart_h1     long_20                  197ms    425980
+  merge_h1     opening_6                248ms    381606 q=100%
+  merge_h1     opening_6_multipv3       477ms    489627
+  merge_h1     long_20                  202ms    378013
+  full         opening_6                208ms    291052
+  full         opening_6_multipv3       249ms    458931
+  full         long_20                  179ms    412720
+  smart_h1     opening_6                232ms    298144 q=100%
+  smart_h1     opening_6_multipv3       156ms    328846
+  smart_h1     long_20                  155ms    276536
+  merge_h1     opening_6                101ms    208585 q=100%
+  merge_h1     opening_6_multipv3       468ms    411283
+  merge_h1     long_20                  193ms    377970
+  full         opening_6                124ms    301543
+  full         opening_6_multipv3       182ms    495858
+  full         long_20                  165ms    423357
+  smart_h1     opening_6                182ms    264796 q=100%
+  smart_h1     opening_6_multipv3       425ms    335733
+  smart_h1     long_20                  243ms    329136
+  merge_h1     opening_6                235ms    235167 q=100%
+  merge_h1     opening_6_multipv3       225ms    384137
+  merge_h1     long_20                  181ms    356535
+  full         opening_6                144ms    329808
+  full         opening_6_multipv3       338ms    576606
+  full         long_20                  247ms    401842
+  smart_h1     opening_6                270ms    381054 q=100%
+  smart_h1     opening_6_multipv3       356ms    369783
+  smart_h1     long_20                  384ms    378203
+  merge_h1     opening_6                126ms    263768 q=100%
+  merge_h1     opening_6_multipv3       242ms    411723
+  merge_h1     long_20                  425ms    323029
+  full         opening_6                173ms    370098
+  full         opening_6_multipv3       239ms    434003
+  full         long_20                  636ms    606366
+  smart_h1     opening_6                173ms    366867 q=100%
+  smart_h1     opening_6_multipv3       289ms    432961
+  smart_h1     long_20                  461ms    372495
+  merge_h1     opening_6                181ms    355177 q=100%
+  merge_h1     opening_6_multipv3       341ms    398196
+  merge_h1     long_20                  197ms    377211
+  full         opening_6                162ms    397944
+  full         opening_6_multipv3       307ms    606034
+  full         long_20                  245ms    454145
+  smart_h1     opening_6                125ms    275710 q=100%
+  smart_h1     opening_6_multipv3       218ms    358381
+  smart_h1     long_20                  186ms    309504
+  merge_h1     opening_6                188ms    325630 q=100%
+  merge_h1     opening_6_multipv3       309ms    404513
+  merge_h1     long_20                  171ms    320693
+  full         opening_6                171ms    394885
+  full         opening_6_multipv3       171ms    496056
+  full         long_20                  249ms    386571
+  smart_h1     opening_6                141ms    202852 q=100%
+  smart_h1     opening_6_multipv3       209ms    302813
+  smart_h1     long_20                  176ms    334942
+  merge_h1     opening_6                187ms    278577 q=100%
+  merge_h1     opening_6_multipv3       266ms    367731
+  merge_h1     long_20                  220ms    333158
+  full         opening_6                210ms    489859
+  full         opening_6_multipv3       231ms    522572
+  full         long_20                  186ms    444786
+  smart_h1     opening_6                135ms    305063 q=100%
+  smart_h1     opening_6_multipv3       372ms    454610
+  smart_h1     long_20                  282ms    462009
+  merge_h1     opening_6                163ms    297820 q=100%
+  merge_h1     opening_6_multipv3       204ms    341351
+  merge_h1     long_20                  228ms    425694
+  full         opening_6                166ms    375812
+  full         opening_6_multipv3       264ms    541015
+  full         long_20                  218ms    524524
+  smart_h1     opening_6                120ms    187643 q=100%
+  smart_h1     opening_6_multipv3       212ms    333793
+  smart_h1     long_20                  201ms    370154
+  merge_h1     opening_6                118ms    255536 q=100%
+  merge_h1     opening_6_multipv3       235ms    487422
+  merge_h1     long_20                  175ms    345760
+  full         opening_6                152ms    352091
+  full         opening_6_multipv3       176ms    493040
+  full         long_20                  203ms    426897
+  smart_h1     opening_6                106ms    272210 q=100%
+  smart_h1     opening_6_multipv3       202ms    379149
+  smart_h1     long_20                  191ms    374002
+  merge_h1     opening_6                115ms    263933 q=100%
+  merge_h1     opening_6_multipv3       422ms    479680
+  merge_h1     long_20                  220ms    360201
+  full         opening_6                286ms    326568
+  full         opening_6_multipv3       350ms    528735
+  full         long_20                  144ms    341484
+  smart_h1     opening_6                270ms    329105 q=100%
+  smart_h1     opening_6_multipv3       215ms    287924
+  smart_h1     long_20                  280ms    365311
+  merge_h1     opening_6                237ms    261948 q=100%
+  merge_h1     opening_6_multipv3       425ms    409841
+  merge_h1     long_20                  275ms    298551
+  full         opening_6                242ms    340465
+  full         opening_6_multipv3       163ms    461615
+  full         long_20                  177ms    399016
+  smart_h1     opening_6                137ms    258304 q=100%
+  smart_h1     opening_6_multipv3       256ms    508530
+  smart_h1     long_20                  197ms    340261
+  merge_h1     opening_6                132ms    261572 q=100%
+  merge_h1     opening_6_multipv3       327ms    389656
+  merge_h1     long_20                  220ms    328984
+  full         opening_6                125ms    308928
+  full         opening_6_multipv3       232ms    607104
+  full         long_20                  220ms    468321
+  smart_h1     opening_6                193ms    315273 q=100%
+  smart_h1     opening_6_multipv3       184ms    295362
+  smart_h1     long_20                  242ms    275337
+  merge_h1     opening_6                265ms    299542 q=100%
+  merge_h1     opening_6_multipv3       279ms    435745
+  merge_h1     long_20                  213ms    366305
+  full         opening_6                171ms    476293
+  full         opening_6_multipv3       190ms    513490
+  full         long_20                  217ms    415766
+  smart_h1     opening_6                103ms    235650 q=100%
+  smart_h1     opening_6_multipv3       180ms    297887
+  smart_h1     long_20                  323ms    358797
+  merge_h1     opening_6                138ms    241682 q=100%
+  merge_h1     opening_6_multipv3       380ms    402014
+  merge_h1     long_20                  335ms    324332
+  full         opening_6                193ms    382205
+  full         opening_6_multipv3       343ms    460951
+  full         long_20                  196ms    411987
+  smart_h1     opening_6                148ms    271612 q=100%
+  smart_h1     opening_6_multipv3       428ms    499768
+  smart_h1     long_20                  495ms    455505
+  merge_h1     opening_6                 88ms    195754 q=100%
+  merge_h1     opening_6_multipv3       197ms    320956
+  merge_h1     long_20                  186ms    261490
+  full         opening_6                229ms    366042
+  full         opening_6_multipv3       287ms    444244
+  full         long_20                  275ms    399655
+  smart_h1     opening_6                384ms    394750 q=100%
+  FAIL smart_h1 opening_6_multipv3: Command '['C:\\gitProjects\\Stockfish\\src\\stockfish.exe', 'gameanalysis', 'depth', '8', 'threads', '8', 'multipv', '3', 'cold', '0', 'resume', '2', 'resumehorizon', '1', 'fen', 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR', 'w', 'KQkq', '-', '0', '1', 'moves', 'e2e4', 'e7e5', 'g1f3', 'b8c6', 'f1b5', 'a7a6']' timed out after -30447.188000000002 seconds
+
+Summary: {
+  "smart_h1": {
+    "mean_ms": 230,
+    "mean_node_pct_of_full": 83.0,
+    "mean_quality": 1.0
+  },
+  "full": {
+    "mean_ms": 236,
+    "mean_node_pct_of_full": 109.0,
+    "mean_quality": null
+  },
+  "merge_h1": {
+    "mean_ms": 240,
+    "mean_node_pct_of_full": 84.0,
+    "mean_quality": 1.0
+  }
+}
+Wrote C:\gitProjects\Stockfish\scripts\benchmark_results\quick\quick_20260604_114358.json

@@ -7,6 +7,7 @@ Balanced whole-game samples for `gameanalysis` benchmarks.
 | `gm_wijk_aan_zee.pgn` | Carlsen–Wang Hao, Tata Steel 2011 | 57 moves, validated SAN |
 | `club_1400.pgn` | Club rapid (lichess-style) | 36 moves, validated SAN |
 | `rapid_600_style.pgn` | Ruy Lopez spine (`benchmark_games` long_20) | 20 moves |
+| `chesscom_club_1100_carokann.pgn` | Chess.com live, ~1082 vs ~1120 | 44 moves, Caro-Kann Advance |
 
 Regenerate after edits:
 

@@ -325,6 +325,32 @@ bool Search::Worker::iterative_deepening() {
         for (int i = 0; i < UINT_16_HISTORY_SIZE; i++)
             mainHistory[c][i] = (mainHistory[c][i] + 5) * 789 / 1024;
 
+    const bool spineMode =
+      limits.spineGame && limits.spineCallbacks != nullptr && limits.spinePlyCount > 0;
+    const int  spinePlies = spineMode ? limits.spinePlyCount : 1;
+    uint64_t   spinePlyStartNodes = 0;
+
+    for (int spinePly = 0; spinePly < spinePlies; ++spinePly)
+    {
+        if (threads.stop)
+            break;
+
+        if (spineMode)
+        {
+            if (is_mainthread())
+            {
+                limits.spineCallbacks->prepare_ply(spinePly, limits, rootPos);
+                mainThread->spinePlyLimits = limits;
+                spinePlyStartNodes         = threads.nodes_searched();
+            }
+            threads.sync_barrier();
+            if (!is_mainthread())
+                limits = threads.main_manager()->spinePlyLimits;
+            threads.sync_barrier();
+            if (spinePly > 0 && !limits.spineContinueTt)
+                tt.new_search();
+        }
+
     // Optional: skip shallow iterations when TT/PV already warm (game-analysis spine resume).
     if (limits.spineStrictParity)
         limits.startDepth = 1;
@@ -661,18 +687,70 @@ bool Search::Worker::iterative_deepening() {
         iterIdx                        = (iterIdx + 1) & 3;
     }
 
-    if (!mainThread)
-        return false;
-
-    mainThread->previousTimeReduction = timeReduction;
+    if (mainThread)
+        mainThread->previousTimeReduction = timeReduction;
 
     // If the skill level is enabled, swap the best PV line with the sub-optimal one
-    if (skill.enabled())
+    if (mainThread && skill.enabled())
         std::swap(rootMoves[0],
                   *std::find(rootMoves.begin(), rootMoves.end(),
                              skill.best ? skill.best : skill.pick_best(rootMoves, multiPV)));
 
-    return uciPvSent;
+    if (spineMode)
+    {
+        threads.sync_barrier();
+        if (is_mainthread())
+        {
+            const uint64_t plyNodes = threads.nodes_searched() - spinePlyStartNodes;
+            limits.spineCallbacks->ply_finished(spinePly, *this, plyNodes, rootPos.fen());
+        }
+        threads.sync_barrier();
+
+        if (spinePly + 1 >= spinePlies || threads.stop)
+            break;
+
+        if (is_mainthread())
+        {
+            const std::string uci = limits.spineCallbacks->played_move_after(spinePly);
+            Move              m     = UCIEngine::to_move(rootPos, uci);
+            if (uci.empty() || m == Move::none())
+                threads.stop = true;
+            else
+                threads.spine_record_move(rootPos, m, threads.main_manager()->spineNextFen);
+        }
+        threads.sync_barrier();
+
+        if (!threads.stop)
+        {
+            const std::string& fen = threads.main_manager()->spineNextFen;
+            threads.spine_install_position(*this, fen);
+            spine_reinit_after_advance();
+        }
+        threads.sync_barrier();
+    }
+    else
+        break;
+    }
+
+    return is_mainthread() ? uciPvSent : false;
+}
+
+
+void Search::Worker::spine_reinit_after_advance() {
+    rootMoves.clear();
+    for (const auto& m : MoveList<LEGAL>(rootPos))
+        rootMoves.emplace_back(m);
+
+    tbConfig = Tablebases::rank_root_moves(options, rootPos, rootMoves);
+
+    accumulatorStack.reset();
+    lastIterationPV.clear();
+    rootDepth = 0;
+    lowPlyHistory.fill(100);
+
+    for (Color c : {WHITE, BLACK})
+        for (int i = 0; i < UINT_16_HISTORY_SIZE; i++)
+            mainHistory[c][i] = (mainHistory[c][i] + 5) * 789 / 1024;
 }
 
 
