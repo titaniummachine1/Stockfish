@@ -326,6 +326,9 @@ bool Search::Worker::iterative_deepening() {
             mainHistory[c][i] = (mainHistory[c][i] + 5) * 789 / 1024;
 
     // Optional: skip shallow iterations when TT/PV already warm (game-analysis spine resume).
+    if (limits.spineStrictParity)
+        limits.startDepth = 1;
+
     if (limits.startDepth > 1)
     {
         const int target = limits.depth ? limits.depth : int(MAX_PLY) - 1;
@@ -388,8 +391,18 @@ bool Search::Worker::iterative_deepening() {
             // Reset aspiration window starting size
             delta     = 5 + threadIdx % 8 + std::abs(rootMoves[pvIdx].meanSquaredScore) / 10588;
             Value avg = rootMoves[pvIdx].averageScore;
-            alpha     = std::max(avg - delta, -VALUE_INFINITE);
-            beta      = std::min(avg + delta, VALUE_INFINITE);
+            // Frontier entry after skipped ID rungs: avoid asphyxiated windows (speed mode only).
+            if (!limits.spineStrictParity && limits.startDepth > 1 && rootDepth == limits.startDepth
+                && pvIdx == 0)
+            {
+                alpha = -VALUE_INFINITE;
+                beta  = VALUE_INFINITE;
+            }
+            else
+            {
+                alpha = std::max(avg - delta, -VALUE_INFINITE);
+                beta  = std::min(avg + delta, VALUE_INFINITE);
+            }
 
             // Adjust optimism based on root move's averageScore
             optimism[us]  = 137 * avg / (std::abs(avg) + 81);

@@ -64,12 +64,14 @@ class Config:
     name: str
     resume: int
     horizon: int
+    strict: int = 0
 
 
 CONFIGS = [
-    Config("full", 0, 2),
-    Config("smart_h1", 2, 1),   # default after experiments
-    Config("merge_h1", 3, 1),   # TT-merge mode
+    Config("full", 0, 2, 0),
+    Config("parity_h1", 2, 1, 1),
+    Config("smart_h1", 2, 1, 0),
+    Config("merge_h1", 3, 1, 0),
 ]
 
 
@@ -88,6 +90,8 @@ def run(exe: Path, case: dict, cfg: Config) -> Tuple[int, int, str]:
         str(cfg.resume),
         "resumehorizon",
         str(cfg.horizon),
+        "strict",
+        str(cfg.strict),
         "fen",
         *case["fen"].split(),
         "moves",

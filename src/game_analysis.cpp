@@ -223,6 +223,11 @@ SpineStep compute_spine_step(const Options& opts, const PlyResult& parent,
 
     step.startDepth =
       apply_resume_horizon_cap(step.startDepth, prev, target, opts.resumeHorizon);
+
+    // Depth-D eval must come from a full iterative deepening chain 1..D (same as naive go depth D).
+    if (opts.strict)
+        step.startDepth = 1;
+
     return step;
 }
 
@@ -316,7 +321,8 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
     if (opts.cold == 2)
         return "cold 2 not implemented";
 
-    const bool useResume = opts.resume && opts.cold == 0;
+    // Strict parity: full 1..D ladder, no resume shortcuts (same search path as resume 0).
+    const bool useResume = opts.resume && opts.cold == 0 && !opts.strict;
 
     engine.wait_for_search_finished();
 
@@ -340,11 +346,13 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
 
     uint64_t consolidateNodes = 0;
     bool     allSpineAtDepth  = true;
+    int      maxSpineStartDepth = 1;
 
     for (int gamePly = 0; gamePly < spinePlies; ++gamePly)
     {
         Search::LimitsType limits;
-        limits.spineContinueTt = opts.cold == 0 && gamePly > 0;
+        limits.spineContinueTt  = opts.cold == 0 && gamePly > 0;
+        limits.spineStrictParity = opts.strict != 0;
 
         if (useResume && previousPly && gamePly > 0)
         {
@@ -355,7 +363,7 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
                 limits.spineContinueTt = false;
             if (limits.startDepth > 1)
                 limits.spineTtMinDepth = limits.startDepth;
-            if (opts.resume >= 2)
+            if (opts.resume >= 2 && !opts.strict)
                 limits.spinePvOrder = parent_pv_suffix(*previousPly, via);
             if (limits.startDepth > 1)
             {
@@ -366,6 +374,8 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
                 print(out, rs.str());
             }
         }
+
+        maxSpineStartDepth = std::max(maxSpineStartDepth, std::max(1, limits.startDepth));
 
         PlyResult ply;
         if (auto err = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
@@ -402,20 +412,35 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
 
             const int ttDepth = engine.spine_tt_depth();
             const int have    = report.plies[gamePly].bestDepth;
-            const int start   = consolidate_start_depth(opts.depth, have, ttDepth);
-            const bool freeRefine = have >= opts.depth && ttDepth >= opts.depth - 1;
-            if (start <= 0 || (start <= have && !freeRefine))
+
+            int start = 1;
+            if (opts.strict)
             {
-                if (!prefix.empty())
-                    prefix.pop_back();
-                continue;
+                if (have >= opts.depth)
+                {
+                    if (!prefix.empty())
+                        prefix.pop_back();
+                    continue;
+                }
+            }
+            else
+            {
+                start                 = consolidate_start_depth(opts.depth, have, ttDepth);
+                const bool freeRefine = have >= opts.depth && ttDepth >= opts.depth - 1;
+                if (start <= 0 || (start <= have && !freeRefine))
+                {
+                    if (!prefix.empty())
+                        prefix.pop_back();
+                    continue;
+                }
             }
 
             Search::LimitsType limits;
-            limits.depth           = opts.depth;
-            limits.startDepth      = start;
-            limits.spineContinueTt = true;
-            limits.spineTtMinDepth = 0;
+            limits.depth              = opts.depth;
+            limits.startDepth         = start;
+            limits.spineContinueTt    = true;
+            limits.spineTtMinDepth    = 0;
+            limits.spineStrictParity  = opts.strict != 0;
 
             PlyResult ply;
             if (auto serr = search_spine_ply(engine, opts, gamePly, game, prefix, limits, ply, out))
@@ -438,10 +463,13 @@ std::optional<std::string> run_single_game(Engine& engine, const Options& opts, 
         }
     }
 
+    const char* mode = opts.strict ? "parity" : (opts.resume == 0 ? "full" : "resume");
+
     std::ostringstream ss;
     ss << "gameanalysis summary plies " << report.plies.size() << " nodes " << report.totalNodes
        << " time " << report.totalTimeMs << " hashfull " << report.lastHashfull << " threads "
-       << effective_threads(opts.threads);
+       << effective_threads(opts.threads) << " mode " << mode << " startdepth "
+       << maxSpineStartDepth;
     if (consolidateNodes > 0)
         ss << " deepen_nodes " << consolidateNodes;
     print(out, ss.str());
@@ -476,7 +504,8 @@ bool parse_fen_moves_line(const std::string& line, GameSpec& game) {
 
 bool is_move_list_keyword(const std::string& t) {
     return t == "multipv" || t == "live" || t == "cold" || t == "maxplies" || t == "depth"
-        || t == "resume" || t == "resumehorizon" || t == "refine" || t == "threads" || t == "file"
+        || t == "resume" || t == "resumehorizon" || t == "refine" || t == "strict" || t == "threads"
+        || t == "file"
         || t == "pgn" || t == "fen" || t == "startpos";
 }
 
@@ -495,6 +524,8 @@ bool parse_inline_option(const std::string& token, std::istream& is, Options& op
         is >> opts.resumeHorizon;
     else if (token == "refine")
         is >> opts.refine;
+    else if (token == "strict")
+        is >> opts.strict;
     else if (token == "threads")
         is >> opts.threads;
     else
@@ -584,6 +615,9 @@ std::optional<std::string> parse_options(std::istream& is, Options& opts) {
 
     if (opts.refine < 0 || opts.refine > 1)
         return "refine must be 0 or 1";
+
+    if (opts.strict < 0 || opts.strict > 1)
+        return "strict must be 0 or 1";
 
     return std::nullopt;
 }

@@ -162,35 +162,94 @@ class TestCLI(metaclass=OrderedClassMembers):
 
     def test_gameanalysis_parity_resume_vs_full(self):
         moves = "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6".split()
+        target_depth = 10
 
-        def mpv1_scores(args):
+        def mpv1_finals(args):
             proc = Stockfish(args, True)
             assert proc.process.returncode == 0
-            scores = {}
+            finals = {}
             for line in (proc.process.stdout or "").split("\n"):
                 if "gameanalysis final" not in line or " multipv 1 " not in line:
                     continue
                 parts = line.split()
-                ply = score = None
+                ply = depth = None
+                score = ""
                 for i, tok in enumerate(parts):
                     if tok == "gameply":
                         ply = int(parts[i + 1])
+                    if tok == "depth":
+                        depth = int(parts[i + 1])
                     if tok == "score":
-                        score = parts[i + 1]
-                if ply is not None and score is not None:
-                    scores[ply] = score
-            return scores
+                        kind = parts[i + 1]
+                        score = (
+                            f"{kind} {parts[i + 2]}"
+                            if kind in ("cp", "mate") and i + 2 < len(parts)
+                            else kind
+                        )
+                if ply is not None and depth is not None:
+                    finals[ply] = (depth, score)
+            return finals
 
-        full = mpv1_scores(
-            ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "0", "refine", "0"]
+        spine = mpv1_finals(
+            [
+                "gameanalysis",
+                "depth",
+                "10",
+                "threads",
+                "1",
+                "startpos",
+                "moves",
+                *moves,
+                "resume",
+                "2",
+                "refine",
+                "1",
+                "strict",
+                "1",
+            ]
         )
-        spine = mpv1_scores(
-            ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "2", "refine", "1"]
+        full_run = mpv1_finals(
+            [
+                "gameanalysis",
+                "depth",
+                "10",
+                "threads",
+                "1",
+                "startpos",
+                "moves",
+                *moves,
+                "resume",
+                "0",
+                "refine",
+                "0",
+            ]
         )
-        assert full == spine
+        assert full_run == spine
+        for ply, (depth, _) in spine.items():
+            assert depth >= target_depth, f"ply {ply} depth {depth} < {target_depth}"
         self.stockfish = Stockfish(
             ["gameanalysis", "depth", "10", "startpos", "moves", *moves, "resume", "2"], True
         )
+
+    def test_gameanalysis_quality_contract_benchmark_cases(self):
+        """Per-ply depth floor + MPV1 scores vs full-ID reference (all benchmark_games.json)."""
+        script = os.path.join(PATH, "..", "scripts", "gameanalysis_quality.py")
+        exe = get_path()
+        py = sys.executable
+        env = os.environ.copy()
+        env.setdefault("STOCKFISH_THREADS", "1")
+        proc = subprocess.run(
+            [py, script, exe, "--reference", "full_id", "--strict", "1"],
+            cwd=os.path.join(PATH, ".."),
+            capture_output=True,
+            text=True,
+            timeout=600,
+            env=env,
+        )
+        if proc.returncode != 0:
+            tail = (proc.stdout or "") + (proc.stderr or "")
+            raise AssertionError(tail[-4000:])
+        self.stockfish = Stockfish(["gameanalysis", "depth", "6", "startpos"], True)
 
     def test_gameanalysis_cold_nodes(self):
         moves = "gameanalysis depth 8 startpos moves e2e4 e7e5 g1f3 b8c6".split(" ")

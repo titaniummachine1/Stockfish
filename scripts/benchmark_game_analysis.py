@@ -83,6 +83,8 @@ def run_integrated(
     multipv: int,
     cold: int,
     resume: int = 1,
+    refine: int = 1,
+    strict: int = 0,
 ) -> RunResult:
     args = [
         str(exe),
@@ -96,6 +98,10 @@ def run_integrated(
         str(cold),
         "resume",
         str(resume),
+        "refine",
+        str(refine),
+        "strict",
+        str(strict),
         "fen",
         *fen.split(),
         "moves",
@@ -251,7 +257,16 @@ def run_case(exe: Path, case: dict) -> List[RunResult]:
     moves = case["moves"]
     results: List[RunResult] = []
 
-    rSmart = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=2)
+    rParity = run_integrated(
+        exe, fen, moves, depth, multipv, cold=0, resume=2, refine=1, strict=1
+    )
+    rParity.case = name
+    rParity.mode = "integrated_parity"
+    results.append(rParity)
+
+    rSmart = run_integrated(
+        exe, fen, moves, depth, multipv, cold=0, resume=2, refine=1, strict=0
+    )
     rSmart.case = name
     rSmart.mode = "integrated_smart"
     results.append(rSmart)
@@ -261,7 +276,9 @@ def run_case(exe: Path, case: dict) -> List[RunResult]:
     rLegacy.mode = "integrated_legacy"
     results.append(rLegacy)
 
-    rFull = run_integrated(exe, fen, moves, depth, multipv, cold=0, resume=0)
+    rFull = run_integrated(
+        exe, fen, moves, depth, multipv, cold=0, resume=0, refine=0, strict=0
+    )
     rFull.case = name
     rFull.mode = "integrated_full_id"
     results.append(rFull)
@@ -292,15 +309,15 @@ def format_table(rows: List[RunResult]) -> str:
         "|------|------|-------|-------|---------|---------|-------|-----|---------------|",
     ]
     for case, rs in by_case.items():
-        base = next((x for x in rs if x.mode == "integrated_smart"), None)
+        base = next((x for x in rs if x.mode == "integrated_parity"), None)
         if not base:
-            base = next((x for x in rs if x.mode == "integrated_resume"), None)
+            base = next((x for x in rs if x.mode == "integrated_smart"), None)
         if not base:
-            base = next((x for x in rs if x.mode == "integrated"), None)
+            base = next((x for x in rs if x.mode == "integrated_full_id"), None)
         base_ms = base.wall_ms if base else 1
         for r in sorted(rs, key=lambda x: x.mode):
-            ratio = f"{r.wall_ms / base_ms:.2f}x" if base and r.mode != "integrated" else "1.00x"
-            if r.mode in ("integrated", "integrated_resume", "integrated_smart"):
+            ratio = f"{r.wall_ms / base_ms:.2f}x" if base and r.mode != base.mode else "1.00x"
+            if base and r.mode == base.mode:
                 ratio = "baseline"
             lines.append(
                 f"| {case} | {r.mode} | {r.plies} | {r.depth} | {r.multipv} | "

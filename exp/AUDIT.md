@@ -1,68 +1,80 @@
-# Game-analysis audit (for return visit)
+# Game-analysis audit
 
-**Branch:** `feature/game-analysis-poc`  
-**Base commit:** `16eb840a` — spine resume simplify + TT deepen pass (refine)  
-**This session commit:** refine fast-path + fresh benchmarks (see `git log -1`)
+**Branch:** `feature/game-analysis-poc`
 
-## What you have
+## Governing rule
 
-Integrated UCI command `gameanalysis` walks the played-move spine (FEN+moves or PGN), runs depth-D search per ply with MultiPV, grades, and streams `gameanalysis final` / `summary`.
+**First, do no harm** — then improve. Speed ideas must pass `strict 1` quality CI @ 1 thread before changing defaults.
 
-**vs external UCI (8 threads, current binary):**
+## Modes (`gameanalysis summary … mode … startdepth …`)
 
-| Case | integrated_smart | uci_session | uci_fresh |
-|------|------------------|-------------|-----------|
-| opening_6 d10 | 90 ms (baseline) | 7.0× slower | 33× slower |
-| long_20 d8 | 136 ms | 4.5× slower | 64× slower |
-| opening_6_multipv3 | 198 ms | 3.1× slower | 16× slower |
+| Flag | Summary `mode` | Meaning |
+|------|----------------|---------|
+| `strict 1` | `parity` | Full 1..D ID every ply; **resume shortcuts disabled**; matches `resume 0` scores @ 1 thread |
+| `strict 0` + `resume 2` | `resume` | Speed path: `startDepth` skip, `spinePvOrder`, TT breaks on off-PV |
+| `resume 0` | `full` | Reference spine (full ID, no resume policy) |
 
-**Resume modes:** `0` full ID every ply · `1` legacy (prev−1) · `2` spine (default) · `3` alias of `2` in code.
+`startdepth` in summary = max `startDepth` used on forward spine (1 = full ladder every ply).
 
-**Defaults:** `resume 2`, `resumehorizon 1`, `refine 1`, `cold 0`.
+**Defaults:** `resume 2`, `refine 1`, `strict 0`, `cold 0`.
 
-## Mechanisms (search integration)
+Hosts needing depth-D parity: `gameanalysis depth D … strict 1` (optional `resume 2` — ignored for search path when strict).
 
-- `startDepth` — skip shallow ID when spine reuse is safe  
-- `spineContinueTt` — keep TT generation after ply 0 (subtree reuse)  
-- `spineTtMinDepth` — horizon guard on shallow parent TT  
-- `spinePvOrder` — root move order from parent PV tail  
-- **Refine pass** — backward cheap deepen where later plies warmed TT (`deepen_nodes` in summary)
+## Quality contract (CI)
 
-Spine policy (`resume 2`): PV rank 1 + CPL≤120 → aggressive reuse; multipv rank + CPL≤80 → mild; else `startDepth=1` + break TT gen.
+```bash
+export STOCKFISH_THREADS=1
+python scripts/gameanalysis_quality.py src/stockfish.exe
+```
 
-## Benchmarks run this session
+- Reference: `resume 0 refine 0`
+- Candidate: `resume 2 refine 1 strict 1`
+- Hard gates: `depth >= D`, score kind, best move, full score string
 
-- Full: `scripts/benchmark_game_analysis.py` → `scripts/benchmark_results/benchmark_latest.json` + stamped `.md`
-- Quick 8 min: `scripts/run_quick_experiments.py` → `scripts/benchmark_results/quick/latest.json`
+**67/67** instrumented tests including `test_gameanalysis_quality_contract_benchmark_cases`.
 
-**Quick sweep (resume 2/3, horizon 1):**
+## Search hooks
 
-| Config | ~nodes vs full | opening_6 score parity vs full |
-|--------|----------------|--------------------------------|
-| smart_h1 (r2) | ~64% | 100% |
-| merge_h1 (r3) | ~62% | 100% |
-| full | 100% | — |
+- `LimitsType.spineStrictParity` — forces `startDepth = 1` in [`search.cpp`](../src/search.cpp)
+- `strict 1` in gameanalysis — disables `useResume` (no skip, no `spinePvOrder`)
+- Speed only: frontier aspiration widen when `startDepth > 1` and not strict
 
-**PGN depth 10 (resume 2):** smart often ~48–86% nodes of full ID; legacy can be faster wall-clock but skips work (not quality-checked on long games).
+## Benchmarks (8 threads, latest)
 
-## Change this session
+See [`scripts/benchmark_results/benchmark_latest.md`](../scripts/benchmark_results/benchmark_latest.md).
 
-1. **Refine skip:** if every spine ply already reached target depth, skip backward refine entirely (saves `set_position` + probes on long games).
-2. **Refine walk:** reuse one `prefix` vector with `pop_back` instead of re-`assign` each ply.
-3. Refreshed benchmark artifacts; tests **66/66** pass including `test_gameanalysis_parity_resume_vs_full`.
+| Mode | Role |
+|------|------|
+| `integrated_full_id` | Reference |
+| `integrated_parity` | Correctness (`strict 1`) |
+| `integrated_smart` | Speed (`strict 0`) — **not** same eval as full ID |
+| `uci_session` | External per-ply baseline |
 
-## Not done (future)
+Example `opening_6` d10: parity 269 ms; smart 134 ms (~2× faster, ~55% nodes); uci_session 628 ms.
 
-- Single `go` spanning whole game (needs Search refactor)  
-- Depth-20 parity on full corpus  
-- Deprecate `resume 1` / document legacy as fast-but-loose  
-- PGN quality parity test (only opening_6 today)
+## Gated experiments (@ 1 thread, 3 min)
 
-## How to reproduce
+| Config | Nodes vs full | Quality |
+|--------|---------------|---------|
+| `parity_h1` (r2 strict 1) | ~100% | 100% |
+| `smart_h1` (r2 strict 0) | ~79% | 100% on opening_6 only* |
+
+\*Quality CI uses strict 1; smart mode is not score-gated in CI.
+
+## Out of scope
+
+- Backward propagation changing per-ply eval meaning
+- Virtual TT / aspiration Strategy 1
+- Default `strict 1`
+- Elo
+
+## Reproduce
 
 ```powershell
-$env:STOCKFISH_THREADS = "8"
 scripts\msys-build.sh
-& "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" scripts\benchmark_game_analysis.py src\stockfish.exe
-& "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" tests\instrumented.py src\stockfish.exe
+$env:STOCKFISH_THREADS="1"
+python scripts\gameanalysis_quality.py src\stockfish.exe
+python tests\instrumented.py src\stockfish.exe
+$env:STOCKFISH_THREADS="8"
+python scripts\benchmark_game_analysis.py src\stockfish.exe
 ```

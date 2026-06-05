@@ -165,6 +165,7 @@ struct LimitsType {
         startDepth                                  = 0;
         spineTtMinDepth                             = 0;
         spineContinueTt                             = false;
+        spineStrictParity                           = false;
     }
 
     bool use_time_management() const { return time[WHITE] || time[BLACK]; }
@@ -175,7 +176,8 @@ struct LimitsType {
     int                      movestogo, depth, mate, perft, infinite;
     int                      startDepth;      // ID begins at this depth (game-analysis resume)
     int   spineTtMinDepth;   // ignore TT entries below this depth (horizon guard)
-    bool  spineContinueTt;  // skip tt.new_search() — keep same generation (spine tree merge)
+    bool  spineContinueTt;   // skip tt.new_search() — keep same generation (spine tree merge)
+    bool  spineStrictParity;  // gameanalysis strict 1: full 1..D ID, no skipped rungs
     uint64_t                 nodes;
     bool                     ponderMode;
 };
